@@ -3,6 +3,8 @@
     "main": {
       "type": "main-login",
       "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },

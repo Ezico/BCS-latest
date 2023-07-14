@@ -83,7 +83,7 @@ span.variant-sku {
 .cart-item__name {
   text-decoration: none;
   display: block;
-  font-family: 'Cormorant';
+  font-family: "Cormorant";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -156,13 +156,13 @@ span.bcs_item_price {
 }
 span.bcs_cart_count {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   text-align: right;
   color: #000000;
 }
-.cart_details {
+/* .cart_details {
   padding-right: 15px;
-}
+} */
 .cart_summary {
   padding-left: 15px;
 }
@@ -170,7 +170,7 @@ span.bcs_cart_count {
   margin: 12px;
 }
 .bcs_cart-header h2 {
-  font-family: 'Cormorant';
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -289,6 +289,16 @@ cart-remove-button .icon-remove {
 }
 
 @media screen and (max-width: 749px) {
+  .bcs_cart-header h2 {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 39px;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
   .cart-items,
   .cart-items thead,
   .cart-items tbody {

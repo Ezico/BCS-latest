@@ -34,97 +34,22 @@
 <hr style="margin: 30px 0;"/>
   <div class=" related_carousel">
   {% for item in product.metafields.custom.related_products.value -%}
-    <div class=" rel_pro ">
-      <div class="image_container" style="background-image:url({{ item.featured_media | image_url: width: 533 }}">
-       
-      </div>
-      <div class="card__information">
-          <h3
-            class="card__heading{% if item.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-            {% if item.featured_media or settings.card_style == 'card' %}
-              id="title-{{ section_id }}-{{ item.id }}"
-            {% endif %}
-          >
-            <a
-              href="{{ item.url }}"
-              id="CardLink-{{ section_id }}-{{ item.id }}"
-              class="full-unstyled-link"
-              aria-labelledby="CardLink-{{ section_id }}-{{ item.id }} Badge-{{ section_id }}-{{ item.id }}"
-            >
-              {{ item.title | escape }}
-            </a>
-          </h3>
-          <div class="card-information">
-            {%- if show_vendor -%}
-              <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-              <div class="caption-with-letter-spacing light">{{ item.vendor }}</div>
-            {%- endif -%}
-
-            <span class="caption-large light">{{ block.settings.description | escape }}</span>
-
-            {%- if show_rating and item.metafields.reviews.rating.value != blank -%}
-              {% liquid
-                assign rating_decimal = 0
-                assign decimal = item.metafields.reviews.rating.value.rating | modulo: 1
-                if decimal >= 0.3 and decimal <= 0.7
-                  assign rating_decimal = 0.5
-                elsif decimal > 0.7
-                  assign rating_decimal = 1
-                endif
-              %}
-              <div
-                class="rating"
-                role="img"
-                aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: item.metafields.reviews.rating.value, rating_max: item.metafields.reviews.rating.value.scale_max }}"
-              >
-                <span
-                  aria-hidden="true"
-                  class="rating-star"
-                  style="--rating: {{ item.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ item.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
-                ></span>
-              </div>
-              <p class="rating-text caption">
-                <span aria-hidden="true">
-                  {{- item.metafields.reviews.rating.value }} /
-                  {{ item.metafields.reviews.rating.value.scale_max -}}
-                </span>
-              </p>
-              <p class="rating-count caption">
-                <span aria-hidden="true">({{ item.metafields.reviews.rating_count }})</span>
-                <span class="visually-hidden">
-                  {{- item.metafields.reviews.rating_count }}
-                  {{ 'accessibility.total_reviews' | t -}}
-                </span>
-              </p>
-            {%- endif -%}
-
-            {% render 'price', product: item, price_class: '' %}
-          </div>
-        </div>
-     <div class="card__badge {{ settings.badge_position }}">
-          {%- if item.available == false -%}
-            <span
-              id="Badge-{{ section_id }}-{{ item.id }}"
-              class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-            >
-              {{- 'products.product.sold_out' | t -}}
-            </span>
-          {%- elsif item.compare_at_price > item.price and item.available -%}
-           
-            <span
-              id="Badge-{{ section_id }}-{{ item.id }}"
-              class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-            >
-              {{- 'products.product.on_sale' | t -}}
-            </span>
-          {%- endif -%}
-        </div>
-    </div>
+    {% render 'card-product'
+                   , cartModalImg: ,
+                   , cartModalTitle: ,
+                   , cartModaldesc: ,
+                   , card_product: item,
+                   media_aspect_ratio: section.settings.image_ratio,
+                   image_shape: section.settings.image_shape,
+                   show_secondary_image: section.settings.show_secondary_image,
+                   show_vendor: section.settings.show_vendor,
+                   show_rating: section.settings.show_rating,
+                   lazy_load: lazy_load,
+                   show_quick_add: true,
+                   section_id: section.id %}
     
-  {%- endfor %} 
+  {% endfor %} 
   </div>
-
-
 </div>
 {% endif %}
 
@@ -138,8 +63,8 @@
   infinite: true,
   slidesToShow: 4,
   slidesToScroll: 1,
-  prevArrow: '<img class="nav-left" style="top:-91px; right:75px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/left.png">',
-  nextArrow: '<img class="nav-right" style="top:-91px;right:0" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/right.png">',
+  prevArrow: '<img class="nav-left" style="top:-91px; right:60px;width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/left.png">',
+  nextArrow: '<img class="nav-right" style="top:-91px;right:0; width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/right.png">',
    responsive: [
       {
         breakpoint: 991,

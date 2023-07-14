@@ -10,11 +10,15 @@
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
 <style>
-
+  .card-wrapper{
+    padding: 10px;
+  }
   .slider-galeria-thumbs {
     float: left;
-    width: 16%;
+    width: 18%;
+    padding: 0 20px;
   }
 
   .slider-galeria {
@@ -123,6 +127,62 @@
     padding: 0;
     margin: 1.8rem 0;
   }
+  /* bcpo cart popup  */
+
+  @media(max-width:760px) {
+    .bcpo-modal-content img {
+    display: block;
+    max-width: 100%!important;
+    margin: 0 10px 0 0!important;
+}
+.bcpo-modal-buttons a:not(:last-child) {
+    margin-right: 10px;
+    font-size: 14px;
+}
+a.btn.button.Button.bcpo-view-cart-link {
+    font-size: 14px;
+}
+  }
+.bcpo-modal h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    text-transform: capitalize;
+    color: #000;
+    font-family: Cormorant!important;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-bottom: 1px solid #D2D2D2;
+}
+.bcpo-modal {
+    max-width: 500px!important;
+}
+.bcpo-modal-content img {
+    display: block;
+    max-width: 230px;
+    margin: 0 10px 0 0!important;
+}
+.bcpo-modal-content {
+    display: flex;
+    align-items: flex-start!important;
+    justify-content: center!important;
+    margin-bottom: 20px!important;
+    border-bottom: solid 1px #dedede!important;
+    padding-bottom: 20px!important;
+}
+.bcpo-modal-content-right {
+    margin-left: 10px!important;
+}
+.bcpo-modal-close-link, .bcpo-view-cart-link {
+    background: #047bd5;
+    background-color: #047bd5;
+    color: white!important;
+    padding: 3px 10px!important;
+    background: var(--primary-color-1, #F7EDEA)!important;
+    color: black!important;
+}
 
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
   .active,
@@ -177,10 +237,10 @@
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script>(function () { if ((!document.documentElement.innerHTML.match(/asyncLoad/) || (document.documentElement.innerHTML.includes && (document.documentElement.innerHTML.includes('\\/obscure' + '-escarpment-2240') || document.documentElement.innerHTML.includes('/assets/' + 'best_custom_product_options.js')))) && (!window.bcpo || !bcpo.disabled) && window.bcpo_data && bcpo_data.virtual_options && bcpo_data.virtual_options.length) { return; } var script = document.createElement('script'); script.defer = true; script.src = "{{ 'product-form.js' | asset_url }}"; document.head.appendChild(script); })();</script>
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
-  {% endif %}
+  {% endif %} 
   {%- if request.design_mode -%}
     <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
@@ -208,6 +268,36 @@
   {% assign delivery-date = product.metafields.custom.delivery_date.value %}
   {% assign specification = product.metafields.custom.specifications.value %}
 
+    {% comment %} add to cart popup  {% endcomment %}
+    <div id="cartmyModal" class="cartmodal">
+
+      <div class="cartmodal-content">
+        <div class="cartModalHeading">Item Added to Bag</div>
+        <span onclick="closeModal()" class="close">&times;</span>
+        <div class="row">
+          <div class="col-1">
+            <img id="cartModalImg" src="{{product.featured_image | img_url: 'medium'}}" />
+          </div>
+          <div class="col-1">
+            <h2 id="cartModalTitle">{{product.title}}</h2>
+            <div id="cartModaldesc" class="shortDesc">{{product.description | truncatewords: 20, '...'}}</div>
+          </div>
+        </div>
+        <div class="cartModalAction">
+          <facet-remove class="">
+            <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
+              <button class="continueShopping" onclick="closeModal()">Continue Shopping</button>
+            </a>
+          </facet-remove>
+
+          <a href="/cart" class="">
+            <button class="continueShopping">View Bag</button>
+          </a>
+
+        </div>
+        <div class="button"></div>
+      </div>
+    </div>
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
 
@@ -236,6 +326,7 @@
       {% render 'product-media-gallery', variant_images: variant_images %}
 
     </div>
+    <img hidden id="fproduct" src={{product.featured_image | img_url: 'medium'}}/>
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <product-info
         id="ProductInfo-{{ section.id }}"
@@ -259,7 +350,7 @@
 
           {% comment %} description {% endcomment %}
           <div class='bcs_product_desc'>
-            {{ product.description | strip_html | truncatewords: 16 }}
+            {{ product.description | strip_html | truncatewords: 19 }}
             <span>
               <a href='#readmore'>Read More
               </a>
@@ -668,12 +759,12 @@
     asNavFor: '.slider-galeria-thumbs'
   });
   $('.slider-galeria-thumbs').slick({
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     arrows: false,
     asNavFor: '.slider-galeria',
     vertical: true,
-    verticalSwiping: true,
+    verticalSwiping: false,
     focusOnSelect: true,
     infinite: true
   });
@@ -694,7 +785,7 @@
     })
 
     $('.slider-nav').slick({
-      slidesToShow: 4,
+      slidesToShow: 1,
       slidesToScroll: 1,
       asNavFor: '.slider-for',
       dots: false,

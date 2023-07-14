@@ -82,7 +82,9 @@
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
-                <span><img class='bsc_atc_ico' src='https://cdn.shopify.com/s/files/1/0779/1745/4639/files/Vector_11_e791a1b0-9c29-435f-ac09-be77bf01e768.png?v=1687182182'</span><span class='bcs_atc_btn'>{{ 'products.product.add_to_cart' | t }}</span>
+                <span>
+                  {% render 'shopping-bag' %}
+                </span><span class='bcs_atc_btn'>{{ 'products.product.add_to_cart' | t }}</span>
               {%- endif -%}
             </span>
             <div class="loading-overlay__spinner hidden">

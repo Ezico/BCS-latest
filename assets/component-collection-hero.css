@@ -10,10 +10,10 @@
 
 @media screen and (min-width: 750px) {
   .collection-hero.collection-hero--with-image {
-    padding: calc(4rem + var(--page-width-margin)) 0 calc(4rem + var(--page-width-margin));
+    padding: calc(4rem + var(--page-width-margin)) 0
+      calc(4rem + var(--page-width-margin));
     overflow: hidden;
   }
-  
 
   .collection-hero--with-image .collection-hero__inner {
     padding-bottom: 0;
@@ -55,7 +55,7 @@ h1.collection-hero__title {
   line-height: 39px;
   text-transform: uppercase;
   color: #000000;
-  font-family: 'Cormorant';
+  font-family: "Cormorant";
 }
 
 .collection-hero__title + .collection-hero__description {
@@ -90,24 +90,27 @@ h1.collection-hero__title {
 }
 
 .collection-hero__image-container {
-  border: var(--media-border-width) solid rgba(var(--color-foreground), var(--media-border-opacity));
+  border: var(--media-border-width) solid
+    rgba(var(--color-foreground), var(--media-border-opacity));
   border-radius: var(--media-radius);
-  box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius)
+  box-shadow: var(--media-shadow-horizontal-offset)
+    var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius)
     rgba(var(--color-shadow), var(--media-shadow-opacity));
 }
 
 @media screen and (max-width: 749px) {
   h1.collection-hero__title {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     text-transform: uppercase;
     color: #000;
     font-family: Cormorant;
-}
+    line-height: 1;
+  }
   .facets-container {
     border: 0;
     padding: 20px 0;
-}
+  }
   .collection-hero__image-container {
     height: 20rem;
   }

@@ -17,9 +17,7 @@
 
   Usage:
   {% render 'product-media-gallery', is_duplicate: true %}
-{% endcomment %}
-
-{%- liquid
+{% endcomment %}{%- liquid
   if section.settings.hide_variants and variant_images.size == product.media.size
     assign single_media_visible = true
   endif
@@ -104,9 +102,9 @@
     <div class="slider-container">
       <div class="slider-for">
         {%- for media in product.media -%}
-          <img
-            class="item-slick"
 
+          <img
+            class="item-slick "
             src="{{ media | img_url: 'master' }}"
             alt="{{media.alt}}">
 
@@ -115,7 +113,7 @@
       <div class="slider-nav">
         {%- for media in product.media -%}
           <img
-            class="item-slick"
+            class="item-slick mob-slide"
             src="{{media | img_url: 'master'}}"
             alt="Alt">
         {%- endfor -%}
@@ -138,16 +136,29 @@
     class="slider-mobile-gutter">
     <div class="slider-galeria-thumbs">
       {%- for media in product.media -%}
-        <img class="thumb" src="  {{ media | img_url: '125px' }}">
+        {% if media.media_type == 'image' %}
+          <img class="thumb" src="  {{ media | img_url: width:109 }}">
+      {% elsif media.media_type == 'video' %}
+          {% comment %} <div class="video-container">
+            {{ media | video_tag: width:109}}
+            <div class="indicator">{% render 'play-icon' %}</div>
+          </div> {% endcomment %}
+
+        {% endif %}
       {%- endfor -%}
     </div>
 
     <div class="slider-galeria">
       {%- for media in product.media -%}
-        <div class="image_container" style="background-image:url({{ media | image_url: width: 550 }}">{% comment %} {{ media | img_url: 'master' }} {% endcomment %}
-        </div>
-        {% comment %} <img class="main_pro" src="  {{ media | img_url: 'master' }}"> {% endcomment %}
+        {% if media.media_type == 'image' %}
+          <div class="image_container" style="background-image:url({{ media | image_url: width: 550 }}">{% comment %} {{ media | img_url: 'master' }} {% endcomment %}
+          </div>
+      {% elsif media.media_type == 'video' %}
+          {% comment %} {{ media | video_tag: autoplay: false, loop: true, muted: true, controls: true }} {% endcomment %}
+        {% endif %}
       {%- endfor -%}
+
+
     </div>
   </slider-component>
 </media-gallery>

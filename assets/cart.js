@@ -107,6 +107,7 @@ class CartItems extends HTMLElement {
       .then((response) => {
         return response.text();
       })
+
       .then((state) => {
         const parsedState = JSON.parse(state);
         const quantityElement =
@@ -262,6 +263,7 @@ class CartItems extends HTMLElement {
     cartDrawerItemElements.forEach((overlay) =>
       overlay.classList.add("hidden")
     );
+    location.reload();
   }
 }
 

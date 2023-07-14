@@ -1,0 +1,234 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+    px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}
+      px;
+      padding-bottom: {{ section.settings.padding_bottom }}
+      px;
+    }
+  }
+  .rooms-carousel .col.slick-slide.slick-current.slick-active.slick-center {
+    padding: 10px;
+}
+{%- endstyle -%}
+<div class="related-products isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+
+  <div class="main-header-container">
+    <h2>EXPLORE OUR ROOMS</h2>
+  </div>
+  <hr style="margin: 30px 0; margin-top:5px">
+  <div class="rooms_carousel collection_items">
+    <div class="col custom_size">
+      {% render 'collection-image-hover' image:'https://cdn.shopify.com/s/files/1/0779/1745/4639/files/pic1.png?v=1689245092', title:'Regency', desc:'Making transfers and payments across the globe easy Making transfers and payments acros', link:'/pages/regency',%}
+    </div>
+    <div class="col custom_size">
+      {% render 'collection-image-hover' image:'https://cdn.shopify.com/s/files/1/0779/1745/4639/files/pic2.png?v=1689245092', title:'Regency', desc:'Making transfers and payments across the globe easy Making transfers and payments acros', link:'/pages/regency',%}
+    </div>
+    <div class="col custom_size">
+      {% render 'collection-image-hover' image:'https://cdn.shopify.com/s/files/1/0779/1745/4639/files/pic1.png?v=1689245092', title:'Regency', desc:'Making transfers and payments across the globe easy Making transfers and payments acros', link:'/pages/regency',%}
+    </div>
+    <div class="col custom_size">
+      {% render 'collection-image-hover' image:'https://cdn.shopify.com/s/files/1/0779/1745/4639/files/pic2.png?v=1689245092', title:'Regency', desc:'Making transfers and payments across the globe easy Making transfers and payments acros', link:'/pages/regency',%}
+    </div>
+    <div class="col custom_size">
+      {% render 'collection-image-hover' image:'https://cdn.shopify.com/s/files/1/0779/1745/4639/files/pic2.png?v=1689245092', title:'Regency', desc:'Making transfers and payments across the globe easy Making transfers and payments acros', link:'/pages/regency',%}
+    </div>
+  </div>
+</div>
+
+{% javascript %}
+   
+    $('.rooms_carousel').slick({
+  infinite: true,
+  slidesToShow: 3.1,
+  slidesToScroll: 1,
+  // centerMode: true,
+  // variableWidth: true,
+  prevArrow: '<img class="nav-left" style="top:-91px; right:75px;width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/left.png">',
+  nextArrow: '<img class="nav-right" style="top:-91px;right:17px; width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/right.png">',
+   responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1.1,
+        }
+      }
+    ]
+});
+  {% endjavascript %}
+
+{% schema %}
+  {
+    "name": "rooms-collection",
+    "tag": "section",
+    "class": "homepage_rooms",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [],
+    "blocks": [
+      {
+        "type": "heading",
+        "name": "t:sections.rich-text.blocks.heading.name",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "heading",
+            "default": "Talk about your brand",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+          }, {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+              {
+                "value": "h2",
+                "label": "t:sections.all.heading_size.options__1.label"
+              }, {
+                "value": "h1",
+                "label": "t:sections.all.heading_size.options__2.label"
+              }, {
+                "value": "h0",
+                "label": "t:sections.all.heading_size.options__3.label"
+              }, {
+                "value": "hxl",
+                "label": "t:sections.all.heading_size.options__4.label"
+              }
+            ],
+            "default": "h1",
+            "label": "t:sections.all.heading_size.label"
+          }
+        ]
+      }, {
+        "type": "caption",
+        "name": "t:sections.rich-text.blocks.caption.name",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "text",
+            "id": "caption",
+            "default": "Add a tagline",
+            "label": "t:sections.rich-text.blocks.caption.settings.text.label"
+          }, {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+              {
+                "value": "subtitle",
+                "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__1.label"
+              }, {
+                "value": "caption-with-letter-spacing",
+                "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__2.label"
+              }
+            ],
+            "default": "caption-with-letter-spacing",
+            "label": "t:sections.rich-text.blocks.caption.settings.text_style.label"
+          }, {
+            "type": "select",
+            "id": "text_size",
+            "options": [
+              {
+                "value": "small",
+                "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__1.label"
+              }, {
+                "value": "medium",
+                "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__2.label"
+              }, {
+                "value": "large",
+                "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__3.label"
+              }
+            ],
+            "default": "medium",
+            "label": "t:sections.rich-text.blocks.caption.settings.caption_size.label"
+          }
+        ]
+      }, {
+        "type": "text",
+        "name": "t:sections.rich-text.blocks.text.name",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "label": "t:sections.rich-text.blocks.text.settings.text.label"
+          }
+        ]
+      }, {
+        "type": "button",
+        "name": "t:sections.rich-text.blocks.buttons.name",
+        "limit": 2,
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_label",
+            "default": "Button label",
+            "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
+            "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
+          },
+          {
+            "type": "checkbox",
+            "id": "button_style_secondary",
+            "default": false,
+            "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
+          },
+          {
+            "type": "text",
+            "id": "button_label_2",
+            "label": "t:sections.rich-text.blocks.buttons.settings.button_label_2.label",
+            "info": "t:sections.rich-text.blocks.buttons.settings.button_label_2.info"
+          }, {
+            "type": "url",
+            "id": "button_link_2",
+            "label": "t:sections.rich-text.blocks.buttons.settings.button_link_2.label"
+          }, {
+            "type": "checkbox",
+            "id": "button_style_secondary_2",
+            "default": false,
+            "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Explore Rooms",
+        "blocks": [
+          {
+            "type": "heading"
+          }, {
+            "type": "text"
+          }, {
+            "type": "button"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
