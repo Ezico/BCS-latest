@@ -1,0 +1,230 @@
+{% comment %}
+  Renders a header drawer menu for mobile and desktop.
+
+  Usage:
+  {% render 'header-drawer' %}
+{% endcomment %}
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+></script>
+
+<style>
+  .accordion dl dt a {
+    color: var(--black-grey-5, #4a4a4a);
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+  }
+
+  .accordion dl {
+    padding: 0 10px
+  }
+  .accordion dl dd {
+    display: none;
+    height: auto;
+    margin-left: 0;
+    padding: 1em;
+  }
+  .accordion dt {
+    border-bottom: solid 1px #d2d2d2;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .accordion-nested {
+    margin: -1em;
+  }
+  .accordion-nested dl {
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+  }
+  .accordion-nested dl dt {
+    margin-left: 10px;
+    border-bottom: solid 1px #e7e7e7;
+  }
+  .accordion-nested .accordion-nested dl dt {
+    padding-left: 10px;
+  }
+</style>
+<header-drawer
+  data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}"
+>
+  <details
+    id="Details-menu-drawer-container"
+    class="menu-drawer-container"
+  >
+    <summary
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      aria-label="{{ 'sections.header.menu' | t }}"
+    >
+      <span>
+        {% render 'icon-hamburger' %}
+        {% render 'icon-close' %}
+      </span>
+    </summary>
+    <div
+      id="menu-drawer"
+      class="gradient menu-drawer motion-reduce"
+    >
+      <div
+        class="menu-drawer__inner-container"
+      >
+        {% render 'mobile-search' %}
+        <div
+          class="menu-drawer__navigation-container"
+        >
+          <nav class="menu-drawer__navigation">
+            {% comment %} custom menu  {% endcomment %}
+            <div
+              class="accordion"
+            >
+              {%- for link in section.settings.menu.links -%}
+                <dl>
+                  <dt>
+                    <a
+                      class="
+                                              {% if link.links != blank %}
+                        has-options{% endif %}
+                      "
+                      href="{{ link.url }}"
+                    >
+                      {{- link.title -}}
+                    </a>
+                    {% if link.links != blank %}
+                      {% render 'arrow-down' %}
+                    {% endif %}
+                  </dt>
+                  {% if link.links != blank %}
+                    <dd>
+                      {% for child_link in link.links %}
+                        <div
+                          class="accordion-nested"
+                        >
+                          <dl>
+                            <dt>
+                              <a
+                                class="
+                                                                  {% if link.links != blank %}
+                                  has-options{% endif %}
+                                "
+                                href="{{ child_link.url }}"
+                              >
+                                {{- child_link.title -}}
+                              </a>
+                              {% if link.links != blank %}
+                                {% render 'arrow-down' %}
+                              {% endif %}
+                            </dt>
+                            {% if child_link.links != blank %}
+                              <dd>
+                                {% for grandchild_link in child_link.links %}
+                                  <div
+                                    class="accordion-nested"
+                                  >
+                                    <dl>
+                                      <dt>
+                                        <a
+                                          class="
+                                                                                      {% if link.links != blank %}
+                                            has-options{% endif %}
+                                          "
+                                          href="{{ grandchild_link.url }}"
+                                        >
+                                          {{- grandchild_link.title -}}
+                                        </a>
+                                      </dt>
+                                    </dl>
+                                  </div>
+                                {% endfor %}
+                              </dd>
+                            {% endif %}
+                          </dl>
+                        </div>
+                      {% endfor %}
+                    </dd>
+                  {% endif %}
+                </dl>
+              {% endfor %}
+            </div>
+            {% comment %} end custom menu  {% endcomment %}
+
+            <br>
+            <div
+              class="accordion"
+            >
+              <dl>
+                <dt>
+                  <a
+                    href="{{ routes.account_login_url }}"
+                    >LOGIN</a
+                  >
+                </dt>
+              </dl>
+
+              <dl>
+                <dt>
+                  <a
+                    href="/account/register"
+                    >CREATE AN ACCOUNT</a
+                  >
+                </dt>
+              </dl>
+
+              <dl>
+                <dt>
+                  <a
+                    href="/contact-us"
+                    >CONTACT US</a
+                  >
+                </dt>
+              </dl>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </details>
+</header-drawer>
+
+<script>
+  $('.accordion dt').on('click', function() {
+
+    var current_dt = $(this);
+
+    // dd of just clicked dt not active - direct sibling
+    if (!$(this).next('dd').hasClass('active')) {
+
+      // call back function interprets this as selected $('dd')
+
+      // checking if any other sibling dd's active
+      if (current_dt.siblings('dd.active').length) { // find dd with a class of active before sliding up
+        current_dt
+          .siblings('dd.active')
+          .slideUp(function() {
+            current_dt.next('dd').slideDown().addClass('active');
+          })
+          .removeClass('active')
+          .find('dd.active')
+          .hide()
+          .removeClass('active');
+
+      } else {
+        current_dt.next('dd').slideDown().addClass('active');
+      }
+    } else { // dd of just clicked dt is active - close form
+      current_dt.next('dd').slideUp().removeClass('active');
+    }
+  });
+</script>
