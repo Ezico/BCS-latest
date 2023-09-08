@@ -1,11 +1,15 @@
 .customer:not(.account):not(.order) {
   margin: 0 auto;
   max-width: 33.4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   text-align: center;
 }
+.form-container {
+  padding: 0 1.5rem;
+}
 
+.customer thead th {
+  font-weight: 700 !important;
+}
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
     max-width: 47.8rem;
@@ -18,20 +22,62 @@
 }
 
 .customer form {
-  margin-top: 4rem;
+  margin: 2rem;
 }
 
 .customer button {
   margin: 4rem 0 1.5rem;
+  color: var(--text-white, #fff);
+  text-align: center;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize !important;
 }
 
 .customer ul {
   line-height: calc(1 + 0.6 / var(--font-body-scale));
-  padding-left: 4.4rem;
+  padding-left: 14px;
   text-align: left;
   margin-bottom: 4rem;
 }
+.customer ul li {
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 
+
+#AddressNewHeading{
+  margin-top: 20px;
+    color: var(--black-black-text, #000);
+    font-family: Cormorant;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+@media(max-width:860px){
+  #AddressNewHeading{
+    color: var(--black-black-text, #000);
+    font-family: Cormorant;
+    font-size: 18px!important;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+  }
+}
 .customer ul a {
   display: inline;
 }
@@ -118,7 +164,7 @@
 }
 
 .customer tbody td:first-of-type {
-  padding-top: 4rem;
+  padding-top: 0;
 }
 
 @media screen and (min-width: 750px) {
@@ -137,7 +183,7 @@
 
   .customer th:first-of-type,
   .customer td:first-of-type {
-    padding-left: 2.2rem;
+    padding-left: 0;
   }
 
   .customer tbody td {
@@ -210,7 +256,7 @@
 /* works around colspan phantom border issues */
 .customer thead::after,
 .customer tfoot::before {
-  content: ' ';
+  content: " ";
   height: 0.1rem;
   width: 100%;
   display: block;
@@ -317,7 +363,7 @@
 }
 
 .customer .pagination li [aria-current]::after {
-  content: '';
+  content: "";
   display: block;
   width: 2rem;
   height: 0.01rem;
@@ -329,15 +375,16 @@
 }
 
 /* Login */
-.login a {
-  display: block;
-  margin: 0 auto;
-  width: fit-content;
-}
 
-.login a[href='#recover'] {
-  margin-left: 0;
-  margin-right: 0;
+.login a {
+  color: var(--primary-color-4, #bda399);
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+  margin-top: 6px;
 }
 
 .login .field + a {
@@ -352,6 +399,7 @@
   margin-top: 1.5rem;
   text-align: left;
   font-size: calc(var(--font-heading-scale) * 1.6rem);
+  padding: 10px 24px;
 }
 
 #customer_login_guest button {
@@ -385,15 +433,18 @@
   margin-bottom: 0;
 }
 
-.activate button[name='decline'],
+.activate button[name="decline"],
 .addresses li > button,
 .addresses form button[type] {
-  background-color: rgba(var(--color-background), var(--alpha-button-background));
+  background-color: rgba(
+    var(--color-background),
+    var(--alpha-button-background)
+  );
   color: rgb(var(--color-link));
 }
 
 @media only screen and (min-width: 750px) {
-  .activate button[name='decline'] {
+  .activate button[name="decline"] {
     margin-top: inherit;
     margin-left: 1rem;
   }
@@ -409,8 +460,8 @@
 
 @media screen and (min-width: 750px) {
   :is(.account, .order) {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
 }
 
@@ -673,17 +724,14 @@
   margin-right: 1rem;
 }
 
-label[for='AddressCountryNew'],
-label[for='AddressProvinceNew'] {
+label[for="AddressCountryNew"],
+label[for="AddressProvinceNew"] {
   display: block;
   font-size: 1.4rem;
   margin-bottom: 0.6rem;
 }
 
-.addresses form {
-  display: flex;
-  flex-flow: row wrap;
-}
+
 
 .addresses form > div {
   width: 100%;
@@ -700,11 +748,11 @@ li[data-address] {
   margin-top: 5rem;
 }
 
-.addresses [aria-expanded='false'] ~ div[id] {
+.addresses [aria-expanded="false"] ~ div[id] {
   display: none;
 }
 
-.addresses [aria-expanded='true'] ~ div[id] {
+.addresses [aria-expanded="true"] ~ div[id] {
   display: block;
 }
 
@@ -728,7 +776,7 @@ li[data-address] > h2 {
   margin-bottom: 0;
 }
 
-.addresses input[type='checkbox'] {
+.addresses input[type="checkbox"] {
   margin-top: 2rem;
   margin-left: 0;
 }
@@ -752,4 +800,361 @@ li[data-address] > h2 {
 .addresses form > div:nth-of-type(7),
 .addresses form > div:nth-of-type(7) + div[id] {
   margin-top: 1.5rem;
+}
+
+.rowx {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.customer .field {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+a.change-pass {
+  color: var(--secondary-color-3, #799889);
+  text-align: right;
+  font-family: Nunito;
+  font-size: 14px;
+  padding-top: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+  float: right;
+}
+
+.text-area,
+.select {
+  display: flex;
+  position: relative;
+  width: 100%;
+  border: solid;
+  -webkit-appearance: none;
+  flex-grow: 1;
+  text-align: left;
+  padding: 0;
+  margin: var(--inputs-border-width);
+  transition: box-shadow var(--duration-short) ease;
+  border: 1px solid var(--black-grey-2, #d2d2d2);
+  background: var(--white, #fff);
+  margin-bottom: 25px;
+}
+.field__input,
+.customer .field input {
+  margin-bottom: 25px !important;
+}
+#profileUpdateForm .rowx .field input {
+  margin: 0 !important;
+}
+.updateUserData {
+    width: max-content !important;
+  }
+  .left-side {
+    width: 300px;
+  }
+
+  .active-bg {
+    background: var(--primary-color-5, #c0b6a8) !important;
+  }
+  .slide-item {
+    border-top: 1px solid #E2E2E2 !important;
+    border-left: 1px solid #E2E2E2 !important;
+    border-right: 1px solid #E2E2E2 !important;
+    width: 100%;
+    text-decoration: none !important;
+    padding: 23px 30px;
+    color: var(--black-black-text, #000) !important;
+    font-family: Cormorant !important;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .slide-item:last-child {
+    border-bottom: 1px solid #E2E2E2 !important;
+  }
+  :is(.account,.order) > div:nth-of-type(2) > div:first-of-type {
+    flex-grow: 1;
+    padding-right: 0;
+  }
+  .right-side {
+    border: 1px solid #E2E2E2 !important;
+    width: calc(100% - 300px);
+    padding: 30px;
+  }
+
+  .side-item-inner {
+    display: flex
+  }
+  .side-item-inner svg {
+    height: 20px !important;
+    width: 20px !important;
+  }
+  .main-section {
+    display: flex;
+    gap: 5rem;
+  }
+  .customer .field:first-of-type {
+    margin-top: 0;
+  }
+  .customer .field {
+    margin: 0;
+  }
+
+  /* Style the tab */
+  span.tablinks {
+    border: 1px solid var(--black-grey-1, #E7E7E7);
+    background: var(--white, #FFF);
+    color: var(--black-grey-5, #4A4A4A);
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    padding: 6px 24px;
+  }
+  .tab {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  span.tablinks.active {
+    background: var(--primary-color-1, #c0b6a8);
+  }
+  /* Style the buttons that are used to open the tab content */
+
+
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    var(--primary-color-1, #c0b6a8);
+  }
+
+  /* Create an active/current tablink class */
+  .tab button.active {
+    var(--primary-color-1, #c0b6a8);
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+  }
+/* mobile tabs  */
+
+div.mtablinks {
+       border: 1px solid var(--black-grey-1, #E7E7E7);
+    background: var(--white, #FFF);
+    color: var(--black-grey-5, #4A4A4A);
+    font-family: Nunito;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    padding: 5px 22px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+  .mtab {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+
+  div.mtablinks.mactive {
+    background: var(--primary-color-1, #c0b6a8);
+  }
+  /* Style the buttons that are used to open the tab content */
+
+
+  /* Change background color of buttons on hover */
+  .mtab button:hover {
+    var(--primary-color-1, #c0b6a8);
+  }
+
+  #mobileAddress, #mobileProfile, #mobileOrders, .h-mobile{
+    animation: var(--animation-slide-in);
+    animation-delay: calc(var(--animation-order) * 75ms);
+  }
+  /* Create an active/current tablink class */
+  .mtab button.mactive {
+    var(--primary-color-1, #c0b6a8);
+  }
+.mtablinks p, .change-pass p {
+    width: 52px;
+    font-size: 11px!important;
+    margin: 0;
+    padding: 0;
+}
+.mtabcontent form{
+  margin:0!important
+}
+.mtabcontent form label {
+    font-size: 12px!important;
+}
+a.mchange-pass {
+    color: var(--secondary-color-3, #799889);
+    text-align: left;
+    font-family: Nunito;
+    font-size: 10px;
+    padding-top: 0;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline!important;
+    float: none;
+}
+  /* Style the tab content */
+  .mtabcontent {
+    display: none;
+  }
+
+  .customer form {
+    margin: 0;
+  }
+  /* .form-container {
+    padding: 0;
+  } */
+  .updateUserData {
+    width: fit-content !important;
+  }
+  :is(.account,.order) h2 {
+    margin-top: 0;
+    color: var(--black-black-text, #000);
+    font-family: Cormorant;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+  .customer button {
+    border-radius: 5px;
+    width: max-content !important;
+  }
+  .custom .field {
+    width: 31.1%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field__input:focus,
+.field__input:not(:placeholder-shown),
+.field__input:-webkit-autofill,
+.customer .field input:focus,
+.customer .field input:not(:placeholder-shown),
+.customer .field input:-webkit-autofill {
+  padding: 0 1.5rem 0 2rem;
+  margin: var(--inputs-border-width);
+  color: var(--black-grey-3, #B0B0B0);
+font-family: Nunito;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+@media (max-width: 980px) {
+  :is(.account, .order) h1 {
+    color: var(--black-black-text, #000);
+    font-family: Cormorant;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+
+  }
+  :is(.account, .order) p {
+    color: var(--black-grey-5, #4a4a4a);
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .welcome-box {
+    margin-bottom: 15px !important;
+  }
+  .main-section {
+    display: block !important;
+  }
+  .left-side {
+    width: 100% !important;
+  }
+  .right-side {
+    width: 100% !important;
+  }
+  .side-item-inner {
+    display: flex;
+    font-size: 16px;
+  }
+  .slide-item {
+    padding: 15px 30px !important;
+    position: relative;
+  }
+  .side-item-inner svg {
+    height: 17px !important;
+    width: 17px !important;
+  }
+
+  .main-details {
+    border: 1px solid var(--black-grey-1, #E7E7E7);
+    background: var(--white, #FFF);
+    padding: 0 10px;
+}
+:is(.account,.order) h2 {
+    color: var(--black-black-text, #000);
+    font-family: Cormorant;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  display: flex;
+    justify-content: flex-start;
+    align-items: center;
+     padding-top: 10px;
+  }
+
+
+   .customer .field {
+    width: 100%!important;
+}
+/* #mprofileUpdateForm .field input {
+    margin-bottom: 0!important;
+} */
+
+.rowx{
+  display: block!important;
+}
+
+.customer button {
+    border-radius: 5px;
+    width: max-content!important;
+    color: var(--text-white, #FFF);
+    text-align: center;
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 10px!important;
+    margin-bottom: 10px!important;
+}
+form#address_form_9378564669743, form#mprofileUpdateForm {
+    margin: 0!important;
+}
+a{
+ text-decoration: none!important;
+}
 }

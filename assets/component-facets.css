@@ -28,11 +28,33 @@
   .facets-container {
     display: flex;
     column-gap: 2rem;
+    justify-content: space-between;
   }
 }
 
+.active-facets.p-10.active-facets-desktop {
+  margin: 0;
+}
+.facets-vertical .active-facets__button {
+  margin-top: 0;
+  padding: 5px 13px;
+}
+
+@media (min-width: 900px) {
+  .facets-vertical .active-facets__button {
+    margin-top: 0;
+    padding: 10px 0 !important;
+  }
+}
 .facet-filters {
   align-items: flex-start;
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.two-col .facet-filters {
+  align-items: center;
   display: flex;
   grid-column: 2;
   grid-row: 1;
@@ -99,7 +121,7 @@
 .facet-filters__field .select {
   width: 150px;
   border: 1px solid #d2d2d2;
-  border-radius: 0;
+  border-radius: 6px;
   padding: 7px;
 }
 
@@ -605,6 +627,7 @@ a.active-facets__button.focused .active-facets__button-inner,
 .mobile-facets__wrapper {
   margin-left: 0;
   display: flex;
+  width: 100px;
 }
 
 .mobile-facets__wrapper .disclosure-has-popup[open] > summary::before {

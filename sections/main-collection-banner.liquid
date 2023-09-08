@@ -3,9 +3,16 @@
 
 {%- style -%}
   @media screen and (max-width: 749px) {
+    #val{display:none!important}
     .collection-hero--with-image .collection-hero__inner {
       padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
     }
+  }
+  #val{
+    width: 150px;
+    border: 1px solid #d2d2d2;
+    border-radius: 6px;
+    padding: 7px;
   }
 {%- endstyle -%}
 
@@ -28,21 +35,17 @@
         </span>
         {{- collection.title | escape -}}
       </h1>
-      <facet-filters-form class="facets facets-vertical-sort small-hide no-js-hidden">
-        <form class="facets-vertical-form" id="FacetSortForm">
-          <div class="facet-filters sorting caption">
-            <div class="facet-filters__field">
-              <h2 class="facet-filters__label caption-large text-body">
-                <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
-              </h2>
-              <div class="select">
+          
+        <div class="facet-filters">
+        
                 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-                <select
-                  name="sort_by"
+                <h2 class="small-hide facet-filters__label caption-large text-body">
+                <label for="SortBy">Sort by:</label>
+              </h2>
+                <select data='demobox' name="val" id="val" onchange="setSelectBoxByValue(this.getAttribute('data'), this.value);"
                   class="facet-filters__sort select__select caption-large"
-                  id="SortBy"
-                  aria-describedby="a11y-refresh-page-message"
-                >
+                  
+                  aria-describedby="a11y-refresh-page-message">
                   {%- for option in collection.sort_options -%}
                     <option
                       value="{{ option.value | escape }}"
@@ -54,17 +57,8 @@
                     </option>
                   {%- endfor -%}
                 </select>
-                {% render 'icon-caret' %}
-              </div>
-            </div>
-            <noscript>
-              <button type="submit" class="facets__button-no-js button button--secondary">
-                {{ 'products.facets.sort_button' | t }}
-              </button>
-            </noscript>
-          </div>
-        </form>
-      </facet-filters-form>
+                {% comment %} {% render 'icon-caret' %} {% endcomment %}
+
       </div>
       
         
@@ -106,6 +100,17 @@
   </div>
 </div>
 
+
+  
+<script>
+  function setSelectBoxByValue(eid, eval) {
+    //location.reload()
+  location.href = location.href + `?=&sort_by=${eval}`;
+  console.log(newUrl);
+
+  // document.getElementById(eid).value = eval;
+}
+</script>
 {% schema %}
   {
     "name": "t:sections.main-collection-banner.name",

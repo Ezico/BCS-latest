@@ -142,6 +142,7 @@
     <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
   </symbol>
 </svg>
+{% assign wishlist = false %}
 
 {%- liquid
   for block in section.blocks
@@ -210,8 +211,26 @@
 
     {% comment %} search here  {% endcomment %}
       <div class="header_search">
-        <form action="/search" method="get" role="search">
-          <input placeholder="Search for anything here...">
+       <form action="{{ routes.search_url }}" method="get" role="search">
+          <input
+                    id="Search-In-Template"
+                    type="search"
+                    name="q"
+                    value="{{ search.terms | escape }}"
+                    placeholder="{{ 'general.search.search' | t }}"
+                    {%- if settings.predictive_search_enabled -%}
+                      role="combobox"
+                      aria-expanded="false"
+                      aria-owns="predictive-search-results"
+                      aria-controls="predictive-search-results"
+                      aria-haspopup="listbox"
+                      aria-autocomplete="list"
+                      autocorrect="off"
+                      autocomplete="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                    {%- endif -%}
+                  >
           <div class="search-ico">
           {% render 'search-ico' %}
           </div>
@@ -243,11 +262,116 @@
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header__localization{% endif %}">
 
     <div class="user-section">
-      {% comment %} <a href="pages/wishlist" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% render 'icon-wishlist'%}
-      </a> {% endcomment %}
+       {%- if shop.customer_accounts_enabled -%}
+        {%- if customer -%}
+      <style>
+  .user-section{
+  display: flex;
+    width: 41%;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart-peek {
+    left: -187px;
+    }
+    .header__icon--cart {
+    position: relative;
+    margin-right: 17px;
+}
+/* Style The Dropdown Button */
+.dropbtnx {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
 
-     <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+/* The container <div> - needed to position the dropdown content */
+.dropdownx {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-contentx {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    min-width: max-content;
+    box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: -40px;
+    margin-top: 5px;
+  animation: var(--animation-slide-in);
+    animation-delay: calc(var(--animation-order) * 75ms);
+}
+
+.dropdown-contentx p{
+  color: var(--primary-color-4, #BDA399);
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+    padding: 0 16px;
+}
+/* Links inside the dropdown */
+.dropdown-contentx a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: var(--black-grey-5, #4A4A4A);
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 25px; /* 156.25% */
+}
+
+
+/* Show the dropdown menu on hover */
+.dropdownx:hover .dropdown-contentx {
+  display: block;
+}
+
+a.userx-link.red-link {
+  color: var(--red, #CE0000);
+}
+.red-link{
+  color: var(--red, #CE0000);
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+
+        </style>
+    <div class="dropdownx">
+  <button class="dropbtnx">
+    {% render 'icon-user' %}
+  </button>
+  <div class="dropdown-contentx">
+    <p>Welcome back, {{ customer.first_name }}</p>
+    <a class="userx-link" href="/account">My Account</a>
+    <a class="userx-link" href="/account/orders">My Orders</a>
+    <a class="userx-link red-link" href="/account/logout">Logout</a>
+  </div>
+</div>
+        
+        {% else %}
+
+      {% endif %}
+         
+       {%- endif -%}
+
+      {% if wishlist %}
+         <a href="pages/wishlist" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        {% render 'icon-wishlist'%}
+      </a>
+       {% endif %}
+
+
+     <span class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {% render 'desk-icon-cart'%}
         <div id="miniCart" class="cart-peek">
         </div>
@@ -260,12 +384,11 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
-        
-      </a>
+      </span>
 
        {%- if shop.customer_accounts_enabled -%}
         {%- if customer -%}
-        hello customer
+
         {% else %}
          <div class="header-account">
           <a href="/account/login" class="user-link">
@@ -376,7 +499,7 @@
 
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 <div class="navigation">
-  <div class="page-width">
+  <div class="page-width row">
     {%- liquid
       if section.settings.menu != blank
         if section.settings.menu_type_desktop == 'dropdown'
@@ -386,6 +509,11 @@
         endif
       endif
     %}
+    <div class="navbar small-hide medium-hide ">
+      <div class="dropdown">
+        <a style="padding-right:0" href="/pages/contact">CONTACT</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -543,7 +671,13 @@
       },
       "url": {{ request.origin | append: page.url | json }}
     }
+    
   </script>
+  <script>
+  function closeMinicart(){
+    console.log('hello')
+  }
+</script>
 {%- endif -%}
 
 {% schema %}
@@ -577,11 +711,17 @@
       "label": "t:sections.header.settings.logo_position.label",
       "info": "t:sections.header.settings.logo_help.content"
     },
+
     {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "url",
+      "id": "cont_url",
+      "label": "add link to continue shopping button"
     },
     {
       "type": "select",

@@ -23,12 +23,16 @@
       px;
     }
   }
+
+      .card-wrapper:hover {
+        box-shadow: #00000005 0 3px 4px 5px;
+          }
 {%- endstyle -%}
  {% comment %} add to cart popup  {% endcomment %}
     <div id="cartmyModal" class="cartmodal">
 
       <div class="cartmodal-content">
-        <div class="cartModalHeading">Item Added to Bag</div>
+        <div class="cartModalHeading">Item Added to the Cart</div>
         <span onclick="closeModal()" class="close">&times;</span>
         <div class="row">
           <div class="col-1">
@@ -42,7 +46,7 @@
         <div class="cartModalAction">
           <facet-remove class="">
             <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
-              <button class="continueShopping" onclick="closeModal()">Continue Shopping</button>
+              <button class="continueShopping" onclick="closeModal()">Keep Shopping</button>
             </a>
           </facet-remove>
 
@@ -59,7 +63,9 @@
 
     <div class="main-header-container">
       <h2>{{section.settings.title}}</h2> 
-      <span><a href='{{section.settings.collection.url}}'>Shop all {% render 'arrow-right' %}</a></span>
+ {% if section.settings.showmore %}
+   <span class="large-up-hide"><a href='{{section.settings.collection.url}}'>Shop all {% render 'arrow-right' %}</a></span>
+ {% endif %}
     </div>
 
 <hr style="margin: 30px 0; margin-top:5px"/>
@@ -81,7 +87,9 @@
         {%- endfor -%}
   </div>
 </div>
-
+<br/>
+<br/>
+<br/>
 {% javascript %}
    
     $('.product_carousel').slick({
@@ -105,9 +113,14 @@
       }
     ]
 });
+
+
+ 
+  
   {% endjavascript %}
 
 {% schema %}
+ 
 {
   "name": "Homapege Product carousel",
   "tag": "section",
@@ -122,7 +135,17 @@
       "default": "Featured collection",
       "label": "t:sections.featured-collection.settings.title.label"
     },
-  
+    
+    {
+      "type": "checkbox",
+      "id": "showmore",
+      "default": true,
+      "label": "show more button"
+    },
+    
+
+    
+
     {
       "type": "collection",
       "id": "collection",

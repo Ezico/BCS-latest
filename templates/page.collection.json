@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "e395afcc-4979-405e-a737-86734d4b94a3": {
+      "type": "header-background",
+      "settings": {
+        "BannerD": "shopify:\/\/shop_images\/image_23.png"
+      }
+    },
+    "f400477a-0b97-4f76-9cde-98c95ce12a5f": {
+      "type": "collection-grid-with-button",
+      "blocks": {
+        "aee6ea68-0f26-4bc5-94ea-1410a7bcfef7": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cot2.png",
+            "title": "Balmoral",
+            "link": "",
+            "text": "Shop Blamoral"
+          }
+        },
+        "1a886574-7038-49c8-b157-67988b69421c": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cot1.png",
+            "title": "Kensington",
+            "link": "",
+            "text": "shop Kensington"
+          }
+        },
+        "bbc735b2-bd34-4caf-b8b1-9af10c4f0676": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cot.png",
+            "title": "Cadogan",
+            "link": "",
+            "text": "Shop Cadogan"
+          }
+        },
+        "2fd98608-cb72-418a-92e8-244e3f9052bb": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_11_1.png",
+            "title": "Chelsea",
+            "link": "",
+            "text": "Shop Chelsea"
+          }
+        },
+        "9439c7cc-0fd4-49e8-b3e7-ff20f73b0f11": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cot.png",
+            "title": "Athens Luxury Nursery Room",
+            "link": "",
+            "text": "shop Athens Luxury Nursery Room"
+          }
+        },
+        "55876bcb-9724-4914-b0b7-692a465759ba": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cot1.png",
+            "title": "Tribeca",
+            "link": "",
+            "text": "shop Tribeca"
+          }
+        }
+      },
+      "block_order": [
+        "aee6ea68-0f26-4bc5-94ea-1410a7bcfef7",
+        "1a886574-7038-49c8-b157-67988b69421c",
+        "bbc735b2-bd34-4caf-b8b1-9af10c4f0676",
+        "2fd98608-cb72-418a-92e8-244e3f9052bb",
+        "9439c7cc-0fd4-49e8-b3e7-ff20f73b0f11",
+        "55876bcb-9724-4914-b0b7-692a465759ba"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "362478b3-c584-4d4d-b2af-38d135f1fd1b": {
+      "type": "product-carousel",
+      "settings": {
+        "title": "SIMILAR PRODUCTS",
+        "showmore": true,
+        "collection": "luxury-bed-linens-for-children",
+        "products_to_show": 25,
+        "image_ratio": "square",
+        "image_shape": "default"
+      }
+    },
+    "591d7526-05f3-4e5b-8bab-bca8bbe36031": {
+      "type": "homepage-video",
+      "settings": {
+        "header": "How To Choose The Best Baby Cot Bed?",
+        "body": "Some parents choose to have their baby's name painted or carved on to make their baby's luxury cot bed even more special. Our timeless and beautiful upholstered cots make the perfect centrepiece for your child’s nursery and convert to toddler beds. Cots can be purchased alone or as part of a <a href=\"\/\" title=\"\/\"><strong>NURSERY ROOM SET<\/strong><\/a>. Smaller cots are also available for the smaller nursery; ask about our free nursery consultation or <a href=\"\/\" title=\"\/\"><strong>NURSERY INTERIOR DESIGN SERVICE<\/strong><\/a> For expert help in designing your munchkin's nursery room. Because our nursery cots are bespoke, choose from the featured finishes or tell us your preferred colour, and we will match it. All our cots are made with your baby's safety in mind and conform to the latest safety standard, BS EN 716-1:2017",
+        "embed": "<iframe class=\"embeded-media\" src=\"https:\/\/www.youtube.com\/embed\/b3ootXSAaqE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen><\/iframe>",
+        "button": false,
+        "title": "Call now",
+        "button-link": "\/"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e395afcc-4979-405e-a737-86734d4b94a3",
+    "f400477a-0b97-4f76-9cde-98c95ce12a5f",
+    "362478b3-c584-4d4d-b2af-38d135f1fd1b",
+    "591d7526-05f3-4e5b-8bab-bca8bbe36031"
+  ]
+}

@@ -1,183 +1,1279 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'customer.js' | asset_url }}" defer></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+    px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top }}
+      px;
+      padding-bottom: {{ section.settings.padding_bottom }}
+      px;
     }
   }
 {%- endstyle -%}
 
-<div class="customer account section-{{ section.id }}-padding">
-  <div>
-    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
-    <a href="{{ routes.account_logout_url }}">
-      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" viewBox="0 0 18 19">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.5a3 3 0 116 0 3 3 0 01-6 0zm3-4a4 4 0 100 8 4 4 0 000-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z" fill="currentColor">
-      </svg>
-      {{ 'customer.log_out' | t }}
-    </a>
+<div class="customer page-width account section-{{ section.id }}-padding">
+  <br/><br/>
+  <div class='welcome-box'>
+    <h1>Hello, {{ customer.first_name }} {{ customer.last_name }}</h1>
+    <p>You’re logged in as {{ customer.email }}</p>
   </div>
 
-  <div>
-    <div>
-      <h2>{{ 'customer.orders.title' | t }}</h2>
+  <div class='page-content-desktop small-hide medium-hide'>
+    <div class="main-section">
+      <div class="left-side">
+        <a
+          id="profileClick"
+          class='slide-item active-bg'
+          href='javascript:;'
+          onclick="openProfile(this)">
+          <div class='side-item-inner'>
+            {% render 'icon-account' %}
+            <span>MY PROFILE</span>
+          </div>
+        </a>
+        <a
+          id="ordersClick"
+          class='slide-item '
+          href='javascript:;'
+          onclick="openOrders(this)">
+          <div class='side-item-inner'>
+            {% render 'icon-orders' %}
+            <span>MY ORDERS</span>
+          </div>
+        </a>
+        <a
+          id="addressClick"
+          class='slide-item '
+          href='javascript:;'
+          onclick="openAddress(this)">
+          <div class='side-item-inner'>
+            {% render 'icon-address' %}
+            <span>ADDRESS</span>
+          </div>
+        </a>
+        <a class='slide-item ' href='/account/logout'>
+          <div class='side-item-inner'>
+            {% render 'icon-logout' %}
+            <span style='color:#da3f3f'>LOGOUT</span>
+          </div>
+        </a>
+      </div>
+      <div class="right-side">
+        {% comment %} update customer  {% endcomment %}
+        <div id="update" class="anim">
+          <h2>Edit Profile</h2>
+          <br/>
+          <div class="form-container">
+            <form id="profileUpdateForm">
+              <div class="rowx">
+                <input
+                  type="hidden"
+                  name=""
+                  id="customer_id"
+                  value="{{customer.id}}">
+                <div class="field">
+                  <label for="fname">First name</label>
+                  <input
+                    onchange="updateInput(this.value, this.id)"
+                    type="text"
+                    id="fname"
+                    value="{{customer.first_name}}"
+                    placeholder="{{customer.first_name}}">
+                </div>
+                <div class="field">
+                  <label for="lname">Last name</label>
+                  <input
+                    type="text"
+                    onchange="updateInput(this.value, this.id)"
+                    id="lname"
+                    value="{{customer.last_name}}"
+                    placeholder="{{customer.last_name}}">
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input
+                    onchange="updateInput(this.value, this.id)"
+                    type="email"
+                    disabled
+                    value="{{customer.email}}"
+                    id="email">
+                </div>
+                <div class="field">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;">
+                </div>
+              </div>
+              <div class="action-container">
+                <a class='change-pass' href="/account/login?return_url=%2Faccount#recover">Change password</a>
 
-      {% paginate customer.orders by 20 %}
-        {%- if customer.orders.size > 0 -%}
-          <table role="table" class="order-history">
-            <caption class="visually-hidden">
-              {{ 'customer.orders.title' | t }}
-            </caption>
-            <thead role="rowgroup">
-              <tr role="row">
-                <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
-                <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
-                <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                <th id="ColumnFulfillment" scope="col" role="columnheader">
-                  {{ 'customer.orders.fulfillment_status' | t }}
-                </th>
-                <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody role="rowgroup">
-              {%- for order in customer.orders -%}
-                <tr role="row">
-                  <td
-                    id="RowOrder"
-                    role="cell"
-                    headers="ColumnOrder"
-                    data-label="{{ 'customer.orders.order_number' | t }}"
-                  >
-                    <a
-                      href="{{ order.customer_url }}"
-                      aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
-                    >
-                      {{ order.name }}
-                    </a>
-                  </td>
-                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
-                    {{ order.created_at | time_tag: format: 'date' }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnPayment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.payment_status' | t }}"
-                  >
-                    {{ order.financial_status_label }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnFulfillment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.fulfillment_status' | t }}"
-                  >
-                    {{ order.fulfillment_status_label }}
-                  </td>
-                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
-                    {{ order.total_net_amount | money_with_currency }}
-                  </td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        {%- else -%}
-          <p>{{ 'customer.orders.none' | t }}</p>
-        {%- endif -%}
+                <div id="updateErrorMsg" class="error"></div>
+                <button class="updateUserData" type="submit">Save changes</button>
+              </div>
+            </form>
+          </div>
+          <br/>
+        </div>
+        <div
+          id="address"
+          style="display:none"
+          class="anim">
+          <h2>Address</h2>
 
-        {%- if paginate.pages > 1 -%}
-          {%- if paginate.parts.size > 0 -%}
-            <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-              <ul role="list">
-                {%- if paginate.previous -%}
-                  <li>
-                    <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
-                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-                      </svg>
-                    </a>
-                  </li>
-                {%- endif -%}
+          {% if customer.addresses_count > 0 %}
+            <div class="tab">
+              {% for address in customer.addresses %}
+                <span class="tablinks anim {% if forloop.first %} active {%endif%}" onclick="openCity(event, 'address-{{ forloop.index }}')">Address {{ forloop.index }}</span>
+              {% endfor %}
+              <a
+                href='javascript:;'
+                onclick="openAddAddress(this)"
+                class="change-pass">Add address</a>
+            </div>
 
-                {%- for part in paginate.parts -%}
-                  <li>
-                    {%- if part.is_link -%}
-                      <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
-                        {{- part.title -}}
-                      </a>
-                    {%- else -%}
-                      {%- if part.title == paginate.current_page -%}
-                        <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
-                          {{- part.title -}}
-                        </span>
-                      {%- else -%}
-                        <span>{{ part.title }}</span>
+            <!-- Tab content -->
+            {% for address in customer.addresses %}
+              <div
+                id="address-{{ forloop.index }}"
+                class="tabcontent anim"
+                style="display: {% if forloop.first %} block {%endif%};">
+                <div id="EditAddress_{{ address.id }}">
+                  <br/>
+                  {%- form 'customer_address', address -%}
+
+                    <div>
+                      <label for="AddressCountry_{{ form.id }}">
+                        {{ 'customer.addresses.country' | t }}
+                      </label>
+                      <div class="select">
+                        <select
+                          id="AddressCountry_{{ form.id }}"
+                          name="address[country]"
+                          data-address-country-select
+                          data-default="{{ form.country }}"
+                          data-form-id="{{ form.id }}"
+                          autocomplete="country">
+                          {{ all_country_option_tags }}
+                        </select>
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          viewBox="0 0 10 6">
+                          <use href="#icon-caret" />
+                        </svg>
+                      </div>
+                    </div>
+                    <script>
+                      var id = `AddressCountry_{{ form.id }}`
+                      var options = document.getElementById(id).options;
+                      for (var i = 0; i < options.length; i++) {
+                        if (options[i].text == "{{ form.country }}") {
+                          options[i].selected = true;
+                          break;
+                        }
+                      }
+                    </script>
+                    <div class="rowx">
+                      <div class="field">
+                        <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
+                        <input
+                          type="text"
+                          id="AddressFirstName_{{ form.id }}"
+                          name="address[first_name]"
+                          value="{{ form.first_name }}"
+                          autocomplete="given-name"
+                          placeholder="{{ 'customer.addresses.first_name' | t }}">
+
+                      </div>
+                      <div class="field">
+                        <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}</label>
+                        <input
+                          type="text"
+                          id="AddressLastName_{{ form.id }}"
+                          name="address[last_name]"
+                          value="{{ form.last_name }}"
+                          autocomplete="family-name"
+                          placeholder="{{ 'customer.addresses.last_name' | t }}">
+
+                      </div>
+                    </div>
+
+                    <div class="field" style="width: 100%;">
+                      <label for="AddressCompany_{{ form.id }}">{{ 'customer.addresses.company' | t }} (optional)</label>
+                      <input
+                        type="text"
+                        id="AddressCompany_{{ form.id }}"
+                        name="address[company]"
+                        value="{{ form.company }}"
+                        autocomplete="organization"
+                        placeholder="{{ 'customer.addresses.company' | t }}">
+
+                    </div>
+                    <div class="field" style="width:100%">
+                      <label for="AddressAddress1_{{ form.id }}">Address</label>
+                      <input
+                        type="text"
+                        id="AddressAddress1_{{ form.id }}"
+                        name="address[address1]"
+                        value="{{ form.address1 }}"
+                        autocomplete="address-line1"
+                        placeholder="{{ 'customer.addresses.address1' | t }}">
+
+                    </div>
+                    <div class="field" style="width:100%">
+                      <label for="AddressAddress2_{{ form.id }}">Apartment, suite, etc, (optional)</label>
+                      <input
+                        type="text"
+                        id="AddressAddress2_{{ form.id }}"
+                        name="address[address2]"
+                        value="{{ form.address2 }}"
+                        autocomplete="address-line2"
+                        placeholder="{{ 'customer.addresses.address2' | t }}">
+
+                    </div>
+                    <div class="rowx custom">
+                      <div class="field">
+                        <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+                        <input
+                          type="text"
+                          id="AddressCity_{{ form.id }}"
+                          name="address[city]"
+                          value="{{ form.city }}"
+                          autocomplete="address-level2"
+                          placeholder="{{ 'customer.addresses.city' | t }}">
+
+                      </div>
+                      <div class="field">
+                        <label for="AddressProvince_{{ form.id }}">States</label>
+                        <input
+                          type="text"
+                          id="AddressCity_{{ form.id }}"
+                          name="address[province]"
+                          value="{{ form.province }}"
+                          autocomplete="address-level1"
+                          placeholder="Enter a state">
+
+                      </div>
+
+                      <div class="field">
+                        <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+                        <input
+                          type="text"
+                          id="AddressZip_{{ form.id }}"
+                          name="address[zip]"
+                          value="{{ form.zip }}"
+                          autocapitalize="characters"
+                          autocomplete="postal-code"
+                          placeholder="{{ 'customer.addresses.zip' | t }}">
+
+                      </div>
+                    </div>
+
+                    <div class="field" style="width:100%">
+                      <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label>
+                      <input
+                        type="tel"
+                        id="AddressPhone_{{ form.id }}"
+                        name="address[phone]"
+                        value="{{ form.phone }}"
+                        autocomplete="tel"
+                        placeholder="{{ 'customer.addresses.phone' | t }}">
+
+                    </div>
+                    <div class="row" style="display: flex;
+                                                                                                                                                                                                    align-items: baseline;
+                                                                                                                                                                                                    justify-content: flex-end;
+                                                                                                                                                                                                    gap: 10px;">
+                      <div>
+                        <form
+                          class="address-delete-form"
+                          method="post"
+                          action="/account/addresses/{{ address.id }}">
+                          <input
+                            type="hidden"
+                            name="_method"
+                            value="delete">
+                          <button type="submit">Delete Address</button>
+                        </form>
+                      </div>
+                      <button style="margin: 0; float:right">Save changes</button>
+                    </div>
+                  {%- endform -%}
+                </div>
+              </div>
+            {% endfor %}
+
+          {% else %}
+            <p>You do not have any saved address. Kindly, add one for an easy checkout process.</p>
+
+            <button onclick="addAddressBtn()" style="margin:0">Add Address</button>
+
+          {% endif %}
+          <!-- Tab links -->
+
+
+          <script>
+
+            window.addEventListener('load', () => {
+              typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
+            });
+          </script>
+        </div>
+
+        <div
+          id="add_address"
+          class="anim"
+          style="display:none;">
+          <h2 id="AddressNewHeading">{{ 'customer.addresses.add_new' | t }}</h2>
+          {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
+            <div>
+              <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+              <div class="select">
+                <select
+                  id="AddressCountryNew"
+                  name="address[country]"
+                  data-default="{{ form.country }}"
+                  autocomplete="country">
+                  {{ all_country_option_tags }}
+                </select>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  viewBox="0 0 10 6">
+                  <use href="#icon-caret" />
+                </svg>
+              </div>
+            </div>
+            <div class="rowx">
+              <div class="field">
+                <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+                <input
+                  type="text"
+                  id="AddressFirstNameNew"
+                  name="address[first_name]"
+                  value="{{ form.first_name }}"
+                  autocomplete="given-name"
+                  placeholder="{{ 'customer.addresses.first_name' | t }}">
+
+              </div>
+              <div class="field">
+                <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+                <input
+                  type="text"
+                  id="AddressLastNameNew"
+                  name="address[last_name]"
+                  value="{{ form.last_name }}"
+                  autocomplete="family-name"
+                  placeholder="{{ 'customer.addresses.last_name' | t }}">
+
+              </div>
+            </div>
+
+            <div class="field" style="width:100%">
+              <label for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}(optional)</label>
+              <input
+                type="text"
+                id="AddressCompanyNew"
+                name="address[company]"
+                value="{{ form.company }}"
+                autocomplete="organization"
+                placeholder="{{ 'customer.addresses.company' | t }}">
+
+            </div>
+            <div class="field" style="width:100%">
+              <label for="AddressAddress1New">Address</label>
+              <input
+                type="text"
+                id="AddressAddress1New"
+                name="address[address1]"
+                value="{{ form.address1 }}"
+                autocomplete="address-line1"
+                placeholder="{{ 'customer.addresses.address1' | t }}">
+
+            </div>
+            <div class="field" style="width:100%">
+              <label for="AddressAddress2New">Apartment, suite, etc, (optional)</label>
+              <input
+                type="text"
+                id="AddressAddress2New"
+                name="address[address2]"
+                value="{{ form.address2 }}"
+                autocomplete="address-line2"
+                placeholder="{{ 'customer.addresses.address2' | t }}">
+
+            </div>
+            <div class="rowx custom">
+              <div class="field">
+                <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+                <input
+                  type="text"
+                  id="AddressCityNew"
+                  name="address[city]"
+                  value="{{ form.city }}"
+                  autocomplete="address-level2"
+                  placeholder="{{ 'customer.addresses.city' | t }}">
+
+              </div>
+              <div id="AddressProvinceContainerNew" class="field">
+                <label for="AddressLastNameNew">States</label>
+                <input
+                  type="text"
+                  id="AddressCity_{{ form.id }}"
+                  name="address[province]"
+                  value="{{ form.province }}"
+                  autocomplete="address-level1"
+                  placeholder="State/Province">
+              </div>
+
+              <div class="field">
+                <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+                <input
+                  type="text"
+                  id="AddressZipNew"
+                  name="address[zip]"
+                  value="{{ form.zip }}"
+                  autocapitalize="characters"
+                  autocomplete="postal-code"
+                  placeholder="{{ 'customer.addresses.zip' | t }}">
+              </div>
+            </div>
+
+
+            <div class="field" style="width: 100%;">
+              <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+              <input
+                type="tel"
+                id="AddressPhoneNew"
+                name="address[phone]"
+                value="{{ form.phone }}"
+                autocomplete="tel"
+                placeholder="{{ 'customer.addresses.phone' | t }}">
+            </div>
+            {% comment %} <div>
+              {{ form.set_as_default_checkbox }}
+              <label for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label> 
+            </div> {% endcomment %}
+            <div style="text-align: right;">
+              <button>Save Changes</button>
+            </div>
+          {%- endform -%}
+
+        </div>
+        <div
+          id="orders"
+          style="display:none"
+          class="anim">
+          <div>
+            <h2>MY ORDERS</h2>
+
+            {% paginate customer.orders by 20 %}
+              {%- if customer.orders.size > 0 -%}
+                <table role="table" class="order-history">
+                  <caption class="visually-hidden">
+                    {{ 'customer.orders.title' | t }}
+                  </caption>
+                  <thead role="rowgroup">
+                    <tr role="row">
+                      <th
+                        id="ColumnOrder"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
+                      <th
+                        id="ColumnDate"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.date' | t }}</th>
+                      <th
+                        id="ColumnPayment"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
+                      <th
+                        id="ColumnFulfillment"
+                        scope="col"
+                        role="columnheader">
+                        {{ 'customer.orders.fulfillment_status' | t }}
+                      </th>
+                      <th
+                        id="ColumnTotal"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.total' | t }}</th>
+                    </tr>
+                  </thead>
+                  <tbody role="rowgroup">
+                    {%- for order in customer.orders -%}
+                      <tr role="row">
+                        <td
+                          id="RowOrder"
+                          role="cell"
+                          headers="ColumnOrder"
+                          data-label="{{ 'customer.orders.order_number' | t }}">
+                          <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                            {{ order.name }}
+                          </a>
+                          {% comment %} <a href="#" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                            {{ order.name }}
+                          </a> {% endcomment %}
+                        </td>
+                        <td
+                          headers="RowOrder ColumnDate"
+                          role="cell"
+                          data-label="{{ 'customer.orders.date' | t }}">
+                          {{ order.created_at | time_tag: format: 'date' }}
+                        </td>
+                        <td
+                          headers="RowOrder ColumnPayment"
+                          role="cell"
+                          data-label="{{ 'customer.orders.payment_status' | t }}">
+                          {{ order.financial_status_label }}
+                        </td>
+                        <td
+                          headers="RowOrder ColumnFulfillment"
+                          role="cell"
+                          data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                          {{ order.fulfillment_status_label }}
+                        </td>
+                        <td
+                          headers="RowOrder ColumnTotal"
+                          role="cell"
+                          data-label="{{ 'customer.orders.total' | t }}">
+                          {{ order.total_net_amount | money_with_currency }}
+                        </td>
+                      </tr>
+                    {%- endfor -%}
+                  </tbody>
+                </table>
+              {%- else -%}
+                <p>You currently do not have any order right now</p>
+                <a href="/pages/baby" class="">
+                  <button style="margin:0">Start Shopping</button>
+                </a>
+              {%- endif -%}
+
+              {%- if paginate.pages > 1 -%}
+                {%- if paginate.parts.size > 0 -%}
+                  <nav
+                    class="pagination"
+                    role="navigation"
+                    aria-label="{{ 'general.pagination.label' | t }}">
+                    <ul role="list">
+                      {%- if paginate.previous -%}
+                        <li>
+                          <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              viewBox="0 0 10 6">
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                                fill="currentColor">
+                            </svg>
+                          </a>
+                        </li>
                       {%- endif -%}
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
 
-                {%- if paginate.next -%}
-                  <li>
-                    <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
-                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-                      </svg>
-                    </a>
-                  </li>
+                      {%- for part in paginate.parts -%}
+                        <li>
+                          {%- if part.is_link -%}
+                            <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                              {{- part.title -}}
+                            </a>
+                          {%- else -%}
+                            {%- if part.title == paginate.current_page -%}
+                              <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                                {{- part.title -}}
+                              </span>
+                            {%- else -%}
+                              <span>{{ part.title }}</span>
+                            {%- endif -%}
+                          {%- endif -%}
+                        </li>
+                      {%- endfor -%}
+
+                      {%- if paginate.next -%}
+                        <li>
+                          <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              viewBox="0 0 10 6">
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                                fill="currentColor">
+                            </svg>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                    </ul>
+                  </nav>
                 {%- endif -%}
-              </ul>
-            </nav>
-          {%- endif -%}
-        {%- endif -%}
-      {% endpaginate %}
-    </div>
+              {%- endif -%}
+            {% endpaginate %}
+          </div>
+        </div>
 
-    <div>
-      <h2>{{ 'customer.account.details' | t }}</h2>
 
-      {{ customer.default_address | format_address }}
-
-      <a href="{{ routes.account_addresses_url }}">
-        {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-      </a>
+      </div>
     </div>
   </div>
+  <div class='page-content-mobile large-up-hide'>
+    <div class="main-section">
+      <div class="left-side h-mobile">
+        <a
+          id="mprofileClick"
+          class='slide-item '
+          href='javascript:;'
+          onclick="mopenProfile(this)">
+          <div class='side-item-inner'>
+            {% render 'icon-account' %}
+            <span>MY PROFILE</span>
+            <div style="position: absolute; right:0">
+              {% render 'arrow-right' %}
+            </div>
+          </div>
+        </a>
+        <a
+          id="mordersClick"
+          class='slide-item '
+          href='javascript:;'
+          onclick="mopenOrders(this)">
+          <div class='side-item-inner'>
+            {% render 'icon-orders' %}
+            <span>MY ORDERS</span>
+            <div style="position: absolute; right:0">
+              {% render 'arrow-right' %}
+            </div>
+          </div>
+        </a>
+        <a
+          id="mopenAddress"
+          class='slide-item '
+          href='javascript:;'
+          onclick="mopenAddress(this)">
+          <div class='side-item-inner'>
+            {% render 'icon-address' %}
+            <span>ADDRESS</span>
+            <div style="position: absolute; right:0">
+              {% render 'arrow-right' %}
+            </div>
+          </div>
+        </a>
+        <a class='slide-item ' href='/account/logout'>
+          <div class='side-item-inner'>
+            {% render 'icon-logout' %}
+            <span style='color:#da3f3f'>LOGOUT</span>
+          </div>
+        </a>
+        {% comment %} <a style="cursor: pointer;" class='slide-item '  onclick='logout()'>
+          <div class='side-item-inner'>
+          {% render 'icon-logout' %}
+          <span style='color:#da3f3f'>LOGOUT</span>
+          </div>
+        </a> {% endcomment %}
+      </div>
+      <div class="main-details">
+        {% comment %} update customer  {% endcomment %}
+        <div
+          style="display: none;"
+          id="mobileProfile"
+          class="customer-profile">
+          <h2 onclick="closeOptionsShowMenu()">
+            {% render 'arrow-left' %} My Profile</h2>
+
+          <div class="form-container">
+            <form id="mprofileUpdateForm">
+              <div class="rowx">
+                <input
+                  type="hidden"
+                  name=""
+                  id="customer_id"
+                  value="{{customer.id}}">
+                <div class="field">
+                  <label for="mfname">First name</label>
+                  <input
+                    onchange="updateInput(this.value, this.id)"
+                    type="text"
+                    id="mfname"
+                    value="{{customer.first_name}}"
+                    placeholder="{{customer.first_name}}">
+                </div>
+                <div class="field">
+                  <label for="mlname">Last name</label>
+                  <input
+                    type="text"
+                    onchange="updateInput(this.value, this.id)"
+                    id="mlname"
+                    value="{{customer.last_name}}"
+                    placeholder="{{customer.last_name}}">
+                </div>
+                <div class="field">
+                  <label for="memail">Email</label>
+                  <input
+                    onchange="updateInput(this.value, this.id)"
+                    type="email"
+                    disabled
+                    value="{{customer.email}}"
+                    id="memail">
+                </div>
+                <div class="field">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;">
+                </div>
+              </div>
+              <a class='change-pass' href="/account/login?return_url=%2Faccount#recover">Change password</a>
+
+              <div id="updateErrorMsg" class="error"></div>
+              <button class="updateUserData" type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+
+        <div style="display: none;" id="mobileAddress">
+          <h2 onclick="closeOptionsShowMenu()">
+            {% render 'arrow-left' %} Address</h2>
+          <!-- Tab links -->
+          <div class="form-container">
+            {% if customer.addresses_count > 0 %}
+              <!-- Tab links -->
+              <div class="mtab">
+
+                {% for address in customer.addresses %}
+                  <div class="mtablinks {% if forloop.first %} mactive {%endif%}" onclick="mopenCity(event, 'maddress-{{ forloop.index }}')">
+                    <p>Address {{ forloop.index }}</p>
+                  </div>
+                {% endfor %}
+
+                <div class="add_address">
+                  <a
+                    href='javascript:;'
+                    onclick="addAddressBtn(this)"
+                    class="mchange-pass">Add address</a>
+                </div>
+
+
+              </div>
+
+              <!-- Tab content -->
+              {% for address in customer.addresses %}
+                <div
+                  id="maddress-{{ forloop.index }}"
+                  class="mtabcontent"
+                  style="display: {% if forloop.first %} block {%endif%};">
+                  <div id="EditAddress_{{ address.id }}">
+                    <br/>
+                    {%- form 'customer_address', address -%}
+                      <div>
+                        <label for="AddressCountry_{{ form.id }}">
+                          {{ 'customer.addresses.country' | t }}
+                        </label>
+                        <div class="select">
+                          <select
+                            id="mAddressCountry_{{ form.id }}"
+                            name="address[country]"
+                            data-address-country-select
+                            data-default="{{ form.country }}"
+                            data-form-id="{{ form.id }}"
+                            autocomplete="country">
+                            {{ all_country_option_tags }}
+                          </select>
+                          <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            viewBox="0 0 10 6">
+                            <use href="#icon-caret" />
+                          </svg>
+                        </div>
+                      </div>
+                      <script>
+                        var id = `mAddressCountry_{{ form.id }}`
+                        var options = document.getElementById(id).options;
+                        for (var i = 0; i < options.length; i++) {
+                          if (options[i].text == "{{ form.country }}") {
+                            options[i].selected = true;
+                            break;
+                          }
+                        }
+                      </script>
+                      <div class="rowx">
+                        <div class="field">
+                          <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
+                          <input
+                            type="text"
+                            id="mAddressFirstName_{{ form.id }}"
+                            name="address[first_name]"
+                            value="{{ form.first_name }}"
+                            autocomplete="given-name"
+                            placeholder="{{ 'customer.addresses.first_name' | t }}">
+
+                        </div>
+                        <div class="field">
+                          <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}</label>
+                          <input
+                            type="text"
+                            id="mAddressLastName_{{ form.id }}"
+                            name="address[last_name]"
+                            value="{{ form.last_name }}"
+                            autocomplete="family-name"
+                            placeholder="{{ 'customer.addresses.last_name' | t }}">
+
+                        </div>
+                      </div>
+
+                      <div class="field" style="width: 100%;">
+                        <label for="AddressCompany_{{ form.id }}">{{ 'customer.addresses.company' | t }} (optional)</label>
+                        <input
+                          type="text"
+                          id="mAddressCompany_{{ form.id }}"
+                          name="address[company]"
+                          value="{{ form.company }}"
+                          autocomplete="organization"
+                          placeholder="{{ 'customer.addresses.company' | t }}">
+
+                      </div>
+                      <div class="field" style="width:100%">
+                        <label for="AddressAddress1_{{ form.id }}">Address</label>
+                        <input
+                          type="text"
+                          id="mAddressAddress1_{{ form.id }}"
+                          name="address[address1]"
+                          value="{{ form.address1 }}"
+                          autocomplete="address-line1"
+                          placeholder="{{ 'customer.addresses.address1' | t }}">
+
+                      </div>
+                      <div class="field" style="width:100%">
+                        <label for="AddressAddress2_{{ form.id }}">Apartment, suite, etc, (optional)</label>
+                        <input
+                          type="text"
+                          id="mAddressAddress2_{{ form.id }}"
+                          name="address[address2]"
+                          value="{{ form.address2 }}"
+                          autocomplete="address-line2"
+                          placeholder="{{ 'customer.addresses.address2' | t }}">
+
+                      </div>
+                      <div class="rowx custom">
+                        <div class="field">
+                          <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+                          <input
+                            type="text"
+                            id="mAddressCity_{{ form.id }}"
+                            name="address[city]"
+                            value="{{ form.city }}"
+                            autocomplete="address-level2"
+                            placeholder="{{ 'customer.addresses.city' | t }}">
+
+                        </div>
+                        <div class="field">
+                          <label for="AddressProvince_{{ form.id }}">States</label>
+                          <input
+                            type="text"
+                            id="mAddressCity_{{ form.id }}"
+                            name="address[province]"
+                            value="{{ form.province }}"
+                            autocomplete="address-level1"
+                            placeholder="Enter a state">
+
+                        </div>
+
+                        <div class="field">
+                          <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+                          <input
+                            type="text"
+                            id="mAddressZip_{{ form.id }}"
+                            name="address[zip]"
+                            value="{{ form.zip }}"
+                            autocapitalize="characters"
+                            autocomplete="postal-code"
+                            placeholder="{{ 'customer.addresses.zip' | t }}">
+
+                        </div>
+                      </div>
+
+                      <div class="field" style="width:100%">
+                        <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label>
+                        <input
+                          type="tel"
+                          id="mAddressPhone_{{ form.id }}"
+                          name="address[phone]"
+                          value="{{ form.phone }}"
+                          autocomplete="tel"
+                          placeholder="{{ 'customer.addresses.phone' | t }}">
+
+                      </div>
+                      <div class="row" style="display: flex;
+                                                                                                                                                                                                                  align-items: baseline;
+                                                                                                                                                                                                                  justify-content: flex-start;
+                                                                                                                                                                                                                  gap: 10px;">
+                        <div>
+                          <form
+                            class="address-delete-form"
+                            method="post"
+                            action="/account/addresses/{{ address.id }}">
+                            <input
+                              type="hidden"
+                              name="_method"
+                              value="delete">
+                            <button type="submit">Delete Address</button>
+                          </form>
+                        </div>
+                        <button style="margin: 0; float:right">Save changes</button>
+                      </div>
+                    {%- endform -%}
+                  </div>
+                </div>
+              {% endfor %}
+
+
+            {% else %}
+              <p>You do not have any saved address. Kindly, add one for an easy checkout process.</p>
+
+              <button onclick="addAddressBtn()" style="margin:0">Add Address</button>
+
+            {% endif %}
+          </div>
+        </div>
+        <div style="display: none;" id="mobileAddAddress">
+          <h2 onclick="closeOptionsShowMenu()">
+            {% render 'arrow-left' %}Add Address</h2>
+          <div class="form-container">
+            {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
+              <div>
+                <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+                <div class="select">
+                  <select
+                    id="AddressCountryNew"
+                    name="address[country]"
+                    data-default="{{ form.country }}"
+                    autocomplete="country">
+                    {{ all_country_option_tags }}
+                  </select>
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 10 6">
+                    <use href="#icon-caret" />
+                  </svg>
+                </div>
+              </div>
+              <div class="rowx">
+                <div class="field">
+                  <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+                  <input
+                    type="text"
+                    id="AddressFirstNameNew"
+                    name="address[first_name]"
+                    value="{{ form.first_name }}"
+                    autocomplete="given-name"
+                    placeholder="{{ 'customer.addresses.first_name' | t }}">
+
+                </div>
+                <div class="field">
+                  <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+                  <input
+                    type="text"
+                    id="AddressLastNameNew"
+                    name="address[last_name]"
+                    value="{{ form.last_name }}"
+                    autocomplete="family-name"
+                    placeholder="{{ 'customer.addresses.last_name' | t }}">
+
+                </div>
+              </div>
+
+              <div class="field" style="width:100%">
+                <label for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}(optional)</label>
+                <input
+                  type="text"
+                  id="AddressCompanyNew"
+                  name="address[company]"
+                  value="{{ form.company }}"
+                  autocomplete="organization"
+                  placeholder="{{ 'customer.addresses.company' | t }}">
+
+              </div>
+              <div class="field" style="width:100%">
+                <label for="AddressAddress1New">Address</label>
+                <input
+                  type="text"
+                  id="AddressAddress1New"
+                  name="address[address1]"
+                  value="{{ form.address1 }}"
+                  autocomplete="address-line1"
+                  placeholder="{{ 'customer.addresses.address1' | t }}">
+
+              </div>
+              <div class="field" style="width:100%">
+                <label for="AddressAddress2New">Apartment, suite, etc, (optional)</label>
+                <input
+                  type="text"
+                  id="AddressAddress2New"
+                  name="address[address2]"
+                  value="{{ form.address2 }}"
+                  autocomplete="address-line2"
+                  placeholder="{{ 'customer.addresses.address2' | t }}">
+
+              </div>
+              <div class="rowx custom">
+                <div class="field">
+                  <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+                  <input
+                    type="text"
+                    id="AddressCityNew"
+                    name="address[city]"
+                    value="{{ form.city }}"
+                    autocomplete="address-level2"
+                    placeholder="{{ 'customer.addresses.city' | t }}">
+
+                </div>
+                <div id="AddressProvinceContainerNew" class="field">
+                  <label for="AddressLastNameNew">States</label>
+                  <input
+                    type="text"
+                    id="AddressCity_{{ form.id }}"
+                    name="address[province]"
+                    value="{{ form.province }}"
+                    autocomplete="address-level1"
+                    placeholder="State/Province">
+                </div>
+
+                <div class="field">
+                  <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+                  <input
+                    type="text"
+                    id="AddressZipNew"
+                    name="address[zip]"
+                    value="{{ form.zip }}"
+                    autocapitalize="characters"
+                    autocomplete="postal-code"
+                    placeholder="{{ 'customer.addresses.zip' | t }}">
+                </div>
+              </div>
+
+
+              <div class="field" style="width: 100%;">
+                <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+                <input
+                  type="tel"
+                  id="AddressPhoneNew"
+                  name="address[phone]"
+                  value="{{ form.phone }}"
+                  autocomplete="tel"
+                  placeholder="{{ 'customer.addresses.phone' | t }}">
+              </div>
+              {% comment %} <div>
+                {{ form.set_as_default_checkbox }}
+                <label for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label> 
+              </div> {% endcomment %}
+              <div>
+                <button>Save Changes</button>
+              </div>
+            {%- endform -%}
+          </div>
+        </div>
+
+        <div style="display: none;" id="mobileOrders">
+          <div>
+            <h2 onclick="closeOptionsShowMenu()">
+              {% render 'arrow-left' %} MY ORDERS</h2>
+
+            {% paginate customer.orders by 20 %}
+              {%- if customer.orders.size > 0 -%}
+                <table role="table" class="order-history">
+                  <caption class="visually-hidden">
+                    {{ 'customer.orders.title' | t }}
+                  </caption>
+                  <thead role="rowgroup">
+                    <tr role="row">
+                      <th
+                        id="ColumnOrder"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
+                      <th
+                        id="ColumnDate"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.date' | t }}</th>
+                      <th
+                        id="ColumnPayment"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
+                      <th
+                        id="ColumnFulfillment"
+                        scope="col"
+                        role="columnheader">
+                        {{ 'customer.orders.fulfillment_status' | t }}
+                      </th>
+                      <th
+                        id="ColumnTotal"
+                        scope="col"
+                        role="columnheader">{{ 'customer.orders.total' | t }}</th>
+                    </tr>
+                  </thead>
+                  <tbody role="rowgroup">
+                    {%- for order in customer.orders -%}
+                      <tr role="row">
+                        <td
+                          id="RowOrder"
+                          role="cell"
+                          headers="ColumnOrder"
+                          data-label="{{ 'customer.orders.order_number' | t }}">
+                          <a href="{{ order.customer_url}}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                            {{ order.name }}
+                          </a>
+
+                        </td>
+                        <td
+                          headers="RowOrder ColumnDate"
+                          role="cell"
+                          data-label="{{ 'customer.orders.date' | t }}">
+                          {{ order.created_at | time_tag: format: 'date' }}
+                        </td>
+                        <td
+                          headers="RowOrder ColumnPayment"
+                          role="cell"
+                          data-label="{{ 'customer.orders.payment_status' | t }}">
+                          {{ order.financial_status_label }}
+                        </td>
+                        <td
+                          headers="RowOrder ColumnFulfillment"
+                          role="cell"
+                          data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                          {{ order.fulfillment_status_label }}
+                        </td>
+                        <td
+                          headers="RowOrder ColumnTotal"
+                          role="cell"
+                          data-label="{{ 'customer.orders.total' | t }}">
+                          {{ order.total_net_amount | money_with_currency }}
+                        </td>
+                      </tr>
+                    {%- endfor -%}
+                  </tbody>
+                </table>
+              {%- else -%}
+                <p>You currently do not have any order right now</p>
+                <a href="/pages/baby" class="">
+                  <button style="margin:0">Start Shopping</button>
+                </a>
+              {%- endif -%}
+
+              {%- if paginate.pages > 1 -%}
+                {%- if paginate.parts.size > 0 -%}
+                  <nav
+                    class="pagination"
+                    role="navigation"
+                    aria-label="{{ 'general.pagination.label' | t }}">
+                    <ul role="list">
+                      {%- if paginate.previous -%}
+                        <li>
+                          <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              viewBox="0 0 10 6">
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                                fill="currentColor">
+                            </svg>
+                          </a>
+                        </li>
+                      {%- endif -%}
+
+                      {%- for part in paginate.parts -%}
+                        <li>
+                          {%- if part.is_link -%}
+                            <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                              {{- part.title -}}
+                            </a>
+                          {%- else -%}
+                            {%- if part.title == paginate.current_page -%}
+                              <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                                {{- part.title -}}
+                              </span>
+                            {%- else -%}
+                              <span>{{ part.title }}</span>
+                            {%- endif -%}
+                          {%- endif -%}
+                        </li>
+                      {%- endfor -%}
+
+                      {%- if paginate.next -%}
+                        <li>
+                          <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              viewBox="0 0 10 6">
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                                fill="currentColor">
+                            </svg>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                    </ul>
+                  </nav>
+                {%- endif -%}
+              {%- endif -%}
+            {% endpaginate %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
+<script>
+  window.addEventListener('load', () => {
+    typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
+  });
+</script>
 {% schema %}
-{
-  "name": "t:sections.main-account.name",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
-}
+  {
+    "name": "t:sections.main-account.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ]
+  }
 {% endschema %}

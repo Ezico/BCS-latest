@@ -1,0 +1,118 @@
+{
+  "sections": {
+    "c5542dd1-ad16-4bad-90d5-6f6b06a4498c": {
+      "type": "header-background",
+      "settings": {
+        "BannerD": "shopify://shop_images/BabyCot_070_1356_copy_1_1.png",
+        "BannerM": "shopify://shop_images/BabyCot_070_1356_copy_1.png"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "511fc1cd-2797-43fe-b0d9-d7491b004674": {
+      "type": "collection-grid-with-button",
+      "blocks": {
+        "0a4b911a-60bf-43ac-8f9b-69bf7d476148": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/cot2.png",
+            "title": "COT BEDS",
+            "link": "shopify://collections/cots",
+            "text": "SHOP CATEGORY"
+          }
+        },
+        "c9791277-3169-42a8-83a3-e510709bacf3": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/cot1.png",
+            "title": "MOSES BASKET",
+            "link": "shopify://collections/moses-backsets",
+            "text": "SHOP CATEGORY"
+          }
+        },
+        "a05a856d-5139-47c8-aba2-8bbe69989bc6": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/BabyCot_070_1356_copy_2.png",
+            "title": "CHANGING UNITS",
+            "link": "shopify://collections/changing-units",
+            "text": "SHOP CATEGORY"
+          }
+        },
+        "de5c67a1-d088-4ccb-9752-148d096dc187": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/image_11_1.png",
+            "title": "BED LINEN",
+            "link": "shopify://collections/luxury-bed-linens-for-children",
+            "text": "shop category"
+          }
+        },
+        "13a94eba-8604-4ac6-98ee-559032fe7257": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/BabyCot_070_1356_copy_2.png",
+            "title": "Rocking Chairs",
+            "link": "shopify://collections/tables-and-chair",
+            "text": "shop category"
+          }
+        },
+        "c644b24e-4ae0-4c8d-be17-3203fbb5f7e3": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/cot2.png",
+            "title": "Baby Accessories",
+            "link": "shopify://collections/accessories",
+            "text": "shop category"
+          }
+        }
+      },
+      "block_order": [
+        "0a4b911a-60bf-43ac-8f9b-69bf7d476148",
+        "c9791277-3169-42a8-83a3-e510709bacf3",
+        "a05a856d-5139-47c8-aba2-8bbe69989bc6",
+        "de5c67a1-d088-4ccb-9752-148d096dc187",
+        "13a94eba-8604-4ac6-98ee-559032fe7257",
+        "c644b24e-4ae0-4c8d-be17-3203fbb5f7e3"
+      ],
+      "settings": {
+        "title": "Explore Baby’s Category"
+      }
+    },
+    "9ec587e2-8aea-449a-935a-436f64d17ed3": {
+      "type": "product-carousel",
+      "settings": {
+        "title": "Similar products",
+        "showmore": true,
+        "collection": "luxury-bed-linens-for-children",
+        "products_to_show": 25,
+        "image_ratio": "square",
+        "image_shape": "default"
+      }
+    },
+    "62d5d51f-57e2-4332-917e-7d51190a03e9": {
+      "type": "homepage-video",
+      "settings": {
+        "header": "How To Choose The Best Baby Cot Bed?",
+        "body": "Some parents choose to have their baby's name painted or carved on to make their baby's luxury cot bed even more special. Our timeless and beautiful upholstered cots make the perfect centrepiece for your child’s nursery and convert to toddler beds. Cots can be purchased alone or as part of a <a href=\"/\" title=\"/\"><strong>NURSERY ROOM SET</strong></a>. Smaller cots are also available for the smaller nursery; ask about our free nursery consultation or <a href=\"/\" title=\"/\"><strong>NURSERY INTERIOR DESIGN SERVICE</strong></a> For expert help in designing your munchkin's nursery room. Because our nursery cots are bespoke, choose from the featured finishes or tell us your preferred colour, and we will match it. All our cots are made with your baby's safety in mind and conform to the latest safety standard, BS EN 716-1:2017",
+        "embed": "<iframe class=\"embeded-media\" src=\"https://www.youtube.com/embed/b3ootXSAaqE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
+        "button": false,
+        "title": "Call now",
+        "button-link": "/"
+      }
+    }
+  },
+  "order": [
+    "c5542dd1-ad16-4bad-90d5-6f6b06a4498c",
+    "main",
+    "511fc1cd-2797-43fe-b0d9-d7491b004674",
+    "9ec587e2-8aea-449a-935a-436f64d17ed3",
+    "62d5d51f-57e2-4332-917e-7d51190a03e9"
+  ]
+}

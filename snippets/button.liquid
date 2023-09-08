@@ -1,3 +1,11 @@
 <a href="{{link}}">
-  <button class="slider_action">{{ title }}</button>
+
+  <button class="slider_action">
+    <div class="icon-inc">
+      {{ title }}
+      {% if icon %}
+        <i class="icon-hover-effect">{% render 'arrow-right' %}</i>
+      {% endif %}
+    </div>
+  </button>
 </a>

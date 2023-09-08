@@ -290,3 +290,16 @@ if (!customElements.get("cart-note")) {
     }
   );
 }
+
+// custom
+document.querySelector(".input_custom").addEventListener("click", function () {
+  this.classList.toggle("cart-active");
+  // if (this.classList.contains("cart-active")) {
+  //   document.getElementById("checkout").disabled = false;
+  //   console.log("it does");
+  // } else {
+  //   document.getElementById("checkout").disabled = true;
+  //   console.log("it does not");
+  // }
+  // console.log(this);
+});

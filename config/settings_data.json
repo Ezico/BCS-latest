@@ -140,6 +140,12 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "15796953133730294439": {
+        "type": "shopify:\/\/apps\/growave-loyalty-wishlist\/blocks\/block.embed.socialshopwave-helper\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+        "disabled": false,
+        "settings": {
+        }
       }
     },
     "color_schemes": {
@@ -385,5 +391,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "[dir=\"ltr\"] .QT4by {text-align: left; color: white; text-transform: uppercase;}"
+    ]
   }
 }

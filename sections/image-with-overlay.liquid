@@ -1,0 +1,49 @@
+<div class="related-products section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} animate--slide-in{% endif %}">
+  {% assign image = section.settings.banner | img_url: 'master' %}
+  {% render 'image-with-text-overlay' desc: {{section.settings.title}}, image: {{image}}, title: {{section.settings.header}}, link: {{section.settings.url}}, text: {{section.settings.button_text}}, direction: 'right' %}
+ </div>
+
+{% schema %}
+  {
+    "name": "Banner with text",
+    "tag": "section",
+    "class": "banner_text_section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner",
+        "label": "banner image"
+      },
+      {
+        "type": "text",
+        "id": "header",
+        "label": "heading text",
+        "default": "ADD HEADING TEXT HERE"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "default": "Featured collection",
+        "label": "t:sections.featured-collection.settings.title.label"
+      },
+      {
+        "type": "url",
+        "id": "url",
+        "label": "button link"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "button text",
+        "default": "SHOP NOW"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner with text"
+      }
+    ]
+  }
+{% endschema %}

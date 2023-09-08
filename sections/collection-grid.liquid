@@ -1,0 +1,130 @@
+<div class="collection-grid section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} animate--slide-in{% endif %}">
+  <div class="page-width">
+    <br>
+    <br>
+    <br>
+  <div class="no-desktop collection-home">
+    <div class="row">
+      {% for block in section.blocks %}
+         <div class="collection__item">
+          <a href="{{block.settings.url}}" class="collection_banner">
+            <img src="{{block.settings.image | img_url: 'master'}}" alt="" class="collection_cover">
+          </a>
+          <div class="collection_title">{{block.settings.title}}</div>
+      </div>
+      {% endfor %}
+     
+    </div>
+  </div>
+  <div class="no-mobile collection_carousel">
+    <div class="collection__itemm">
+          <a href="" class="collection_banner">
+            <img src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/cot1.png?v=1689341237" alt="" class="collection_cover">
+          </a>
+          <div class="collection_title">MOSES BASKET</div>
+      </div>
+      <div class="collection__itemm">
+          <a href="" class="collection_banner">
+            <img src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/cot2.png?v=1689341237" alt="" class="collection_cover">
+          </a>
+          <div class="collection_title">MOSES BASKET</div>
+      </div>
+      <div class="collection__itemm">
+          <a href="" class="collection_banner">
+            <img src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/cot.png?v=1689341238" alt="" class="collection_cover">
+          </a>
+          <div class="collection_title">MOSES BASKET</div>
+      </div>
+      <div class="collection__itemm">
+          <a href="" class="collection_banner">
+            <img src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/cot2.png?v=1689341237" alt="" class="collection_cover">
+          </a>
+          <div class="collection_title">MOSES BASKET</div>
+      </div>
+      <div class="collection__itemm">
+          <a href="" class="collection_banner">
+            <img src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/cot.png?v=1689341238" alt="" class="collection_cover">
+          </a>
+          <div class="collection_title">MOSES BASKET</div>
+      </div>
+      <div class="collection__itemm">
+          <a href="" class="collection_banner">
+            <img src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/cot1.png?v=1689341237" alt="" class="collection_cover">
+          </a>
+          <div class="collection_title">MOSES BASKET</div>
+      </div>
+  </div>
+  <br/>
+  </div>
+</div>
+
+
+{% javascript %}
+    $('.collection_carousel').slick({
+  infinite: true,
+  slidesToShow: 1.2,
+  slidesToScroll: 1,
+  arrows:true,
+  prevArrow: '<img class="nav-left" style="top:-40px; right:75px;width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/left.png">',
+  nextArrow: '<img class="nav-right" style="top:-40px;right:17px; width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/right.png">',
+   responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2.1,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1.1,
+        }
+      }
+    ]
+});
+  {% endjavascript %}
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "tag": "section",
+  "class": "collection_grid_section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+  ],
+  "blocks": [
+      {
+        "type": "heading",
+        "name": "t:sections.rich-text.blocks.heading.name",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "default": "Add a title",
+            "label": "title"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "add image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "info": "link",
+            "label": "link to"
+          }
+
+        ]
+}
+  ],
+  "presets": [
+    {
+      "name": "Collection Grid"
+    }
+  ]
+}
+{% endschema %}

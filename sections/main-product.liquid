@@ -15,10 +15,13 @@
   .card-wrapper{
     padding: 10px;
   }
+.breadcrumbs {
+    padding: 0;
+}
   .slider-galeria-thumbs {
     float: left;
-    width: 18%;
-    padding: 0 20px;
+    width: 15%;
+    padding-left: 0px;
   }
 
   .slider-galeria {
@@ -266,7 +269,7 @@ a.btn.button.Button.bcpo-view-cart-link {
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   {% assign delivery-date = product.metafields.custom.delivery_date.value %}
-  {% assign specification = product.metafields.custom.specifications.value %}
+  {% assign specification = product.metafields.global.specifications.value %}
 
     {% comment %} add to cart popup  {% endcomment %}
     <div id="cartmyModal" class="cartmodal">
@@ -298,8 +301,10 @@ a.btn.button.Button.bcpo-view-cart-link {
         <div class="button"></div>
       </div>
     </div>
+    {% render 'breadcrumb' %}  
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-    <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
+
+<div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
 
       <div class="large-up-hide">
         {% comment %} sku {% endcomment %}
@@ -309,6 +314,7 @@ a.btn.button.Button.bcpo-view-cart-link {
           {{- product.selected_or_first_available_variant.sku -}}
         </p>
 
+        {{product.id}}
         {% comment %} title {% endcomment %}
         <h2 class='bcs_product_title'>{{ product.title }}</h2>
 
@@ -633,12 +639,12 @@ a.btn.button.Button.bcpo-view-cart-link {
         {% if specification %}
           <button class="bsc_accordion">Specification</button>
         <div class="panel">
-          <p>{{ product.metafields.custom.specifications }}</p>
+          <p>{{specification }}</p>
         </div>
         {% endif %}
         
 
-        <button class="bsc_accordion">Shiping & Delivery</button>
+        <button class="bsc_accordion">Shipping & Delivery</button>
         <div class="panel">
           <p>As this custom orderd, alow 10 days for shipping. Please read our
             <a href='/page/terms-condition'>terms & conditions</a>
@@ -755,7 +761,7 @@ a.btn.button.Button.bcpo-view-cart-link {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    infinite: true,
+    infinite: false,
     asNavFor: '.slider-galeria-thumbs'
   });
   $('.slider-galeria-thumbs').slick({
@@ -766,7 +772,7 @@ a.btn.button.Button.bcpo-view-cart-link {
     vertical: true,
     verticalSwiping: false,
     focusOnSelect: true,
-    infinite: true
+    infinite: false
   });
 
   // mobile gallery settings

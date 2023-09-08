@@ -4,6 +4,22 @@
   border: none;
 }
 
+.input_custom {
+  border: 3px solid grey;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: center;
+  color: transparent;
+  cursor: pointer;
+  float: left;
+  margin-right: 5px;
+}
+.cart-active span {
+  color: black;
+}
 .cart-items th {
   text-align: left;
   padding-bottom: 1.8rem;
@@ -170,7 +186,7 @@ span.bcs_cart_count {
   margin: 12px;
 }
 .bcs_cart-header h2 {
-  font-family: "Nunito";
+  font-family: "Cormorant";
   font-style: normal;
   font-weight: 700;
   font-size: 32px;

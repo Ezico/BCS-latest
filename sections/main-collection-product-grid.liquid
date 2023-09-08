@@ -10,12 +10,8 @@
 
 {%- if section.settings.enable_quick_add -%}
   {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-  <script
-    src="{{ 'quick-add.js' | asset_url }}"
-    defer="defer"></script>
-  <script
-    src="{{ 'product-form.js' | asset_url }}"
-    defer="defer"></script>
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- style -%}
@@ -37,75 +33,47 @@
 {%- endstyle -%}
 
 
-<div
-  class="section-{{ section.id }}-padding">
+<div class="section-{{ section.id }}-padding">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}{%- endif -%}
 
 
     {% comment %} add to cart popup  {% endcomment %}
-    <div
-      id="cartmyModal"
-      class="cartmodal">
+    <div id="cartmyModal" class="cartmodal">
 
-      <div
-        class="cartmodal-content">
-        <div
-          class="cartModalHeading">Item Added to Bag</div>
-        <span
-          onclick="closeModal()"
-          class="close">&times;</span>
-        <div
-          class="row">
-          <div
-            class="col-1">
-            <img
-              id="cartModalImg"
-              src="" />
+      <div class="cartmodal-content">
+        <div class="cartModalHeading">Item Added to Bag</div>
+        <span onclick="closeModal()" class="close">&times;</span>
+        <div class="row">
+          <div class="col-1">
+            <img id="cartModalImg" src="" />
           </div>
-          <div
-            class="col-1">
-            <h2
-              id="cartModalTitle"></h2>
-            <div
-              id="cartModaldesc"
-              class="shortDesc"></div>
+          <div class="col-1">
+            <h2 id="cartModalTitle"></h2>
+            <div id="cartModaldesc" class="shortDesc"></div>
           </div>
         </div>
-        <div
-          class="cartModalAction">
-          <facet-remove
-            class="">
-            <a
-              href="{{ results_url }}"
-              class="active-facets__button-remove underlined-link">
-              <button
-                class="continueShopping"
-                onclick="closeModal()">Continue Shopping</button>
+        <div class="cartModalAction">
+          <facet-remove class="">
+            <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
+              <button class="continueShopping" onclick="closeModal()">Continue Shopping</button>
             </a>
           </facet-remove>
 
-          <a
-            href="/cart"
-            class="">
-            <button
-              class="continueShopping">View Bag</button>
+          <a href="/cart" class="">
+            <button class="continueShopping">View Bag</button>
           </a>
 
         </div>
-        <div
-          class="button"></div>
+        <div class="button"></div>
       </div>
     </div>
 
-    <div
-      class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
+    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %} mt-20">
 
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
-      <script
-        src="{{ 'facets.js' | asset_url }}"
-        defer="defer"></script>
+      <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         {%- if collection.products.size > 0 -%}
           <aside
@@ -132,12 +100,9 @@
             class="collection collection--empty page-width"
             id="product-grid"
             data-id="{{ section.id }}">
-            <div
-              class="loading-overlay gradient"></div>
-            <div
-              class="title-wrapper center">
-              <h2
-                class="title title--primary">
+            <div class="loading-overlay gradient"></div>
+            <div class="title-wrapper center">
+              <h2 class="title title--primary">
                 {{ 'sections.collection_template.empty' | t -}}
                 <br>
                 {{
@@ -147,26 +112,22 @@
             </div>
           </div>
         {%- else -%}
-          <div
-            class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
-            <div
-              class="loading-overlay gradient"></div>
+          <div class="collection {% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+            <div class="loading-overlay gradient"></div>
 
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
               class="
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                grid--{{ section.settings.columns_desktop }}-col-desktop
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                grid--{{ section.settings.columns_desktop }}-col-desktop
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ">
               {%- for product in collection.products -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
-                <li
-                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                  {% if settings.animations_reveal_on_scroll %}data-cascadestyle="--animation-order: {{ forloop.index }};"{% endif %}>
+                <li class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascadestyle="--animation-order: {{ forloop.index }};"{% endif %}>
                   {% render 'card-product'
                    , cartModalImg: ,
                    , cartModalTitle: ,
@@ -188,11 +149,9 @@
             {%- if paginate.pages > 1 -%}
               {% render 'pagination', paginate: paginate, anchor: '' %}
             {%- endif -%}
-            <div
-              class="message_from_toks">
+            <div class="message_from_toks">
               <h2>Note from Toks</h2>
-              <div
-                class="text">Searching for comfortable baby bedding for your muchkin? We have you covered! <br>
+              <div class="text">Searching for comfortable baby bedding for your muchkin? We have you covered! <br>
                 We know how stressful it can be when it comes to choosing the best option for your newborn, so we have done the work; we carefully selected the safest, natural baby bed linens for your baby. From using only OEKO-TEX® certified fabrics, to the attention to detail in each piece, the BCS baby bedding collection ticks all the boxes, so you can shop with peace of mind.</div>
             </div>
           </div>

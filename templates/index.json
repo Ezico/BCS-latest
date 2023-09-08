@@ -66,30 +66,30 @@
     "43e71edd-9454-4638-b276-7dd7a3c4b7f5": {
       "type": "product-carousel",
       "settings": {
-        "title": "Baby Collection",
+        "title": "Stylist Picks",
         "collection": "luxury-bed-linens-for-children",
         "products_to_show": 25,
         "image_ratio": "square",
         "image_shape": "default"
       }
     },
-    "d68ace7c-9196-47f1-9acb-2764864e8ac9": {
-      "type": "image-with-text-overlay",
+    "fb6295c7-5a82-4b7b-99b4-f4968316555e": {
+      "type": "featured-in",
       "blocks": {
-        "template--19531197776175__d68ace7c-9196-47f1-9acb-2764864e8ac9-1689243318a7c5853f-0": {
+        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-0": {
           "type": "heading",
           "settings": {
             "heading": "Talk about your brand",
             "heading_size": "h1"
           }
         },
-        "template--19531197776175__d68ace7c-9196-47f1-9acb-2764864e8ac9-1689243318a7c5853f-1": {
+        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-1": {
           "type": "text",
           "settings": {
             "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
         },
-        "template--19531197776175__d68ace7c-9196-47f1-9acb-2764864e8ac9-1689243318a7c5853f-2": {
+        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-2": {
           "type": "button",
           "settings": {
             "button_label": "Button label",
@@ -102,66 +102,38 @@
         }
       },
       "block_order": [
-        "template--19531197776175__d68ace7c-9196-47f1-9acb-2764864e8ac9-1689243318a7c5853f-0",
-        "template--19531197776175__d68ace7c-9196-47f1-9acb-2764864e8ac9-1689243318a7c5853f-1",
-        "template--19531197776175__d68ace7c-9196-47f1-9acb-2764864e8ac9-1689243318a7c5853f-2"
+        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-0",
+        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-1",
+        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-2"
       ],
       "settings": {}
     },
-    "724b89e7-1133-466f-8eb0-624fb9969abc": {
-      "type": "product-carousel",
+    "294977ba-6b3a-41c0-8373-205bda953a00": {
+      "type": "image-with-overlay",
       "settings": {
-        "title": "Gift For Mums",
-        "collection": "luxury-bed-linens-for-children",
-        "products_to_show": 25,
+        "title": "Featured collection",
+        "collection": "",
+        "products_to_show": 4,
         "image_ratio": "adapt",
         "image_shape": "default"
       }
     },
-    "abeb4b11-08eb-4278-9222-cb83e1e94f5b": {
-      "type": "homepage-video",
-      "blocks": {
-        "template--19531197776175__abeb4b11-08eb-4278-9222-cb83e1e94f5b-16892588649a13f62c-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "template--19531197776175__abeb4b11-08eb-4278-9222-cb83e1e94f5b-16892588649a13f62c-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "template--19531197776175__abeb4b11-08eb-4278-9222-cb83e1e94f5b-16892588649a13f62c-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "template--19531197776175__abeb4b11-08eb-4278-9222-cb83e1e94f5b-16892588649a13f62c-0",
-        "template--19531197776175__abeb4b11-08eb-4278-9222-cb83e1e94f5b-16892588649a13f62c-1",
-        "template--19531197776175__abeb4b11-08eb-4278-9222-cb83e1e94f5b-16892588649a13f62c-2"
-      ],
-      "settings": {}
+    "68ece8dc-5a1c-4c94-882b-1b88a81971df": {
+      "type": "collection-grid",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "",
+        "products_to_show": 4,
+        "image_ratio": "adapt",
+        "image_shape": "default"
+      }
     },
     "fd2a07f1-dc7d-400f-a023-ffd62b697725": {
       "type": "most-shop-collections",
       "blocks": {
         "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-0": {
           "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
+          "settings": {}
         },
         "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-1": {
           "type": "text",
@@ -223,51 +195,26 @@
       ],
       "settings": {}
     },
-    "fb6295c7-5a82-4b7b-99b4-f4968316555e": {
-      "type": "featured-in",
-      "blocks": {
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-0",
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-1",
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-2"
-      ],
-      "settings": {}
+    "fc9fd4ad-00a6-4c40-9e44-8244c3165a03": {
+      "type": "image-with-overlay-small",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "",
+        "products_to_show": 4,
+        "image_ratio": "adapt",
+        "image_shape": "default"
+      }
     }
   },
   "order": [
     "d8e43471-53fe-46f4-b01a-ee26413f6804",
     "83daf880-f625-4766-9304-c11a9fc949c9",
     "43e71edd-9454-4638-b276-7dd7a3c4b7f5",
-    "d68ace7c-9196-47f1-9acb-2764864e8ac9",
-    "724b89e7-1133-466f-8eb0-624fb9969abc",
-    "abeb4b11-08eb-4278-9222-cb83e1e94f5b",
+    "fb6295c7-5a82-4b7b-99b4-f4968316555e",
+    "294977ba-6b3a-41c0-8373-205bda953a00",
+    "68ece8dc-5a1c-4c94-882b-1b88a81971df",
     "fd2a07f1-dc7d-400f-a023-ffd62b697725",
     "0c15fe83-fb0d-403c-ab67-10aa30313264",
-    "fb6295c7-5a82-4b7b-99b4-f4968316555e"
+    "fc9fd4ad-00a6-4c40-9e44-8244c3165a03"
   ]
 }

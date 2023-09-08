@@ -1,208 +1,542 @@
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+{{ 'contact.css' | asset_url | stylesheet_tag }}
+{{ 'contact.js' | asset_url | script_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+    px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top }}
+      px;
+      padding-bottom: {{ section.settings.padding_bottom }}
+      px;
     }
   }
 {%- endstyle -%}
+<div id="contactModal" class="cartmodal">
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
-          {% render 'icon-success' %}
-          {{ 'templates.contact.form.post_success' | t }}
-        </h2>
-      {%- elsif form.errors -%}
-        <div class="form__message">
-          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-            {% render 'icon-error' %}
-            {{ 'templates.contact.form.error_heading' | t }}
-          </h2>
+  <div class="cartmodal-content">
+
+    <span onclick="closeModalContact()" class="close">&times;</span>
+    <div id='stage1' class="stage_1 anim">
+      <div>
+        <h4>The Baby Cot Shop Room Design Service</h4>
+        <p class="mission">Our Misssion</p>
+        <p>Our mission is to help you create a space that your child will find inspiring; we believe your child will be positively impacted by a well-designed nursery or bedroom. Start by filling out this form so we can make sure we are the right fit for your project, we look forward to learning more about your requirements.</p>
+
+        <p>Many parents-to-be struggle to create the perfect nursery for their baby. Not only do we supply the most beautiful furniture & decor, our goal is to design a space that is tailored to your lifestyle and budget so you can have peace of mind knowing your little one has the perfect space. We look forward to helping you create a haven for you and your child.</p>
+      </div>
+      <br>
+      <div class="start" style="text-align: right;">
+        <a class="next_btn" onclick="openForm(this)">Continue</a>
+      </div>
+    </div>
+
+
+    <div class="no-show">
+      {% form 'contact' %}
+        <div
+          id='stage2'
+          class="stage_2 anim"
+          style="display: none;">
+          <p>{% render 'long-arrow-left' %} Go back</p>
+          <h4>Nursery / Kids' Room Design Questionnaire</h4>
+          <div class="progress">
+            <div class="bar" style="width:50%; display:block"></div>
+          </div>
+          {{ form.errors | default_errors }}
+          <div class="row">
+            <div class="field-container">
+              <label for="first-name">First name</label>
+              <input
+                placeholder="Enter first name"
+                type="text"
+                name="contact[first_name]"
+                id="first-name" />
+            </div>
+            <div class="field-container">
+              <label for="last-name">Last name</label>
+              <input
+                placeholder="Enter last name"
+                type="text"
+                name="contact[last_name]"
+                id="last-name" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field-container">
+              <label for="phone">Phone</label>
+              <input
+                placeholder="Phone number"
+                type="tel"
+                name="contact[phone]"
+                id="phone" />
+            </div>
+            <div class="field-container">
+              <label for="email">Email</label>
+              <input
+                placeholder="Enter Email address"
+                type="email"
+                name="contact[email]"
+                id="email" />
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="manicontact">Main Contact for project (e.g House Manager)</label>
+            <input
+              type="text"
+              placeholder="House Manager"
+              id="maincontact"
+              name="contact[mainContact]">
+          </div>
+          <div class="field-container">
+            <label for="street">Street Address</label>
+            <input
+              placeholder="Enter Street address"
+              type="text"
+              id="street"
+              name="contact[street]">
+          </div>
+          <div class="field-container">
+            <label for="address_line_2">Address Line 2</label>
+            <input
+              placeholder="Address Line 2"
+              type="text"
+              id="address_line_2"
+              name="contact[mainContact]">
+          </div>
+
+          <div class="row">
+            <div class="field-container">
+              <label for="city">City</label>
+              <input
+                placeholder="Enter City"
+                type="text"
+                name="contact[city]"
+                id="city" />
+            </div>
+            <div class="field-container">
+              <label for="text">City State/Region/Province</label>
+              <input
+                placeholder="Enter State"
+                type="text"
+                name="contact[state]"
+                id="state" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field-container">
+              <label for="zip">Zip Code</label>
+              <input
+                placeholder="Enter Zip code"
+                type="text"
+                name="contact[zip-code]"
+                id="zip" />
+            </div>
+            <div class="field-container">
+              <label for="country">Country</label>
+              <select name="country" id="country">
+                {{ all_country_option_tags }}
+              </select>
+            </div>
+          </div>
+          <br>
+          <a class="next_btn" onclick="openNext()">Next</a>
         </div>
-        <ul class="form-status-list caption-large" role="list">
-          <li>
-            <a href="#ContactForm-email" class="link">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </li>
-        </ul>
-      {%- endif -%}
-      <div class="contact__fields">
-        <div class="field">
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
-          >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+        <div
+          id="stage3"
+          class="stage_3 anim"
+          style="display: none;">
+          <p>{% render 'long-arrow-left' %} Go back</p>
+          <h4>Nursery / Kids' Room Design Questionnaire</h4>
+          <div class="progress">
+            <div class="bar" style="width:100%; display:block"></div>
+          </div>
+          <div class="field-container">
+            <div class="contact-time">
+              <br>
+              <p>When is your budget?</p>
+              <div class="contact-method">
+                <div class="check-container">
+                  <input
+                    type="checkbox"
+                    name="contact[contact_time_1]"
+                    onclick="onlyOne(this)"
+                    id="check">
+                  <label for="first">10,000 - 15,000</label>
+                </div>
+
+                <div class="check-container">
+                  <input
+                    type="checkbox"
+                    name="contact[contact_time_1]"
+                    onclick="onlyOne(this)"
+                    id="check">
+                  <label for="second">15,000 - 25,000</label>
+                </div>
+
+                <div class="check-container">
+                  <input
+                    type="checkbox"
+                    name="contact[contact_time_1]"
+                    onclick="onlyOne(this)"
+                    id="check">
+                  <label for="third">40,000+</label>
+                </div>
+
+                <br>
+                <div class="field-container">
+                  <label for="manicontact">When is Baby due?</label>
+                  <input
+                    type="text"
+                    placeholder="DD/MM/YY"
+                    id="due"
+                    name="contact[duedate]">
+                </div>
+
+                <div class="field-container">
+                  <label for="manicontact">Little one's age</label>
+                  <input
+                    type="text"
+                    placeholder="Enter age here"
+                    id="age"
+                    name="contact[age]">
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <a class="next_btn" onclick="openNext()">Submit form</a>
         </div>
-        <div class="field field--with-error">
-          <input
-            autocomplete="email"
-            type="email"
-            id="ContactForm-email"
-            class="field__input"
-            name="contact[email]"
-            spellcheck="false"
-            autocapitalize="off"
-            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-            aria-required="true"
-            {% if form.errors contains 'email' %}
-              aria-invalid="true"
-              aria-describedby="ContactForm-email-error"
-            {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-          >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
-          {%- if form.errors contains 'email' -%}
-            <small class="contact__field-error" id="ContactForm-email-error">
-              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-              <span class="form__message">
-                {%- render 'icon-error' -%}
-                {{- form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email -}}
-              </span>
-            </small>
-          {%- endif -%}
+        <div
+          id="stage4"
+          class="stage_4 anim"
+          style="display:none">
+          calender
         </div>
-      </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
-      <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      </div>
-    {%- endform -%}
+      {% endform %}
+    </div>
+
+
   </div>
 </div>
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width p-20 section-{{ section.id }}-padding">
 
-{% schema %}
-{
-  "name": "t:sections.contact-form.name",
-  "tag": "section",
-  "class": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
-  "settings": [
+    <br>
+    <div class="contact-page">
+
+      <div class="row">
+        <div class="col-1 bdr">
+          <h2 class="heading">GET IN TOUCH</h2>
+          <p class="desc">Dive into a dazzling deal! Dive into a dazzling deal! Dive into a dazzling deal!<br>
+            Opening Times:
+            <b>Mon to Sat, 10 am to 6 pm. Sunday is closed</b>
+          </p>
+          <br>
+          <div class="row">
+            <div class="col-50">
+              <div class="row contact-icos">
+                <div class="col ico">
+                  {% render 'contact-mail' %}
+                </div>
+                <div class="col col-desc">
+                  <b>Email Address</b>
+                  <a href="mailto:design@thebabycotshop.com">Design@thebabycotshop.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-50">
+              <div class="row">
+                <div class="col ico">
+                  {% render 'phone' %}
+                </div>
+                <div class="col col-desc">
+                  <b>Telephone</b>
+                  <a href="tel:+4470233717530">+447 0203 717 530</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-50">
+              <div class="row">
+                <div class="col ico">
+                  {% render 'marker' %}
+                </div>
+                <div class="col col-desc" style="flex:1">
+                  <b>Location</b>
+                  <address>408 King's Road Chelsea, London SW10 0LJ</address>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-50">
+              <div class="row">
+                <div class="col ico">
+                  {% render 'whatsapp' %}
+                </div>
+                <div class="col col-desc">
+                  <b>Whatsapp</b>
+                  <a href="tel:+4470233717530">+447 0203 717 530</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <h2 class="heading">
+            We Are Here For You
+          </h2>
+          <div class="desc">
+            <p>Whether you are shopping for a baby shower gift, looking for a statement cot or need complimentary design advice, you can contact our nursery design specialists via phone, email, video chat, or in-person appointments at our Chelsea boutique.</p>
+          </div>
+        </div>
+        <div class="col-1">
+          <div class="content-container">
+            <h2 class="heading">BOOK AN APPOINTMENT</h2>
+            <p class="desc">Book an appointment with us today!.</p>
+            <br>
+            <div class="full-img" style="background: linear-gradient( rgba(0, 0, 0, 0.30) 100%, rgba(0, 0, 0, 0.03)100%),url(https://cdn.shopify.com/s/files/1/0779/1745/4639/files/image_10_3.png?v=1688034029);">
+              <h3 class="anim">Personal Shopping</h3>
+              <p
+                onclick="openPersonal()"
+                class="anim"
+                style="color: white;">Book Appointment {% render 'arrow-right' %}</p>
+            </div>
+            <br>
+            <div class="full-img" style="background: linear-gradient( rgba(0, 0, 0, 0.30) 100%, rgba(0, 0, 0, 0.03)100%),url(https://cdn.shopify.com/s/files/1/0779/1745/4639/files/image_10_3.png?v=1688034029);">
+              <h3 class="anim">Interior Design</h3>
+              <p
+                onclick="openInterior()"
+                class="anim"
+                style="color: white;">Book Appointment {% render 'arrow-right' %}</p>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <div class="map-iframe">
+        <div class="map-container" style="overflow:hidden;max-width:100%;width:100%;height:520px;">
+          <div id="g-mapdisplay" style="height:100%; width:100%;max-width:100%;">
+            <iframe
+              style="height:100%;width:100%;border:0;"
+              frameborder="0"
+              src="https://www.google.com/maps/embed/v1/place?q=The+Baby+Cot+Shop,+Chelsea,+408+King's+Road,+London+SW10+0LJ,+UK&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+          </div>
+
+          <style>
+            #g-mapdisplay .text-marker {}
+            .map-generator {
+              max-width: 100%;
+              max-height: 100%;
+              background: none;
+            </style>
+          </div>
+        </div>
+      </div>
+
+
+      {% comment %} {%- if section.settings.heading != blank -%}
+        <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+        </h2>
+        {%- else -%}
+        <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+        {%- endif -%}
+        {%- liquid
+        assign contact_form_class = 'isolate'
+        if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+        endif
+      -%} {% endcomment %}
+      {% comment %} {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+        {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+        {% render 'icon-success' %}
+        {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+        {%- elsif form.errors -%}
+        <div class="form__message">
+        <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+        {% render 'icon-error' %}
+        {{ 'templates.contact.form.error_heading' | t }}
+        </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+        <li>
+        <a href="#ContactForm-email" class="link">
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}
+        </a>
+        </li>
+        </ul>
+        {%- endif -%}
+        <div class="contact__fields">
+        <div class="field">
+        <input
+        class="field__input"
+        autocomplete="name"
+        type="text"
+        id="ContactForm-name"
+        name="contact[{{ 'templates.contact.form.name' | t }}]"
+        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+        placeholder="{{ 'templates.contact.form.name' | t }}"
+        >
+        <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+        </div>
+        <div class="field field--with-error">
+        <input
+        autocomplete="email"
+        type="email"
+        id="ContactForm-email"
+        class="field__input"
+        name="contact[email]"
+        spellcheck="false"
+        autocapitalize="off"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+        aria-invalid="true"
+        aria-describedby="ContactForm-email-error"
+        {% endif %}
+        placeholder="{{ 'templates.contact.form.email' | t }}"
+        >
+        <label class="field__label" for="ContactForm-email">
+        {{- 'templates.contact.form.email' | t }}
+        <span aria-hidden="true">*</span></label
+        >
+        {%- if form.errors contains 'email' -%}
+        <small class="contact__field-error" id="ContactForm-email-error">
+        <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+        <span class="form__message">
+        {%- render 'icon-error' -%}
+        {{- form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email -}}
+        </span>
+        </small>
+        {%- endif -%}
+        </div>
+        </div>
+        <div class="field">
+        <input
+        type="tel"
+        id="ContactForm-phone"
+        class="field__input"
+        autocomplete="tel"
+        name="contact[{{ 'templates.contact.form.phone' | t }}]"
+        pattern="[0-9\-]*"
+        value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        placeholder="{{ 'templates.contact.form.phone' | t }}"
+        >
+        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+        </div>
+        <div class="field">
+        <textarea
+        rows="10"
+        id="ContactForm-body"
+        class="text-area field__input"
+        name="contact[{{ 'templates.contact.form.comment' | t }}]"
+        placeholder="{{ 'templates.contact.form.comment' | t }}"
+        >
+        {{- form.body -}}
+        </textarea>
+        <label class="form__label field__label" for="ContactForm-body">
+        {{- 'templates.contact.form.comment' | t -}}
+        </label>
+        </div>
+        <div class="contact__button">
+        <button type="submit" class="button">
+        {{ 'templates.contact.form.send' | t }}
+        </button>
+        </div>
+      {%- endform -%} {% endcomment %}
+    </div>
+  </div>
+
+  {% schema %}
     {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Contact form",
-      "label": "Heading"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
+      "name": "t:sections.contact-form.name",
+      "tag": "section",
+      "class": "section",
+      "disabled_on": {
+        "groups": ["header", "footer"]
+      },
+      "settings": [
         {
-          "value": "h2",
-          "label": "t:sections.all.heading_size.options__1.label"
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Contact form",
+          "label": "Heading"
         },
         {
-          "value": "h1",
-          "label": "t:sections.all.heading_size.options__2.label"
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            }, {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            }, {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
         },
         {
-          "value": "h0",
-          "label": "t:sections.all.heading_size.options__3.label"
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "background-1"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        }, {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        }, {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
         }
       ],
-      "default": "h1",
-      "label": "t:sections.all.heading_size.label"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "background-1"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "presets": [
+        {
+          "name": "t:sections.contact-form.presets.name"
+        }
+      ]
     }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.contact-form.presets.name"
-    }
-  ]
-}
-{% endschema %}
+  {% endschema %}

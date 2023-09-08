@@ -19,7 +19,7 @@
                     spellcheck="false"
                   {%- endif -%}
                 >
-                <label class="field__label" for="{{ input_id }}">Search for anything here...</label>
+                {% comment %} <label class="field__label" for="{{ input_id }}">Search for anything here...</label> {% endcomment %}
                 <input type="hidden" name="options[prefix]" value="last">
                 <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
                   <svg class="icon icon-close" aria-hidden="true" focusable="false">
