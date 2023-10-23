@@ -1,0 +1,259 @@
+{{ 'faq.css' | asset_url | stylesheet_tag }}
+{{ 'faq.js' | asset_url | script_tag }}
+
+
+<section
+  id="{{section.id}}">
+  <div
+    class="page-width">
+    <div
+      class="grid-content"
+      style="text-align:center; max-width:800px;margin:0 auto">
+      <h2
+        class="header-title">Frequently Asked Questions</h2>
+      <p
+        class="desc">These are our most frequently asked questions. You can go through them individually or search using the FAQ search bar. If you still need help then please contact us at design@thebabycotshop.com.</p>
+    </div>
+  </div>
+  <br/>
+  <div
+    class="page-width faq-body small-hide medium-hide">
+    <div
+      class="faq-side">
+      <ul
+        class="faq-heading">
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head active"
+          id="account-tab">
+          Account & Password {% include 'arrow-right' %}
+        </li>
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head "
+          id="care-tab">
+          After Care | Assembly | Products {% include 'arrow-right' %}
+        </li>
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head "
+          id="customer-tab">
+          Customer Service {% include 'arrow-right' %}
+        </li>
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head "
+          id="gift-tab">
+          Gift Cards {% include 'arrow-right' %}
+        </li>
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head "
+          id="order-tab">
+          Order | Returns | Exchanges | Warranty {% include 'arrow-right' %}
+        </li>
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head "
+          id="payment-tab">
+          Payment Methods {% include 'arrow-right' %}
+        </li>
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head "
+          id="safty-tab">
+          Health | Safety | Sustainability {% include 'arrow-right' %}
+        </li>
+
+        <li
+          onclick="openTab(this)"
+          class="faq-head "
+          id="shipping-tab">
+          Shipping Policy {% include 'arrow-right' %}
+        </li>
+
+      </ul>
+    </div>
+    <div
+      class="faq-main">
+      <div
+        id="account">
+        {% section 'faq-account' %}
+      </div>
+      <div
+        id="care"
+        style="display:none">
+        {% section 'faq-care' %}
+      </div>
+      <div
+        id="customer"
+        style="display:none">
+        {% section 'faq-customer' %}
+      </div>
+      <div
+        id="gift"
+        style="display:none">
+        {% section 'faq-gift' %}
+      </div>
+      <div
+        id="safty"
+        style="display:none">
+        {% section 'faq-safty' %}
+      </div>
+      <div
+        id="order"
+        style="display:none">
+        {% section 'faq-order' %}
+      </div>
+      <div
+        id="payment"
+        style="display:none">
+        {% section 'faq-payment' %}
+      </div>
+      <div
+        id="shipping"
+        style="display:none">
+        {% section 'faq-shipping' %}
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="large-up-hide page-width">
+    <div
+      class="faqaccordion">
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>Account & Password</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-account' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="faqaccordion">
+
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>After Care | Assembly | Products</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-care' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="faqaccordion">
+
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>Customer Service</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-customer' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="faqaccordion">
+
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>Gift Cards</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-gift' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="faqaccordion">
+
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>Health | Safety | Sustainability</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-safty' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="faqaccordion">
+
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>Order | Returns | Exchanges | Warranty</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-order' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="faqaccordion">
+
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>Payment Methods</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-payment' %}
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="faqaccordion">
+
+      <div
+        class="at-item">
+        <div
+          class="at-title">
+          <h2>Shipping Policy</h2>
+        </div>
+        <div
+          class="at-tab">
+          {% section 'faq-shipping' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} {% section 'main-faq' %} {% endcomment %}
