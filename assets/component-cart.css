@@ -3,6 +3,12 @@
   display: block;
 }
 
+.cart_details {
+  width: 65%;
+}
+.cart_summary {
+  width: 35%;
+}
 .cart__empty-text,
 .is-empty .cart__contents,
 cart-items.is-empty .title-wrapper-with-link,
@@ -175,7 +181,7 @@ cart-items {
   margin-top: 1rem;
 }
 
-.cart__dynamic-checkout-buttons div[role='button'] {
+.cart__dynamic-checkout-buttons div[role="button"] {
   border-radius: var(--buttons-radius-outset) !important;
 }
 

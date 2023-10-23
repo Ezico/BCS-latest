@@ -1,0 +1,121 @@
+.page-inner-small {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.frame-heading {
+  border: 1px solid #e2e2e2;
+  background: var(--Primary-Color-2, #f3efea);
+  color: var(--Black---Black--Text, #000);
+  text-align: center;
+  font-family: Cormorant;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  padding: 10px;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+h2.page-title {
+  color: var(--Black---Black--Text, #000);
+  text-align: center;
+  font-family: Cormorant;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+.dec {
+  color: var(--Black---Grey-5, #4a4a4a);
+  text-align: center;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 42px;
+}
+
+span {
+  font-size: 14px;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  border: 1px solid var(--Black---Grey-1, #e7e7e7);
+  background: var(--White, #fff);
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+h1.title {
+  margin-top: 0;
+  color: var(--Primary-Color-4, #bda399);
+  font-family: Cormorant;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+@media (max-width: 860px) {
+  h1.title {
+    font-size: 30px;
+  }
+  .image_medium_bg .page-width .banner-content .banner-title {
+    color: var(--black-black-text, #000);
+    text-align: left;
+    font-family: Cormorant;
+    font-size: 25px;
+    width: 100%;
+  }
+  h2.page-title {
+    color: var(--Black---Black--Text, #000);
+    text-align: center;
+    font-family: Cormorant;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+  .page-inner-small {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .dec {
+    color: var(--Black---Grey-5, #4a4a4a);
+    text-align: center;
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  .at-tab {
+    font-size: 14px;
+  }
+  .frame-heading {
+    border: 1px solid #e2e2e2;
+    background: var(--Primary-Color-2, #f3efea);
+    color: var(--Black---Black--Text, #000);
+    text-align: center;
+    font-family: Cormorant;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    padding: 10px;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}
+
+.image_medium_bg .page-width .banner-content {
+  width: 533px;
+  text-align: left;
+  position: absolute;
+  top: 20px;
+  bottom: auto;
+}

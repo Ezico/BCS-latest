@@ -1,0 +1,114 @@
+li.faq-head {
+  border-bottom: 1px solid #e2e2e2;
+  background: var(--Primary-Color-2, #fff);
+  color: var(--Black---Black--Text, #000);
+  font-family: Cormorant;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  padding: 16px 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.faq-heading {
+  border: 1px solid #e2e2e2;
+  padding: 0;
+}
+li.active {
+  background: var(--Primary-Color-2, #f3efea);
+}
+/* ul.faq-heading {
+  max-width: 400px;
+} */
+.faq-body {
+  display: flex;
+  gap: 30px;
+}
+.faq-main {
+  flex: 1;
+}
+
+/* accordion faq  */
+
+.faqaccordion {
+  max-width: 1170px;
+  margin: 17px auto 0;
+  animation: var(--animation-slide-in);
+  animation-delay: calc(var(--animation-order) * 75ms);
+}
+
+.at-tab {
+  display: none;
+  padding: 15px;
+  border: 1px solid #dddddd;
+  border-top: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.at-title {
+  border: 1px solid var(--Black---Grey-1, #e7e7e7);
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.at-title:hover {
+  background: var(--Primary-Color-2, #f3efea);
+}
+
+.active {
+  background: var(--Primary-Color-2, #f3efea);
+}
+.at-title:after {
+  content: "🢓";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  transition: all 0.3s ease;
+  font-size: 24px;
+}
+
+.at-title.active:after {
+  content: "🢑";
+}
+
+.at-item {
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.at-title h2 {
+  color: var(--Black---Black--Text, #000);
+  font-family: Nunito;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 5px 20px;
+  text-transform: none;
+}
+
+.accordion-header {
+  text-align: center;
+  background-color: #222222;
+  color: white;
+  padding: 20px 0;
+}
+
+@media (max-width: 760px) {
+  .faq-body {
+    display: block;
+  }
+  .faq-heading {
+    padding: 0;
+    margin: 0;
+  }
+}

@@ -17,6 +17,20 @@
   float: left;
   margin-right: 5px;
 }
+
+.input_customt {
+  border: 3px solid grey;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: center;
+  color: transparent;
+  cursor: pointer;
+  float: left;
+  margin-right: 5px;
+}
 .cart-active span {
   color: black;
 }

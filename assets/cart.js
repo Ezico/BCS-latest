@@ -291,15 +291,36 @@ if (!customElements.get("cart-note")) {
   );
 }
 
+// document.getElementById("checkout").disabled = true;
+// custom
+document.querySelector(".input_customt").addEventListener("click", function () {
+  document.querySelector(".input_custom").classList.toggle("cart-active");
+  this.classList.toggle("cart-active");
+  if (this.classList.contains("cart-active")) {
+    document.getElementById("checkoutM").disabled = false;
+    document.getElementById("checkout").disabled = false;
+    console.log("it does");
+  } else {
+    document.getElementById("checkoutM").disabled = true;
+    document.getElementById("checkout").disabled = true;
+    console.log("it does not");
+  }
+  console.log(this);
+});
+
+// document.getElementById("checkout").disabled = true;
 // custom
 document.querySelector(".input_custom").addEventListener("click", function () {
+  document.querySelector(".input_customt").classList.toggle("cart-active");
   this.classList.toggle("cart-active");
-  // if (this.classList.contains("cart-active")) {
-  //   document.getElementById("checkout").disabled = false;
-  //   console.log("it does");
-  // } else {
-  //   document.getElementById("checkout").disabled = true;
-  //   console.log("it does not");
-  // }
-  // console.log(this);
+  if (this.classList.contains("cart-active")) {
+    document.getElementById("checkoutM").disabled = false;
+    document.getElementById("checkout").disabled = false;
+    console.log("it does");
+  } else {
+    document.getElementById("checkoutM").disabled = true;
+    document.getElementById("checkout").disabled = true;
+    console.log("it does not");
+  }
+  console.log(this);
 });

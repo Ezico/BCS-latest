@@ -100,13 +100,13 @@
     "brand_headline": "",
     "brand_description": "<p><\/p>",
     "brand_image_width": 100,
-    "social_facebook_link": "",
-    "social_instagram_link": "",
-    "social_youtube_link": "",
+    "social_facebook_link": "https:\/\/facebook.com\/thebabycotshop",
+    "social_instagram_link": "http:\/\/instagram.com\/thebabycotshop",
+    "social_youtube_link": "https:\/\/www.youtube.com\/c\/TheBabyCotShopChelsea",
     "social_tiktok_link": "",
-    "social_twitter_link": "",
+    "social_twitter_link": "https:\/\/twitter.com\/thebabycotshop",
     "social_snapchat_link": "",
-    "social_pinterest_link": "",
+    "social_pinterest_link": "https:\/\/pinterest.com\/thebabycotshop",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "predictive_search_enabled": true,
@@ -128,6 +128,653 @@
         "type": "main-password-footer",
         "settings": {
           "color_scheme": "background-1"
+        }
+      },
+      "product-carousel": {
+        "type": "product-carousel",
+        "settings": {
+          "title": "Featured collection",
+          "showmore": true,
+          "collection": "accessories",
+          "products_to_show": 4,
+          "image_ratio": "adapt",
+          "image_shape": "default"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "65195bd1-faae-4680-b6d2-60d93ac611b2": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_10_4.png",
+              "heading": "About Us",
+              "show": false,
+              "sub_heading": "Many new parents struggle to find high-quality nursery furniture that is both unique and safe for their baby. At The Baby Cot Shop, based in Chelsea, we supply beautifully crafted bespoke furniture to help parents like you create a uniquely enchanting and cosy space for your little darling to sleep and play. Remaining practical whilst being stylish, our extraordinary items are sure to add some magic to any space.",
+              "button": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "65195bd1-faae-4680-b6d2-60d93ac611b2"
+        ],
+        "settings": {
+        }
+      },
+      "rich-text": {
+        "type": "rich-text",
+        "blocks": {
+          "4c201b5d-4195-49c4-a5be-a1091fe0cd16": {
+            "type": "heading",
+            "settings": {
+              "heading": "OUR MISSION",
+              "heading_size": "h1"
+            }
+          },
+          "f281c486-5129-45ba-a0de-5b909c6e2bd8": {
+            "type": "text",
+            "settings": {
+              "text": "<p>We promise to create an inspiring, unforgettable space for your little one while providing you with an exceptional, stress-free experience<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "4c201b5d-4195-49c4-a5be-a1091fe0cd16",
+          "f281c486-5129-45ba-a0de-5b909c6e2bd8"
+        ],
+        "settings": {
+          "desktop_content_position": "center",
+          "content_alignment": "center",
+          "color_scheme": "",
+          "full_width": true,
+          "padding_top": 40,
+          "padding_bottom": 52
+        }
+      },
+      "about-card": {
+        "type": "about-card",
+        "blocks": {
+          "106e2408-da41-47f9-ab89-21670a4d9a47": {
+            "type": "heading",
+            "settings": {
+              "heading": "Bespoke Product",
+              "icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">   <path d=\"M39.2647 23.0396V22.6556C39.2647 20.2556 41.1847 18.3356 43.5847 18.3356C43.8727 18.3356 44.0647 18.3356 44.3527 18.4316V12.4796C44.3527 10.8476 43.3927 9.59961 42.1447 9.59961H31.2007V22.4636H37.6327C38.3047 22.4636 38.8807 22.6556 39.2647 23.0396ZM39.5527 13.7276C39.8407 13.6316 40.0327 13.4396 40.1287 13.1516L40.3207 12.6716L40.5127 13.1516C40.6087 13.4396 40.8007 13.6316 41.0887 13.7276L41.5687 13.9196L41.0887 14.1116C40.8007 14.2076 40.7047 14.3996 40.5127 14.5916L40.3207 15.0716L40.1287 14.5916C40.0327 14.3996 39.8407 14.2076 39.6487 14.1116L39.1687 13.9196L39.5527 13.7276ZM35.8087 17.7596C35.6167 17.8556 35.4247 18.0476 35.3287 18.2396L35.1367 18.7196L34.8487 18.2396C34.7527 18.0476 34.5607 17.8556 34.3687 17.7596L33.8887 17.5676L34.3687 17.3756C34.6567 17.2796 34.7527 17.0876 34.8487 16.7996L35.0407 16.3196L35.2327 16.7996C35.3287 17.0876 35.5207 17.2796 35.7127 17.3756L36.1927 17.5676L35.8087 17.7596ZM35.8087 12.6716C35.6167 12.7676 35.4247 12.9596 35.3287 13.1516L35.1367 13.6316L34.9447 13.1516C34.8487 12.9596 34.6567 12.7676 34.4647 12.6716L33.8887 12.4796L34.3687 12.2876C34.6567 12.1916 34.7527 11.9996 34.8487 11.7116L35.0407 11.2316L35.2327 11.7116C35.3287 11.9996 35.5207 12.1916 35.7127 12.2876L36.1927 12.4796L35.8087 12.6716ZM23.7127 22.4636V20.5436C23.7127 20.2556 23.9047 20.0636 24.1927 20.0636C24.4807 20.0636 24.6727 20.2556 24.6727 20.5436V22.4636H30.2407V9.59961H24.6727V10.8476C24.6727 11.1356 24.4807 11.3276 24.1927 11.3276C23.9047 11.3276 23.7127 11.1356 23.7127 10.8476V9.59961H17.7607V22.4636H23.7127ZM27.0727 17.7596C27.3607 17.6636 27.4567 17.4716 27.5527 17.1836L27.7447 16.7036L27.9367 17.1836C28.0327 17.3756 28.2247 17.5676 28.4167 17.7596L28.8967 17.9516L28.4167 18.1436C28.2247 18.2396 28.0327 18.4316 27.9367 18.6236L27.8407 19.1036L27.6487 18.6236C27.5527 18.3356 27.3607 18.2396 27.1687 18.1436L26.6887 17.9516L27.0727 17.7596ZM23.7127 12.8636C23.7127 12.5756 23.9047 12.3836 24.1927 12.3836C24.4807 12.3836 24.6727 12.5756 24.6727 12.8636V14.7836C24.6727 15.0716 24.4807 15.2636 24.1927 15.2636C23.9047 15.2636 23.7127 15.0716 23.7127 14.7836V12.8636ZM23.7127 16.7036C23.7127 16.4156 23.9047 16.2236 24.1927 16.2236C24.4807 16.2236 24.6727 16.4156 24.6727 16.7036V18.6236C24.6727 18.9116 24.4807 19.1036 24.1927 19.1036C23.9047 19.1036 23.7127 18.9116 23.7127 18.6236V16.7036ZM8.73673 22.6556C8.73673 22.7516 8.73673 22.9436 8.73673 23.0396C9.21673 22.6556 9.79273 22.4636 10.3687 22.4636H16.8007V9.59961H5.76073C4.51273 9.59961 3.55273 10.9436 3.55273 12.4796V18.4316C3.84073 18.4316 4.12873 18.3356 4.32073 18.3356C6.72073 18.3356 8.73673 20.2556 8.73673 22.6556ZM12.9607 15.7436C13.1527 15.6476 13.3447 15.5516 13.4407 15.5516C14.1127 15.6476 14.0167 16.9916 13.8247 17.4716C13.6327 17.7596 13.3447 17.9516 13.0567 17.8556C12.8647 17.7596 12.7687 17.5676 12.5767 17.5676C12.2887 17.3756 10.4647 18.0476 10.3687 17.5676C10.3687 17.3756 11.3287 16.7996 11.5207 16.7036C12.0007 16.3196 12.4807 16.0316 12.9607 15.7436ZM5.56873 12.0956C5.56873 11.7116 5.85673 11.2316 6.24073 11.0396C6.62473 10.8476 7.10473 10.9436 7.48873 10.9436C7.68073 10.9436 7.96873 10.9436 8.16073 11.0396C8.35273 11.1356 8.44873 11.4236 8.54473 11.6156C8.73673 11.9036 9.12073 11.9996 9.50473 12.0956C9.88873 12.0956 10.2727 12.0956 10.6567 12.1916C12.0007 12.4796 11.7127 14.0156 10.3687 14.1116C9.21673 14.1116 8.16073 13.2476 7.00873 13.2476C6.72073 13.2476 6.33673 13.3436 6.04873 13.1516C5.66473 12.7676 5.56873 12.3836 5.56873 12.0956ZM37.6327 29.6636C38.5927 29.6636 39.2647 28.8956 39.2647 28.0316V25.1516C39.2647 24.1916 38.4967 23.5196 37.6327 23.5196H10.3687C9.50473 23.5196 8.73673 24.2876 8.73673 25.1516V28.0316C8.73673 28.9916 9.50473 29.6636 10.3687 29.6636H23.7127V28.2236C23.7127 27.9356 23.9047 27.7436 24.1927 27.7436C24.4807 27.7436 24.6727 27.9356 24.6727 28.2236V29.6636H37.6327ZM17.3767 26.3996C17.1847 26.6876 16.8967 26.8796 16.6087 26.7836C16.4167 26.6876 16.3207 26.4956 16.1287 26.3996C15.8407 26.2076 14.0167 26.8796 13.9207 26.3996C13.9207 26.2076 14.8807 25.6316 15.0727 25.4396C15.5527 25.1516 16.0327 24.8636 16.4167 24.5756C16.6087 24.4796 16.7047 24.3836 16.8967 24.3836C17.0887 24.3836 17.2807 24.5756 17.2807 24.7676C17.3767 24.9596 17.3767 25.1516 17.3767 25.3436C17.5687 25.8236 17.5687 26.1116 17.3767 26.3996ZM33.6007 25.1516C33.7927 25.0556 33.9847 24.8636 34.0807 24.6716L34.2727 24.1916L34.4647 24.6716C34.5607 24.8636 34.7527 25.0556 34.9447 25.1516L35.4247 25.3436L34.9447 25.5356C34.7527 25.6316 34.5607 25.8236 34.4647 26.0156L34.2727 26.4956L34.0807 26.0156C33.9847 25.7276 33.7927 25.6316 33.6007 25.5356L33.1207 25.3436L33.6007 25.1516ZM24.1927 26.7836C23.9047 26.7836 23.7127 26.5916 23.7127 26.3036V24.3836C23.7127 24.0956 23.9047 23.9036 24.1927 23.9036C24.4807 23.9036 24.6727 24.0956 24.6727 24.3836V26.3036C24.6727 26.4956 24.3847 26.7836 24.1927 26.7836Z\" fill=\"#181818\"><\/path>   <path d=\"M46.9447 21.9844C46.1767 18.4323 40.2247 17.9524 40.2247 23.4244V29.3764C40.2247 30.0484 39.6487 30.6244 38.9767 30.6244H8.92868C8.25668 30.6244 7.68068 30.0484 7.68068 29.3764V23.4244C7.68068 22.9444 7.68068 22.6564 7.68068 22.6564C7.68068 20.5444 5.66468 18.8164 3.45668 19.3924C2.20868 19.6804 1.24868 20.6403 0.960681 21.8883C0.672681 23.2323 1.15268 24.3844 2.01668 25.1524C3.16868 26.1124 3.84068 27.4564 3.84068 28.8004V33.2163C3.84068 34.2723 4.70468 35.1363 5.76068 35.1363H42.2407C43.2967 35.1363 44.1607 34.2723 44.1607 32.7364V28.8004C44.1607 25.2484 47.6167 25.2484 46.9447 21.9844ZM5.18468 25.5364C4.99268 25.3444 4.80068 25.0564 4.80068 24.7684C4.80068 24.4804 4.80068 24.1924 4.80068 23.9044C4.70468 23.1364 4.32068 22.6564 3.93668 21.9844C3.93668 21.8884 3.84068 21.7924 3.84068 21.7924C4.12868 21.7924 4.32068 21.6004 4.51268 21.5044C4.80068 21.3124 5.18468 21.2164 5.47268 21.5044C5.76068 21.7924 5.95268 25.1524 6.04868 25.6324C5.76068 25.7284 5.37668 25.6324 5.18468 25.5364ZM24.6727 33.9844C24.6727 34.2724 24.4807 34.4644 24.1927 34.4644C23.9047 34.4644 23.7127 34.2724 23.7127 33.9844V32.0644C23.7127 31.7764 23.9047 31.5844 24.1927 31.5844C24.4807 31.5844 24.6727 31.7764 24.6727 32.0644V33.9844Z\" fill=\"#181818\"><\/path>   <path d=\"M37.1514 38.3997H40.6074L41.4714 36.0957H36.1914L37.1514 38.3997Z\" fill=\"#181818\"><\/path>   <path d=\"M7.39134 38.3997H10.8473L11.8073 36.0957H6.52734L7.39134 38.3997Z\" fill=\"#181818\"><\/path> <\/svg>",
+              "desc": "Our furniture is bespoke and is made just for you. Choose from different colours, finishes and materials to create your unique piece of furniture.",
+              "link": "",
+              "button_text": "Shop Now"
+            }
+          },
+          "73f6cd00-541e-4f40-b842-9c23b3afed73": {
+            "type": "heading",
+            "settings": {
+              "heading": "Customer care",
+              "icon": "",
+              "desc": "We guide you through all the purchase process to help you resolve any questions and to make you enjoy the experience of shopping with us.",
+              "link": "shopify:\/\/pages\/contact",
+              "button_text": "Contact us"
+            }
+          },
+          "44056a8e-84e4-4e89-ad72-fa75a0942fb0": {
+            "type": "heading",
+            "settings": {
+              "heading": "Interior Design Service",
+              "icon": "",
+              "desc": "We simplify the creative process from the moment you get in touch. Choose between two options: <a href=\"https:\/\/thebabycotshop-staging.myshopify.com\/pages\/\">Full Interior Design<\/a> & <a href=\"https:\/\/thebabycotshop-staging.myshopify.com\/\">Virtual Interior Design<\/a>",
+              "link": "shopify:\/\/pages\/interior-design",
+              "button_text": "Book Now"
+            }
+          }
+        },
+        "block_order": [
+          "106e2408-da41-47f9-ab89-21670a4d9a47",
+          "73f6cd00-541e-4f40-b842-9c23b3afed73",
+          "44056a8e-84e4-4e89-ad72-fa75a0942fb0"
+        ],
+        "settings": {
+        }
+      },
+      "about-the-ceo": {
+        "type": "about-the-ceo",
+        "settings": {
+          "heading": "Toks Aruoture",
+          "sub": "Founder, CEO & Interior Designer",
+          "dec": "<p>I believe that the space children dwell in influences them and your child should live in one that makes them thrive. Following my stint in the pharmaceutical industry, I turned my hands toward the luxury design of little one’s room. My super power is authenticity; evident in how I interact with you!<\/p><p>In our 15 years of trading, we have amassed a high profile list of clientele spanning the globe, with VIPs from Russia and the United States as well as Middle Eastern Royalty. We also supply outstanding children’s furniture and décor for bigger kids, crafting exciting rooms to keep them entertained.<\/p>",
+          "image": "shopify:\/\/shop_images\/toks-img.png"
+        }
+      },
+      "homepage-video": {
+        "type": "homepage-video",
+        "settings": {
+          "header": "Discover the Inspiring Founder's Story Behind BabyCot Shop",
+          "body": "To get a glimpse of our founder's incredible journey and learn more about our brand's history, check out this inspiring video featuring Toks Aruoture.At the core of our brand is a set of values that guide everything we do. We believe in key values such as quality, sustainability, inclusivity, etc. and are committed to how the brand upholds these values. From our products to our customer service, we are dedicated to providing you with best experience.",
+          "embed": "<iframe class=\"embeded-media\" src=\"https:\/\/www.youtube.com\/embed\/b3ootXSAaqE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen=\"\"><\/iframe>",
+          "button": false,
+          "title": "Call now",
+          "button-link": "\/"
+        }
+      },
+      "faq-titles": {
+        "type": "faq-titles",
+        "settings": {
+          "account": "Account & Password",
+          "care": "After Care | Assembly | Products",
+          "customer": "Customer Service",
+          "gift": "Gift Cards",
+          "order": "Health | Safety | Sustainability",
+          "payment": "Order | Returns | Exchanges | Warranty",
+          "shipping": "Payment Methods",
+          "safty": "Shipping Policy"
+        }
+      },
+      "faq-account": {
+        "type": "faq-account",
+        "blocks": {
+          "b26d0a22-4073-4da6-84ed-79af7f0f12c1": {
+            "type": "text",
+            "settings": {
+              "question": "I lost my password. How do I log in?",
+              "answer": "You can unsubscribe from any newsletter individually by clicking the unsubscribe link at the bottom of each email.Many new parents struggle to find high-quality nursery furniture that is both unique and safe for their baby. At The Baby Cot Shop, based in Chelsea, we supply be darling"
+            }
+          },
+          "32234cc8-c52a-46b2-bd59-63207c23fe67": {
+            "type": "text",
+            "settings": {
+              "question": "Can I change the information on my account?",
+              "answer": "You can unsubscribe from any newsletter individually by clicking the unsubscribe link at the bottom of each email.Many new parents struggle to find high-quality nursery furniture that is both unique and safe for their baby. At The Baby Cot Shop, based in Chelsea, we supply be darling"
+            }
+          },
+          "1dcb2082-a051-4340-9d3c-b7ab62b69564": {
+            "type": "text",
+            "settings": {
+              "question": "What are E-Gift Cards?",
+              "answer": "What are E-Gift Cards?What are E-Gift Cards?What are E-Gift Cards?What are E-Gift Cards?What are E-Gift Cards?What are E-Gift Cards?"
+            }
+          }
+        },
+        "block_order": [
+          "b26d0a22-4073-4da6-84ed-79af7f0f12c1",
+          "32234cc8-c52a-46b2-bd59-63207c23fe67",
+          "1dcb2082-a051-4340-9d3c-b7ab62b69564"
+        ],
+        "settings": {
+        }
+      },
+      "faq-care": {
+        "type": "faq-care",
+        "blocks": {
+          "5939a38c-c893-4f45-8571-8a4740d560f2": {
+            "type": "text",
+            "settings": {
+              "question": "Where can I buy an E-gift card?",
+              "answer": "Where can I buy an E-gift card?Where can I buy an E-gift card?Where can I buy an E-gift card?Where can I buy an E-gift card?Where can I buy an E-gift card?Where can I buy an E-gift card?"
+            }
+          },
+          "c29474c6-ea55-4f2e-8f0e-3e36bda7707f": {
+            "type": "text",
+            "settings": {
+              "question": "What are E-Gift Cards?",
+              "answer": "You can unsubscribe from any newsletter individually by clicking the unsubscribe link at the bottom of each email.Many new parents struggle to find high-quality nursery furniture that is both unique and safe for their baby. At The Baby Cot Shop, based in Chelsea, we supply be darling"
+            }
+          }
+        },
+        "block_order": [
+          "5939a38c-c893-4f45-8571-8a4740d560f2",
+          "c29474c6-ea55-4f2e-8f0e-3e36bda7707f"
+        ],
+        "settings": {
+        }
+      },
+      "faq-customer": {
+        "type": "faq-customer",
+        "settings": {
+        }
+      },
+      "faq-gift": {
+        "type": "faq-gift",
+        "settings": {
+        }
+      },
+      "faq-safty": {
+        "type": "faq-safty",
+        "settings": {
+        }
+      },
+      "faq-order": {
+        "type": "faq-order",
+        "settings": {
+        }
+      },
+      "faq-payment": {
+        "type": "faq-payment",
+        "settings": {
+        }
+      },
+      "faq-shipping": {
+        "type": "faq-shipping",
+        "settings": {
+        }
+      },
+      "legal-inner": {
+        "type": "legal-inner",
+        "blocks": {
+          "e0f6be82-1e7b-482d-bb3e-84443625dd4b": {
+            "type": "text",
+            "settings": {
+              "heading": "Introduction",
+              "details": "1. This is a notice to inform you of our policy about all information that we record about you. It sets out the conditions under which we may process any information that we collect from you, or that you provide to us. It covers information that could identify you (“personal information”) and information that could not. In the context of the law and this notice, “process” means collect, store, transfer, use or otherwise act on information.2. We take seriously the protection of your privacy and confidentiality. We understand that all visitors to our website are entitled to know that their personal data will not be used for any purpose unintended by them and will not accidentally fall into the hands of a third party.3. We undertake to preserve the confidentiality of all information you provide to us.4. Our policy complies with UK law accordingly implemented, including that required by the EU General Data Protection Regulation (GDPR).5. The law requires us to tell you about your rights and our obligations to you in regard to the processing and control of your personal data. We do this now, by requesting that you read the information provided at www.knowyourprivacyrights.org6. Except as set out below, we do not share, or sell, or disclose to a third party, any information collected through our website.7. In addition to our policies below, we operate clean desk and clear screen policies. We also use the latest internet security software to protect personal data.The bases on which we process information about youThe law requires us to determine under which of defined bases we process different categories of your personal information, and to notify you of the basis for each category.If a basis on which we process your personal information is no longer relevant, then we shall immediately stop processing your data.If the basis changes then, if required by law, we shall notify you of the change and of any new basis under which we have determined that we can continue to process your information."
+            }
+          },
+          "e40b7924-38a6-4e8c-93ff-6f532092aa03": {
+            "type": "text",
+            "settings": {
+              "heading": "1. Information we process because we have a contractual obligation with you",
+              "details": "When you connect with us on our website, buy a product or service from us, or otherwise agree to our terms and\/\\\/ conditions, a contract \\is formed between you and us. In order to carry out our obligations under that contract, we must process the information you give us. Some of this information may be personal information. We may use it in order to:1.1. verify your identity for security purposes1.2. provide you with our products and services1.3. provide you with suggestions and advice on products, services and how to obtain the most from using our websiteWe process this information on the basis there is a contract between us, or that you have requested we use the information before we enter into a legal contract.Additionally, we may aggregate this information in a general way and use it to provide class information, for example to monitor our performance with respect to a particular service we provide. If we use it for this purpose, you as an individual will not be personally identifiable.We shall continue to process this information until the contract between us ends or is terminated by either party under the terms of the contract."
+            }
+          },
+          "fb8dee2c-692e-4d61-a40c-32df59a70b5b": {
+            "type": "text",
+            "settings": {
+              "heading": "2. Information we process with your consent",
+              "details": "Through certain actions when otherwise there is no contractual relationship between us, such as when you browse our website, subscribe to our newsletter or ask us to provide you more information about our business, including our products and services, you provide your consent to us to process information that may be personal information, such as your email address and name. Wherever possible, we aim to obtain your explicit consent to process this information, for example, by asking you to agree to our use of cookies or to subscribe to our newsletter. Sometimes you might give your consent implicitly, such as when you send us a message by e-mail to which you would reasonably expect us to reply. Except where you have consented to our use of your information for a specific purpose, we do not use your information in any way that would identify you personally. We may aggregate it in a general way and use it to provide class information, for example to monitor the performance of a particular page on our website."
+            }
+          },
+          "b481ff22-90e7-4083-a1a7-f22cad1a14ef": {
+            "type": "text",
+            "settings": {
+              "heading": "3. Information we process for the purposes of legitimate interests",
+              "details": "We may process information on the basis there is a legitimate interest, either to you or to us, of doing so.Where we process your information on this basis, we do after having given careful consideration to:whether the same objective could be achieved through other meanswhether processing (or not processing) might cause you harmwhether you would expect us to process your data, and whether you would, in the round, consider it reasonable to do soFor example, we may process your data on this basis for the purposes of:record-keeping for the proper and necessary administration of our businessresponding to unsolicited communication from you to which we believe you would expect a responseprotecting and asserting the legal rights of any partyinsuring against or obtaining professional advice that is required to manage business riskprotecting your interests where we believe we have a duty to do so"
+            }
+          },
+          "7d2f2a85-9a5f-4720-b505-16fc515c88d2": {
+            "type": "text",
+            "settings": {
+              "heading": "4. Information we process because we have a legal obligation",
+              "details": "We are subject to the law like everyone else. Sometimes, we must process your information in order to comply with a statutory obligation. For example, we may be required to give information to legal authorities if they so request or if they have the proper authorisation such as a search warrant or court order.This may include your personal information.Specific uses of information you provide to us"
+            }
+          },
+          "86b16a5d-18d8-4b3d-b351-53367f3c7415": {
+            "type": "text",
+            "settings": {
+              "heading": "5. Information relating to your method of payment",
+              "details": "We collect online payments via this website using secure payment methods. For your protection, we use PayPal, Stripe, Visa, MasterCard and American Express. Information is encrypted to prevent your personal information from being seen by a third party, including us. Therefore, we do not store your payment details."
+            }
+          },
+          "9140244f-1180-4fb9-b005-37e267fd51b8": {
+            "type": "text",
+            "settings": {
+              "heading": "6. Contacting us",
+              "details": "When you contact us, whether by telephone, through our website or by e-mail, we collect the data you have given to us in order to reply with the information you need.We do not keep any personally identifiable information associated with your message."
+            }
+          },
+          "96ae72d3-58bc-4eb3-96d7-2982cc06bb8f": {
+            "type": "text",
+            "settings": {
+              "heading": "7. Complaining",
+              "details": "When we receive a complaint, we record all the information you have given to us.We use that information to resolve your complaint.If your complaint reasonably requires us to contact some other person, we may decide to give to that other person some of the information contained in your complaint. We do this as infrequently as possible, but it is a matter for our sole discretion as to whether we do give information, and if we do, what that information is.We may also compile statistics showing information obtained from this source to assess the level of service we provide, but not in a way that could identify you or any other person."
+            }
+          },
+          "19cfafd4-778b-4c80-8c49-931f5f51fe9e": {
+            "type": "text",
+            "settings": {
+              "heading": "8. Cookies",
+              "details": "Cookies are small text files that are placed on your computer's hard drive by your web browser when you visit any website. They allow information gathered on one web page to be stored until it is needed for use on another, allowing a website to provide you with a personalised experience and the website owner with statistics about how you use the website so that it can be improved.Some cookies may last for a defined period of time, such as one day or until you close your browser. Others last indefinitely.Your web browser should allow you to delete any you choose. It also should allow you to prevent or limit their use.Our website uses cookies. They are placed by software that operates on our servers, and by software operated by third parties whose services we use."
+            }
+          },
+          "5f180342-1dca-4232-a887-1b03a4cf9dfe": {
+            "type": "text",
+            "settings": {
+              "heading": "9. Personal identifiers from your browsing activity",
+              "details": "Requests by your web browser to our servers for web pages and other content on our website are recorded.We record information such as your geographical location, your Internet service provider and your IP address. We also record information about the software you are using to browse our website, such as the type of computer or device and the screen resolution.We use this information in aggregate to assess the popularity of the web pages on our website and how we perform in providing content to you.If combined with other information we know about you from previous visits, the data possibly could be used to identify you personally, even if you are not signed in to our website."
+            }
+          },
+          "f7cc32ba-69ad-448d-aaff-d5c4231ed8f0": {
+            "type": "text",
+            "settings": {
+              "heading": "10. Access to your personal information",
+              "details": "At any time, you may review or update personally identifiable information that we hold about you, by contacting us. To obtain a copy of any information that is not provided on our website you may send us a request at via our contact form. After receiving the request, we will tell you when we expect to provide you with the information, and whether we require any fee for providing it to you."
+            }
+          },
+          "dd4cb734-1c44-427e-b675-d581aaa9eda2": {
+            "type": "text",
+            "settings": {
+              "heading": "11. Verification of your information",
+              "details": "Ipsum"
+            }
+          },
+          "c2a9f013-abb6-4db9-b16f-2fbedc228cbf": {
+            "type": "text",
+            "settings": {
+              "heading": "12. Encryption of data sent between us",
+              "details": "Ipsum"
+            }
+          },
+          "0cfcb4d4-644e-490f-ad58-b0f55c544c51": {
+            "type": "text",
+            "settings": {
+              "heading": "Add Heading",
+              "details": "Ipsum"
+            }
+          }
+        },
+        "block_order": [
+          "e0f6be82-1e7b-482d-bb3e-84443625dd4b",
+          "e40b7924-38a6-4e8c-93ff-6f532092aa03",
+          "fb8dee2c-692e-4d61-a40c-32df59a70b5b",
+          "b481ff22-90e7-4083-a1a7-f22cad1a14ef",
+          "7d2f2a85-9a5f-4720-b505-16fc515c88d2",
+          "86b16a5d-18d8-4b3d-b351-53367f3c7415",
+          "9140244f-1180-4fb9-b005-37e267fd51b8",
+          "96ae72d3-58bc-4eb3-96d7-2982cc06bb8f",
+          "19cfafd4-778b-4c80-8c49-931f5f51fe9e",
+          "5f180342-1dca-4232-a887-1b03a4cf9dfe",
+          "f7cc32ba-69ad-448d-aaff-d5c4231ed8f0",
+          "dd4cb734-1c44-427e-b675-d581aaa9eda2",
+          "c2a9f013-abb6-4db9-b16f-2fbedc228cbf",
+          "0cfcb4d4-644e-490f-ad58-b0f55c544c51"
+        ],
+        "settings": {
+        }
+      },
+      "return-inner": {
+        "type": "return-inner",
+        "blocks": {
+          "5d70884a-b91a-4e64-b255-e50c1b46466d": {
+            "type": "text",
+            "settings": {
+              "heading": "Distance Selling Regulations",
+              "details": "Under the Consumer Protection (Distance Selling) Regulations 2000 you have the right to cancel your order by letter or email within a period of 14 days. The period of 14 days begins on the day after the day you receive your goods. You must take reasonable care of the goods and not use them. Please be aware that your right to cancel does not apply to certain goods that we sell, for example, items made to order, bespoke or personalised items and made to order bedding, furniture, art or decor, lighting & rugs.You should return goods to us in their original packaging, wherever possible, as soon as possible after informing us of your wish to cancel. If you return goods to us, we will not be responsible for any loss or damage to them during transit and we recommend that you use a recorded or secure delivery method. If goods are lost or damaged in transit, we may charge you, or not refund to you, amounts that are attributable to the loss or damage.For full details of your rights under the Distance Selling Regulations, please contact your Citizens' Advice Bureau or a solicitor."
+            }
+          },
+          "e9f3fc1d-2857-4e0c-b0c4-455aaee6de65": {
+            "type": "text",
+            "settings": {
+              "heading": "Returns & Cancellation Policy",
+              "details": "Distance selling regulations only apply if your item has not been custom made for you. If the Distance Selling Regulations do apply and you need to return an item, the item has to be returned to us within 14 days of your receipt of the order. Please call or email us before returning the item\/product for instructions. Returned items need to be in a saleable condition, non-customised, unused and unpacked and made within 14 days of purchase. Unfortunately, we can not refund delivery charges if you change your mind.Please note that discounted or sale items are non-refundable and non-returnable.Custom Made, bespoke products or made to order items like personalised gifts, made to order furniture, furnishings, fabric, wallpaper are non-returnable, non-refundable and can not be exchanged. All goods must be inspected immediately following delivery and will be repaired or replaced free of charge if found to be defective or damaged in any way arising from defects in manufacturing or delivery by our representatives. This warranty does not apply to any defect arising from fair wear and tear, wilful damage, accident, negligence by you or any third party, use otherwise than as recommended by The Baby Cot Shop, failure to follow The Baby Cot Shop’s instructions on aftercare or any alteration or repair carried out without our approval. Occasionally, delays occur which are outside of our control such as production or shipping delays. We will not allow a cancellation in such circumstances and all efforts will be made to expedite the delivery of your items.Please call us on 0203 371 7530 for assistance if you are unsure about selecting a custom made item.We are here for you Tuesday through Saturday between 10a.m. and 6pm. Or send us an email anytime for an immediate response."
+            }
+          }
+        },
+        "block_order": [
+          "5d70884a-b91a-4e64-b255-e50c1b46466d",
+          "e9f3fc1d-2857-4e0c-b0c4-455aaee6de65"
+        ],
+        "settings": {
+        }
+      },
+      "term-inner": {
+        "type": "term-inner",
+        "blocks": {
+          "1cd7be81-1a1b-40d3-8cbe-0ac9a2018300": {
+            "type": "text",
+            "settings": {
+              "heading": "Placing An Order",
+              "details": "Orders can be placed in person at our showroom, 408 Kings Road Chelsea London. SW10 0LJ.You can also order over the phone by calling +44 203 3717530 and you can order online 24 hours a day, 7 days a week on The Baby Cot Shop website. On-line ordering is straightforward and convenient;Simply click the item you require.Choose or enter any personalisation options.\"Add to Cart\"To add other items click \"continue shopping\".Once you are done, click \"checkout\".You can find items by entering a word into the search box, e.g if looking for an upholstered cot bed, enter \"upholstered\". You can search for an item by product name or SKU number, you can also search for products by category. If you can't find what you want, please call or email us and we'll find it for you.Any Special Requirements can be entered in at checkout.Telephone orders can also be placed between the hours of 10am to 6pm Monday through Saturday by calling 0203 371 7530. Our Design Consultants are available between these hours to provide expert assistance to you."
+            }
+          },
+          "e8bc4a46-614c-4557-b01f-895646ba9c26": {
+            "type": "text",
+            "settings": {
+              "heading": "Delivery",
+              "details": "Delivery times vary as some products are made to order, and the time differs for each. Please check on the product page for likely approximate length of delivery times or simply call us to ask. Once your order is completed we will contact you to agree definite arrangements for the date of delivery. Every effort is made to see that the approximate delivery date is accurate, but on rare occasions there may be delays through circumstances beyond our control. We will, of course, make every effort to keep you informed. Our delivery drivers are instructed not to disassemble or move any other furniture except ours for insurance purposes. Any requests made will be done at the risk of the customer and need to be paid for to the delivery company.Approximate production times:Made to order Bed Linen 4 to 6 weeksMade to order Furniture 8 to 10 weeksPersonalised Art 5 daysWe ship worldwide and international deliveries may cost more and we would always let you know prior to processing your order if this is the case. Where applicable, you'll be responsible for any customs charges incurred for international deliveries. Please check with your country's customs department to be aware of fees and charges applicable. Please note that sometimes due to circumstances outside our control, we may exceed the stated delivery times. We would in such cases endeavour to keep you informed of the revised delivery times. Delivery times are likely to be longer during holiday periods. The Baby Cot Shop shall not be liable for any loss or damage whatsoever arising as a result of a delay or failure to deliver products by a particular date or arising as a result of any cause beyond our control, including any force majeure event or the Customer’s failure to provide adequate delivery instructions."
+            }
+          },
+          "401e1a24-04fd-4b8b-a407-fcd60985cdf6": {
+            "type": "text",
+            "settings": {
+              "heading": "Payment",
+              "details": "Deposit Requirement:At our discretion, we may require a deposit before initiating the production or customisation of your order. The deposit amount will vary based on the specific order and will be communicated to you during the quotation or order placement process.Payment Methods:We accept payments via the following methods:Credit or Debit CardsElectronic Funds Transfer (EFT)Cash (in-store purchases only)Deposit:Upon receipt of your order and the issuance of the deposit requirement, you must make the deposit payment within the specified timeframe to secure your order and initiate production.Balance Payment:The remaining balance for your order is due before completion and delivery of the products. We will notify you of the balance amount and the due date.Payment Confirmation:Once your payment is received and processed, we will send you a payment confirmation via email or another preferred communication method. Please retain this confirmation for your records.Cancellation Policy:If you decide to cancel your order, please refer to our cancellation policy, which outlines any applicable fees or refund procedures.Payment Discretion:The Baby Cot Shop reserves the right to extend or modify payment terms at our discretion based on various factors, including the order size, customisation requirements, and your payment history with us.Late Payments:Late payments may result in a delay in the production and delivery of your nursery furniture order. Additionally, late fees may be applied in accordance with our late payment policy.Payment Security:We take the security of your payment information seriously and have implemented industry-standard security measures to protect your data. Please refer to our privacy policy for more details.Questions or Concerns:-If you have any questions or concerns regarding our payment terms or require assistance with your payment, please contact our customer support team at design@thebabycotshop.com.By placing an order with The Baby Cot Shop, you acknowledge and agree to these payment terms."
+            }
+          },
+          "2da49234-be2d-4c83-9c2d-4553d8e5f4a2": {
+            "type": "text",
+            "settings": {
+              "heading": "Variations in Design & Finish",
+              "details": "Due to the fact that our products are made individually by hand and not mass-produced, and also because of the nature of some of the timbers used there will be natural variations in colour and possible slight differences in design. No guarantee is given that the furniture supplied will be an exact replica in terms of colour, finish and design as those displayed in The Baby Cot Shop showroom or on the website. The same applies to fabric which are produced in lots. Lots may vary slightly from the samples. Please note, the colours of fabrics and wallpaper can sometimes vary greatly from the original image on a computer screen, if required, you can always order a sample."
+            }
+          },
+          "7da315fa-4ced-4eec-ac43-33a6e383c26e": {
+            "type": "text",
+            "settings": {
+              "heading": "Upholstery & Fabrics",
+              "details": "Ipsum"
+            }
+          }
+        },
+        "block_order": [
+          "1cd7be81-1a1b-40d3-8cbe-0ac9a2018300",
+          "e8bc4a46-614c-4557-b01f-895646ba9c26",
+          "401e1a24-04fd-4b8b-a407-fcd60985cdf6",
+          "2da49234-be2d-4c83-9c2d-4553d8e5f4a2",
+          "7da315fa-4ced-4eec-ac43-33a6e383c26e"
+        ],
+        "settings": {
+        }
+      },
+      "shipping-inner": {
+        "type": "shipping-inner",
+        "blocks": {
+          "1ba379da-7827-4999-8cd8-1fd5681d7a87": {
+            "type": "text",
+            "settings": {
+              "heading": "Shipping Costs",
+              "details": "Shipping Costs are calculated at checkout for all items- except orders which ship outside the United Kingdom. The shipping cost to international addresses is calculated after the order is placed; you will receive a quote before your order is processed. Your furniture is made just for you when you order so please consider the following production times."
+            }
+          },
+          "769dd31a-6cc6-44b6-9ae6-389dae432000": {
+            "type": "text",
+            "settings": {
+              "heading": "Current Lead Times",
+              "details": "Fabric & Wallpaper 1 to 2 weeksBSC COLLECTIONFurniture \/chairs:8 to 10 weeksBed linens:4 to 6 WeeksCribs & Moses baskets:3 to 4 WeeksSAVIO FIRMINO COLLECTION12 - 16 WeeksThere are exceptions and some items can be made available on a much shorter lead time.Please contact us to enquire.Please be aware that it is your responsibility to ensure that large items of furniture can fit easily into the room, doors are wide enough and can be manoeuvred up the stairs or lift. Dimensions are available on the product page under 'Specifications' or in the Product Description.This applies to U.K. deliveries which includes assembly. You should also tell us in advance if there are any access restrictions of the roads. It is your responsibility to ensure there is sufficient space to assemble the furniture in your room of choice. Your furniture is made exclusively for you and cannot be returned if it does not fit."
+            }
+          }
+        },
+        "block_order": [
+          "1ba379da-7827-4999-8cd8-1fd5681d7a87",
+          "769dd31a-6cc6-44b6-9ae6-389dae432000"
+        ],
+        "settings": {
+        }
+      },
+      "blog-top": {
+        "type": "blog-top",
+        "settings": {
+          "intro": "<p>As a parent, we know you want the best for your baby and we want to help. Let us use our expertise to create an unforgettable nursery room for your little darling. For over 10 years<\/p>"
+        }
+      },
+      "blog-top-list": {
+        "type": "blog-top-list",
+        "settings": {
+          "blog": "news"
+        }
+      },
+      "blog-list": {
+        "type": "blog-list",
+        "settings": {
+          "blog": "news"
+        }
+      },
+      "blog-list-four": {
+        "type": "blog-list-four",
+        "settings": {
+          "blog": "news"
+        }
+      },
+      "service-header": {
+        "type": "service-header",
+        "settings": {
+          "BannerD": "shopify:\/\/shop_images\/image_840f6527-e2a6-4720-9ace-6fa52818a2a2.jpg",
+          "BannerM": "shopify:\/\/shop_images\/image.jpg"
+        }
+      },
+      "services-item": {
+        "type": "services-item",
+        "blocks": {
+          "9ae083c7-56c0-4377-84f5-e746fd670a7d": {
+            "type": "heading",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/pexels-max-vakhtbovych-8135253_2.png",
+              "title": "Interior Design",
+              "desc": "Ideal if you are hands on and have enough time to devote to the project. Consultation is remote and communication is by email and telephone.",
+              "link": "shopify:\/\/pages\/interior-design"
+            }
+          },
+          "ecf5f4b4-9ef5-4b87-a841-c6bca093d646": {
+            "type": "heading",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/pic2.png",
+              "title": "Personal Shopping",
+              "desc": "Ideal if you are hands on and have enough time to devote to the project. Consultation is remote and communication is by email and telephone.",
+              "link": "shopify:\/\/pages\/personal-shopping"
+            }
+          },
+          "1fce3907-0b6a-42c0-94b7-a05907c644ed": {
+            "type": "heading",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/pexels-curtis-adams-3958952_3.png",
+              "title": "Concierge",
+              "desc": "Ideal if you are hands on and have enough time to devote to the project. Consultation is remote and communication is by email and telephone.",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "9ae083c7-56c0-4377-84f5-e746fd670a7d",
+          "ecf5f4b4-9ef5-4b87-a841-c6bca093d646",
+          "1fce3907-0b6a-42c0-94b7-a05907c644ed"
+        ],
+        "settings": {
+        }
+      },
+      "services-info": {
+        "type": "services-info",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/pexels-fauxels-3182812_1_2.png",
+          "text": "<p>You’re not the only one and the good news is WE CAN HELP!<\/p><p>Parents from all over the world come to us every day to help create a bespoke baby or child's room that’s:<\/p><ul><li>Luxurious<\/li><li>Stylish<\/li><li>Functional<\/li><li>Safe<\/li><\/ul><p>And the best part is that we simplify the creative process from the moment you get in touch.LuxurioustylishFunctional<\/p>"
+        }
+      },
+      "previous-clients": {
+        "type": "previous-clients",
+        "blocks": {
+          "38b6ef34-1c51-4d24-bb56-fe9c3500f9cb": {
+            "type": "heading",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_11_1.png",
+              "title": "Cot Bed"
+            }
+          },
+          "7bb18755-b25a-47c0-adc1-f03502ee0266": {
+            "type": "heading",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BabyCot_070_1356_copy_2.png",
+              "title": "Cot Bed"
+            }
+          },
+          "6b5dee46-cb7e-4104-880a-885764b3e63a": {
+            "type": "heading",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_10.png",
+              "title": "Cot Bed"
+            }
+          },
+          "d466097f-ea53-48b2-814c-e97a413e7b3e": {
+            "type": "heading",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BabyCot_070_1356_copy_1.png",
+              "title": "Cot Bed"
+            }
+          }
+        },
+        "block_order": [
+          "38b6ef34-1c51-4d24-bb56-fe9c3500f9cb",
+          "7bb18755-b25a-47c0-adc1-f03502ee0266",
+          "6b5dee46-cb7e-4104-880a-885764b3e63a",
+          "d466097f-ea53-48b2-814c-e97a413e7b3e"
+        ],
+        "settings": {
+        }
+      },
+      "related-blog": {
+        "type": "related-blog",
+        "settings": {
+          "title": "Related Articles",
+          "blog": "news"
+        }
+      },
+      "interior-header": {
+        "type": "interior-header",
+        "settings": {
+          "BannerD": "shopify:\/\/shop_images\/image_840f6527-e2a6-4720-9ace-6fa52818a2a2.jpg",
+          "BannerM": "shopify:\/\/shop_images\/image.jpg",
+          "link_name": "Book AN APPOINTMENT",
+          "link_title": "shopify:\/\/pages\/contact"
+        }
+      },
+      "interior-info": {
+        "type": "interior-info",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/pexels-fauxels-3182812_1_2.png",
+          "text": "<p>The Full Interior Design service is ideal if you want us to oversee the entire project and is a great option if you want a professional touch, or just don't have the time to dedicate to preparing the nursery. The service includes:<\/p><ul><li>In home consultation<\/li><li>3 x alternative schemes presented<\/li><li>Fabric & Paint Samples<\/li><li>Supply of tradesmen (UK)<\/li><li>Full project management<\/li><li>Order and deliver furniture<\/li><li>Styling & fitting the space<\/li><li>Flat fee £2500 per room plus travel expenses & delivery costs<\/li><li>Project Management fee equivalent to 10% of the project<\/li><\/ul>"
+        }
+      },
+      "interior-design-text": {
+        "type": "interior-design-text",
+        "settings": {
+          "title1": "This is why Interior Design is best for you",
+          "text": "<p>Do away with overwhelm and let the baby room experts design a dream nursery for your little one. As experienced nursery design specialists, we have helped parents like you prepare the perfect space for their baby; with over 14 years of experience, we will ensure your baby forms the sweetest first memories.<\/p><p><\/p><p>Our sampling service lets you see and touch the fabrics and finishes you’ve selected for your space, so you can make sure they’re exactly what you;re looking for. Our bespoke storage solutions are designed to optimize the space in your nursery, providing ample storage while still maintaining the high-end aesthetic.<\/p>",
+          "text2": "<p>We offer a wide range of high-end bay furniture, from equiste cots and changing tables to comfortable rocking chairs and stylish solutions. Our pieces are made from the finest materials and are built to last, ensuring that your baby’s nursery will remain a charished space for years to come.<\/p><p><\/p><p>Our aim is to create a customized design that perfectly fits your style and needs and with our luxury nursery design service, you can create a space that’s both functional and beautiful, a space that your baby will love spending time in.<\/p>",
+          "linkTitle": "Book Free Consulation"
+        }
+      },
+      "personal-header": {
+        "type": "personal-header",
+        "settings": {
+          "BannerD": "shopify:\/\/shop_images\/image_840f6527-e2a6-4720-9ace-6fa52818a2a2.jpg",
+          "BannerM": "shopify:\/\/shop_images\/image.jpg",
+          "link_name": "Book an Appointment",
+          "link_title": "shopify:\/\/pages\/contact"
+        }
+      },
+      "personal-info": {
+        "type": "personal-info",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/pexels-fauxels-3182812_1_2.png",
+          "text": "<p>We are so excited to begin designing your little one's room with you! The first step is to book a consultation where we get to understand your requirements and tastes.<\/p><p>If you are hands-on and have enough time to devote to the project. The consultation will take place in our King's Road Boutique or via Zoom and communication will be by email and telephone.<\/p><p>Our full nursery or children's room design service is ideal if you want a professional touch; that way, we manage the entire project while you sit back and relax!<\/p><p><\/p><p><\/p>"
+        }
+      },
+      "personal-design-text": {
+        "type": "personal-design-text",
+        "settings": {
+          "title1": "This is why Personal Shopping is best for you",
+          "text": "<p>We start by gettig to know you, your style and your vision for your baby’s room. Then, we handpick a selection from our collection of the finest and most stlylish baby furniture, linens and room accessories. You can choose from various items, including cots, dressers, gliders and more.<\/p><p>We alos offer concierge-level service, handling all the details from start to finish. This includes delivery, assembly and even interior design services if you’d prefer we manage the project from start to finish.<\/p>",
+          "text2": "<p>With our luxury baby furniture personal shopping service, you can relax and enjoy the excitement of preparing for your new arrival, knowing you are in good hands.. We are commited to making the process as smooth and stress-free as possible while ensuring that your little darling’s room is functional, beautiful and stylish.<\/p><p><\/p>",
+          "map": "<p class=\"desc\">\n            You can choose to have this service virtually, or in person at our\n            <span class=\"location\">\n              <a href=\"https:\/\/maps.app.goo.gl\/ScTR7mNLZjF5MUBG8\">\n                King’s Road Boutique, Chelsea Location.\n              <\/a>\n            <\/span>\n          <\/p>",
+          "linkTitle": "Book Free Consulation"
+        }
+      },
+      "concierge-header": {
+        "type": "concierge-header",
+        "settings": {
+          "BannerD": "shopify:\/\/shop_images\/image_840f6527-e2a6-4720-9ace-6fa52818a2a2.jpg",
+          "BannerM": "shopify:\/\/shop_images\/image.jpg",
+          "link_name": "mailto:design@thebabycotshop.com",
+          "link_url": "Send an Email Now"
+        }
+      },
+      "concierge-design-text": {
+        "type": "concierge-design-text",
+        "settings": {
+          "title1": "How Does It Work?",
+          "text": "<p>Using Virtual Concierge is easy. Click the link below to email our team at design@thebabycotshop.com with details about you – such as your preferred language and departments of interest – and we’ll connect you with one of our team.<\/p><p>From there, your concierge will contact you on whichever platform you prefer – WhatsApp, video calling, or telephone.<\/p>",
+          "text2": "<p>Our virtual concierge service allows you to shop with the Baby Cot Shop remotely by connecting you to a dedicated sales expert - your virtual concierge - based in our Kings Road store, who will assist you with your purchases from start to finish.<\/p>",
+          "map": "",
+          "linkTitle": "Send an Email Now",
+          "linkLink": "mailto:design@thebabycotshop.com"
+        }
+      },
+      "main-expert-guid": {
+        "type": "main-expert-guid",
+        "settings": {
+          "banner": "shopify:\/\/shop_images\/image_36.png"
         }
       }
     },

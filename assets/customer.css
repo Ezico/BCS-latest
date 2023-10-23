@@ -105,6 +105,9 @@
   margin-top: 0;
 }
 
+a.mchange-pass {
+    width: max-content!important;
+}
 /* Customer Table */
 .customer table {
   table-layout: auto;
@@ -112,7 +115,7 @@
   border-bottom: 0.01rem solid rgba(var(--color-foreground), 0.08);
   box-shadow: none;
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 14px;
   position: relative;
 }
 
@@ -535,9 +538,8 @@
 .account table td:first-of-type a {
   padding: 1.1rem 1.5rem;
   text-decoration: none;
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-link), 0.2);
-  border: 0.1rem solid transparent;
-  font-size: 1.2rem;
+  border: 0;
+  font-size: 14px;
 }
 
 .account table td:first-of-type a:hover {
@@ -581,7 +583,7 @@
 
 .order > div:nth-of-type(2) > div:first-of-type h2 ~ p {
   margin-bottom: 0;
-  font-size: 1.4rem;
+  font-size: 14px;
 }
 
 .order > div:nth-of-type(2) > div:first-of-type h2 ~ p:last-of-type {
@@ -589,7 +591,7 @@
 }
 
 .order .item-props {
-  font-size: 1.4rem;
+  font-size: 14px;
   margin-top: 0.05px;
   display: flex;
   flex-direction: column;
@@ -632,7 +634,7 @@
 
 .order tbody ul {
   list-style: none;
-  font-size: 1.2rem;
+  font-size: 14px;
   text-align: right;
   padding-left: 0;
   margin-top: 1rem;
@@ -805,12 +807,13 @@ li[data-address] > h2 {
 .rowx {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 14px;
 }
 
 .customer .field {
-  width: 48%;
+  width: 49%;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
 }
 
@@ -849,6 +852,12 @@ a.change-pass {
 }
 #profileUpdateForm .rowx .field input {
   margin: 0 !important;
+}
+
+button.remove-btn-lg {
+    margin: 0;
+    position: absolute;
+    bottom: 0px;
 }
 .updateUserData {
     width: max-content !important;

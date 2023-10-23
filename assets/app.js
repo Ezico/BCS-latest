@@ -212,41 +212,7 @@ function addAddressBtn(e) {
   document.getElementById("add_address").style.display = "block";
   document.getElementById("mobileAddAddress").style.display = "block";
   document.getElementById("mobileAddress").style.display = "none";
-  // document.getElementById("mobileOrders").style.display = "none";
-  // document.getElementById("mobileProfile").style.display = "none";
-  // document.querySelector(".h-mobile").style.display = "block";
 }
-// $("#openOrders").click(function (event) {
-//   const updateUI = document.getElementById("update");
-//   const orderUI = document.getElementById("orders");
-//   orderUI.style.display = "block";
-//   orderUI.classList.add = "active-bg";
-//   updateUI.style.display = "none";
-//   updateUI.classList.remove = "active-bg";
-//   console.log(event.target);
-// });
-
-// $("#openProfile").click(function (event) {
-//   const updateUI = document.getElementById("update");
-//   const orderUI = document.getElementById("orders");
-//   orderUI.style.display = "none";
-//   orderUI.classList.remove = "active-bg";
-//   updateUI.style.display = "block";
-//   updateUI.classList.add = "active-bg";
-//   console.log(event.target);
-// });
-// This example was used to pull in variant titles and IDs dynamically
-// on a custom build of the ReCharge customer portal.
-//
-// Feel free to send me an email if you have any questions.
-//
-// Kelly Vaughn -- The Taproom Agency
-// kelly@thetaproom.com
-
-// APP CREDENTIALS
-const api = "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";
-// api key: 376b1f7d1d60e67f365ecb7acb1567aa
-// api screte: fc4e52132f548bcade4d3e907c2fb74f
 
 var desktopform = document.querySelector("#profileUpdateForm");
 desktopform.addEventListener("submit", function (e) {
@@ -308,43 +274,47 @@ function msubmitted(event) {
 }
 
 function updateUser(customer_data, id) {
-  $.ajax({
-    url:
-      `https://376b1f7d1d60e67f365ecb7acb1567aa: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@thebabycotshop-staging.myshopify.com/admin/api/2021-07/customers/` +
-      id +
-      ".json",
-    type: "PUT",
-    cache: false,
-    data: customer_data,
-    dataType: "json",
-    crossDomain: true,
-    success: function (response) {
-      location.reload(true);
-    },
-    error: function (response) {
-      // location.reload(true);
-      const err = response.responseJSON.errors.email;
-      if (response.responseJSON.errors.email) {
-        console.log(err[0]);
-        Toastify({
-          text: `Email ${err[0]}`,
-          duration: 3000,
-          destination: "https://github.com/apvarun/toastify-js",
-          newWindow: true,
-          close: true,
-          gravity: "top", // `top` or `bottom`
-          position: "center", // `left`, `center` or `right`
-          stopOnFocus: true, // Prevents dismissing of toast on hover
-          style: {
-            background: "#bfb5a7",
-          },
-          onClick: function () {}, // Callback after click
-        }).showToast();
-      }
-
-      // response.responseJSON.errors.forEach((element) => {});
-    },
-  });
+  fetch("https://bcs-auth.onrender.com/account/update") //api for the get request
+    .then((response) => response.json())
+    .then((data) => {
+      const api = data.api;
+      $.ajax({
+        url:
+          `https://376b1f7d1d60e67f365ecb7acb1567aa:${api}@thebabycotshop-staging.myshopify.com/admin/api/2021-07/customers/` +
+          id +
+          ".json",
+        type: "PUT",
+        cache: false,
+        data: customer_data,
+        dataType: "json",
+        crossDomain: true,
+        success: function (response) {
+          location.reload(true);
+        },
+        error: function (response) {
+          // location.reload(true);
+          const err = response.responseJSON.errors.email;
+          if (response.responseJSON.errors.email) {
+            console.log(err[0]);
+            Toastify({
+              text: `Email ${err[0]}`,
+              duration: 3000,
+              destination: "https://github.com/apvarun/toastify-js",
+              newWindow: true,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "center", // `left`, `center` or `right`
+              stopOnFocus: true, // Prevents dismissing of toast on hover
+              style: {
+                background: "#bfb5a7",
+              },
+              onClick: function () {}, // Callback after click
+            }).showToast();
+          }
+          // response.responseJSON.errors.forEach((element) => {});
+        },
+      });
+    });
 }
 
 // customer address tab
