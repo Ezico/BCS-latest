@@ -7,27 +7,26 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
-    px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
-    px;
-  }
-
-  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
       px;
-      padding-bottom: {{ section.settings.padding_bottom }}
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
       px;
     }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}
+        px;
+        padding-bottom: {{ section.settings.padding_bottom }}
+        px;
+      }
+    }
+    .rooms-carousel .col.slick-slide.slick-current.slick-active.slick-center {
+      padding: 10px;
   }
-  .rooms-carousel .col.slick-slide.slick-current.slick-active.slick-center {
-    padding: 10px;
-}
 {%- endstyle -%}
 <div class="related-products isolate{% unless section.settings.full_width %} page-width{% endunless %}">
-
   <div class="main-header-container">
     <h2>EXPLORE OUR COLLECTIONS</h2>
   </div>
@@ -35,88 +34,88 @@
   <div class="rooms_carousel collection_items">
     {% for block in section.blocks %}
       {% assign images = block.settings.image | img_url: 'master' %}
-       <div class="col custom_size">
-      {% render 'collection-image-hover' image:{{images}}, title:{{block.settings.title}}, desc:{{block.settings.desc}}, link:{{block.settings.link}}, text:{{block.settings.btn-text}}%}
-    </div>
+      <div class=" custom_size">
+        {% render 'collection-image-hover' image:{{images}}, title:{{block.settings.title}}, desc:{{block.settings.desc}}, link:{{block.settings.link}}, text:{{block.settings.btn-text}} %}
+      </div>
     {% endfor %}
-   
   </div>
 </div>
 
 {% javascript %}
-   
-    $('.rooms_carousel').slick({
-  infinite: false,
-  slidesToShow: 3.1,
-  slidesToScroll: 1,
-  // centerMode: true,
-  // variableWidth: true,
-  prevArrow: '<img class="nav-left" style="top:-91px; right:75px;width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/left.png">',
-  nextArrow: '<img class="nav-right" style="top:-91px;right:17px; width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/right.png">',
-   responsive: [
+  $('.rooms_carousel').slick({
+    infinite: false,
+    slidesToShow: 3.1,
+    slidesToScroll: 1,
+    // centerMode: true,
+    // variableWidth: true,
+    prevArrow:
+      '<img class="nav-left" style="top:-91px; right:75px;width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/left.png">',
+    nextArrow:
+      '<img class="nav-right" style="top:-91px;right:17px; width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/right.png">',
+    responsive: [
       {
         breakpoint: 991,
         settings: {
           slidesToShow: 3,
-        }
+        },
       },
       {
         breakpoint: 767,
         settings: {
           slidesToShow: 1.1,
-        }
-      }
-    ]
-});
-  {% endjavascript %}
+        },
+      },
+    ],
+  });
+{% endjavascript %}
 
 {% schema %}
-  {
-    "name": "rooms-collection",
-    "tag": "section",
-    "class": "homepage_rooms",
-    "disabled_on": {
-      "groups": ["header", "footer"]
-    },
-    "settings": [],
-    "blocks": [
-      {
-        "type": "heading",
-        "name": "t:sections.rich-text.blocks.heading.name",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "background image"
-          },{
-            "type": "text",
-            "id": "title",
-            "label": "title"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "desc",
-            "default": "Talk about your brand",
-            "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
-          }
-          ,{
-            "type": "url",
-            "id": "link",
-            "label": "link"
-          }
-          ,{
-            "type": "text",
-            "id": "btn-text",
-            "label": "button text"
-          }
-          
-        ]
-      } 
-    ],
-    "presets": [
-      {
-        "name": "Explore Rooms"
-      }
-    ]
-  }
+{
+  "name": "rooms-collection",
+  "tag": "section",
+  "class": "homepage_rooms",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "background image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "desc",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        },
+        {
+          "type": "text",
+          "id": "btn-text",
+          "label": "button text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Explore Rooms"
+    }
+  ]
+}
 {% endschema %}

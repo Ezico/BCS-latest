@@ -1,0 +1,250 @@
+<div id="contactModal" class="cartmodal">
+  <div class="cartmodal-content">
+    <span onclick="closeModalContact()" class="close">&times;</span>
+    <div id="stage1" class="stage_1 anim">
+      <div>
+        <h4>The Baby Cot Shop Room Design Service</h4>
+        <p class="mission">Our Misssion</p>
+        <p>
+          Our mission is to help you create a space that your child will find
+          inspiring; we believe your child will be positively impacted by a
+          well-designed nursery or bedroom. Start by filling out this form so we
+          can make sure we are the right fit for your project, we look forward
+          to learning more about your requirements.
+        </p>
+
+        <p>
+          Many parents-to-be struggle to create the perfect nursery for their
+          baby. Not only do we supply the most beautiful furniture & decor, our
+          goal is to design a space that is tailored to your lifestyle and
+          budget so you can have peace of mind knowing your little one has the
+          perfect space. We look forward to helping you create a haven for you
+          and your child.
+        </p>
+      </div>
+      <br>
+      <div class="start" style="text-align: right;">
+        <a class="next_btn" onclick="openForm(this)">Continue</a>
+      </div>
+    </div>
+
+    <div class="no-show">
+      {% form 'contact', return_to: '/pages/choose-time' %}
+        <div
+          id="stage2"
+          class="stage_2 anim"
+          style="display: none;"
+        >
+          <p id="back-1" onclick="openStg1()">
+            {% render 'long-arrow-left' %} Go back
+          </p>
+          <h4>Nursery / Kids' Room Design Questionnaire</h4>
+          <div class="progress">
+            <div class="bar" style="width:50%; display:block"></div>
+          </div>
+          <p id="hide-error" style="color:#f90000;display:none">
+            Please fill all required fields
+          </p>
+          {{ form.errors | default_errors }}
+          <div class="row">
+            <div class="field-container">
+              <label for="first-name">First name</label>
+              <input
+                placeholder="Enter first name"
+                type="text"
+                name="contact[first_name]"
+                id="first-name"
+              >
+            </div>
+            <div class="field-container">
+              <label for="last-name">Last name</label>
+              <input
+                placeholder="Enter last name"
+                type="text"
+                name="contact[last_name]"
+                id="last-name"
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="field-container">
+              <label for="phone">Phone</label>
+              <input
+                placeholder="Phone number"
+                type="tel"
+                name="contact[phone]"
+                id="phone"
+              >
+            </div>
+            <div class="field-container">
+              <label for="email">Email</label>
+              <input
+                placeholder="Enter Email address"
+                type="email"
+                name="contact[email]"
+                id="email"
+              >
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="manicontact"
+              >Main Contact for project (e.g House Manager)</label
+            >
+            <input
+              type="text"
+              placeholder="House Manager"
+              id="maincontact"
+              name="contact[mainContact]"
+            >
+          </div>
+          <div class="field-container">
+            <label for="street">Street Address</label>
+            <input
+              placeholder="Enter Street address"
+              type="text"
+              id="street"
+              name="contact[street]"
+            >
+          </div>
+          <div class="field-container">
+            <label for="address_line_2">Address Line 2</label>
+            <input
+              placeholder="Address Line 2"
+              type="text"
+              id="address_line_2"
+              name="contact[mainContact]"
+            >
+          </div>
+
+          <div class="row">
+            <div class="field-container">
+              <label for="city">City</label>
+              <input
+                placeholder="Enter City"
+                type="text"
+                name="contact[city]"
+                id="city"
+              >
+            </div>
+            <div class="field-container">
+              <label for="text">City State/Region/Province</label>
+              <input
+                placeholder="Enter State"
+                type="text"
+                name="contact[state]"
+                id="state"
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field-container">
+              <label for="zip">Zip Code</label>
+              <input
+                placeholder="Enter Zip code"
+                type="text"
+                name="contact[zip-code]"
+                id="zip"
+              >
+            </div>
+            <div class="field-container">
+              <label for="country">Country</label>
+              <select name="country" id="country">
+                {{ all_country_option_tags }}
+              </select>
+            </div>
+          </div>
+          <br>
+          <a class="next_btn" onclick="openNext()">Next</a>
+        </div>
+        <div
+          id="stage3"
+          class="stage_3 anim"
+          style="display: none;"
+        >
+          <p id="back-2" onclick="openStg2()">
+            {% render 'long-arrow-left' %} Go back
+          </p>
+          <h4>Nursery / Kids' Room Design Questionnaire</h4>
+          <div class="progress">
+            <div class="bar" style="width:100%; display:block"></div>
+          </div>
+          <div class="field-container">
+            <div class="contact-time">
+              <br>
+              <p>When is your budget?</p>
+              <div class="contact-method">
+                <div class="check-container">
+                  <input
+                    type="checkbox"
+                    name="contact[contact_time_1]"
+                    value="10,000 - 15,000"
+                    onclick="onlyOne(this)"
+                    id="check"
+                  >
+                  <label for="first">10,000 - 15,000</label>
+                </div>
+
+                <div class="check-container">
+                  <input
+                    type="checkbox"
+                    name="contact[contact_time_1]"
+                    onclick="onlyOne(this)"
+                    value="15,000 - 25,000"
+                    id="check"
+                  >
+                  <label for="second">15,000 - 25,000</label>
+                </div>
+
+                <div class="check-container">
+                  <input
+                    type="checkbox"
+                    name="contact[contact_time_1]"
+                    onclick="onlyOne(this)"
+                    value="40,000+"
+                    id="check"
+                  >
+                  <label for="third">40,000+</label>
+                </div>
+
+                <br>
+                <div class="field-container">
+                  <label for="manicontact">When is Baby due?</label>
+                  <input
+                    type="date"
+                    placeholder="DD/MM/YY"
+                    id="due"
+                    name="contact[duedate]"
+                  >
+                </div>
+
+                <div class="field-container">
+                  <label for="manicontact">Little one's age</label>
+                  <input
+                    type="text"
+                    placeholder="Enter age here"
+                    id="age"
+                    name="contact[age]"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="next_btn" type="submit">Submit form</button>
+        </div>
+        {% comment %}
+          <div
+            id="stage4"
+            class="stage_4 anim"
+            style="display:none">
+            calender
+          </div>
+        {% endcomment %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+{% section 'interior-header' %}
+{% section 'interior-info' %}
+{% section 'interior-design-text' %}
+{% section 'related-blog' %}

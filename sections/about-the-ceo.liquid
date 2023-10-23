@@ -1,0 +1,60 @@
+<div class="page-width">
+  <div class="grid-content">
+    <h2 class="heading-title">About the Baby cot shop</h2>
+    <center>
+      <p>The story behind our brand</p>
+    </center>
+  </div>
+
+  <div class="image-and-text">
+    <div class="img_container">
+      {{ section.settings.image | img_url: 'master' | img_tag }}
+    </div>
+    <div class="text_area">
+      <div class="container_ceo">
+        <h2>{{ section.settings.heading }}</h2>
+        <p class="position">{{ section.settings.sub }}</p>
+        <p>
+          {{ section.settings.dec }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "services-items",
+  "tag": "section",
+  "class": "services",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Bespoke Product",
+      "label": "Add title"
+    },
+    {
+      "type": "text",
+      "id": "sub",
+      "default": "Founder",
+      "label": "Add sub title"
+    },
+    { "type": "richtext", "id": "dec", "label": "About text" },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "image"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "About the CEO"
+    }
+  ]
+}
+{% endschema %}

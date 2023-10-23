@@ -1,0 +1,137 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+<script
+  type="text/javascript"
+  src="//code.jquery.com/jquery-1.11.0.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+  integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<style>
+  @media (max-width: 950px) {
+    .slick-slider {
+      overflow: inherit;
+    }
+  }
+  .col-child {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+  }
+  .shopify-section-group-footer-group {
+    margin-top: 0;
+  }
+  .article-datax .article-title {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .article__item {
+    padding: 10px;
+  }
+  .article-datax {
+    border: 0;
+    background: #ffffff;
+    padding: 20px;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .main-article {
+    flex: 2;
+  }
+  a.readmore {
+    display: flex;
+    align-items: center;
+    color: #bda399;
+    font-size: 12px;
+  }
+  .article-thumnail {
+    height: auto;
+  }
+  .side-article {
+    display: flex;
+    padding-bottom: 20px;
+    background: var(--White, #fff);
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+    padding: 7px;
+    margin: 10px 0;
+  }
+  .card-row {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+</style>
+
+<div
+  class="large-up-hide image_medium_bg"
+  style="background:linear-gradient(182deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 71.88%, rgba(255, 255, 255, 0.00) 100%),url({{ section.settings.banner | image_url}})"
+>
+  <div class="page-width">
+    {% render 'breadcrumb' %}
+
+    <div class="hidden-content"></div>
+  </div>
+</div>
+
+<div
+  class="small-hide medium-hide image_medium_bg"
+  style="background:url( {{section.settings.banner | image_url}})"
+>
+  <div class="page-width">
+    {% render 'breadcrumb' %}
+
+    <div class="hidden-content"></div>
+  </div>
+</div>
+
+<div class="page-width">
+  <div class="article-page">
+    <div class="main-article">
+      <div class="article-card">
+        <div
+          class="rte scroll-trigger animate--slide-in"
+          itemprop="articleBody"
+        >
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+    <div class="article-sidebar">
+      <div class="learn-more">
+        <div class="related-article"></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading" style="text-align: center;">{{ page.title }}</h2>
+  <hr style="margin-top: -10px;margin-bottom: 29px;">
+
+  <div class="card-row">
+    {% for article in blogs['expert-advice'].articles %}
+      {% assign images = article.image | img_url: 'master' %}
+      <div class="col custom_size">
+        {% render 'expert-guid-card' image:{{images}}, title:{{article.title}}, desc:{{article.except}}, link:{{article.url}}, text:{{block.settings.btn-text}} %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "image_picker", "id": "banner", "label": "header banner" }
+  ]
+}
+{% endschema %}

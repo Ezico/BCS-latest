@@ -1,0 +1,50 @@
+{%- assign blog = blogs[section.settings.blog] -%}
+<div class="blog-title">
+  <h2 class="blog-heading">{{ blog.title }}</h2>
+  <a href="{{blog.url}}" class="see-more"
+    >See all post {% render 'arrow-right' -%}
+  </a>
+</div>
+
+<div class="article-list">
+  <div class="article-row-four">
+    {% for article in blog.articles limit: 4 %}
+      <div class="article__item__four">
+        <a href="{{article.url}}">
+          <div
+            class="col-child-four"
+            style="background-image: url('{{ article | img_url: 'master' }}')"
+          >
+            <br>
+          </div>
+        </a>
+        <div class="">
+          <br>
+          <div class="article-title">
+            <a href="{{article.url}}">
+              {{ article.title }}
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<br>
+<br>
+
+{% schema %}
+{
+  "name": "Blog List",
+  "tag": "section",
+  "class": "faq-class",
+  "settings": [
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Choose Blog"
+    }
+  ]
+}
+{% endschema %}

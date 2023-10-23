@@ -1,0 +1,163 @@
+ {%- assign blog = blogs[section.settings.blog] -%}
+ {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+
+<style>
+   @media(max-width: 950px){
+    .slick-slider {
+    overflow: inherit;
+}
+}
+  .col-child {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+  .shopify-section-group-footer-group {
+    margin-top: 0;
+  }
+  .article-datax .article-title{
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .article__item{
+    padding:10px
+  }
+  .article-datax {
+    border: 0;
+    background: #ffffff;
+    padding: 20px;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main-article {
+  flex: 2;
+}
+a.readmore {
+    display: flex;
+    align-items: center;
+    color: #bda399;
+    font-size: 12px;
+}
+  .article-thumnail{
+    height: auto;
+  }
+  .side-article {
+    display: flex;
+    padding-bottom: 20px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+    padding: 7px;
+    margin: 10px 0;
+}
+</style>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+  integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+ <div class="page-width">
+<h2 class="heading">{{section.settings.title}}</h2>
+      <hr style="margin-top: -10px;margin-bottom: 29px;"/>
+      <div class="article-carousel">
+        {% for related_article in blog.articles limit: 10 %}
+              <div class="article__item">
+            <a href="{{related_article.url}}">
+              <div class="col-child" style="background-image: url('{{ related_article | img_url: 'master' }}')">
+                <br>
+              </div>
+            </a>
+            <div class="article-data">
+              <div class="tag-container">
+                {% for tag in related_article.tags %}
+                  <div class="blog-tag">
+                    {% comment %} {{ tag | link_to_tag: tag | class: "blog-tags" }} {% endcomment %}
+                    <a href="">{{tag.title}}</a>
+                  </div>
+                {% endfor %}
+              </div>
+
+              <div class="article-title">
+                <a href="{{related_article.url}}">
+                {{ related_article.title }}
+                </a>
+              </div>
+              <div class="rte article__grid-excerpt">
+                {% if related_article.excerpt.size > 0 %}
+                  {{ related_article.excerpt | strip_html | truncate: 140 }}
+                {% else %}
+                  {{ related_article.content | strip_html | truncate: 140 }}
+                {% endif %}
+              </div>
+              <div class="article-action">
+                <a href="{{related_article.url}}" class="readmore">Read More {% render 'long-arrow-right' %}</a>
+
+                <span class="article-date">
+                  {{ related_article.published_at | time_tag: format: 'date' }}
+                </span>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+      </div>
+    </div>
+ </div>
+  
+</div>
+
+<script>
+   $('.article-carousel').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay:false,
+  prevArrow: '<img class="nav-left" style="top:-65px; right:60px;width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/left.png">',
+  nextArrow: '<img class="nav-right" style="top:-65px;right:0; width:40px" src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/right.png">',
+   responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
+});
+</script>
+    {% schema %}
+{
+  "name": "services-items",
+  "tag": "section",
+  "class": "services",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Related Articles"
+    },
+      {
+        "type": "blog", "id":"blog", "label": "Select Blog"
+      }
+  ],
+  
+  "presets": [
+    {
+      "name": "Related Articles"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+<div class="social-links">
+  {% assign full_url = request.host | append: request.path %}
+        <span>Share:</span>
+        <a target="_blank" href="https://twitter.com/share?url=https://{{full_url}}">
+          {% render 'twitter-icon' %}
+         </a>
+         <a target="_blank" href="https://www.facebook.com/sharer.php?u=https://{{ full_url }}">
+          {% render 'facebook-icon' %}
+         </a>
+         
+         <a target="_blank" href="https://pinterest.com/pin/create/button/?url=https://{{full_url}}&media={{product.featured_image | img_url:'master' }}&description={{product.title}}">
+          {% render 'pinterest-icon' %}
+         </a>
+
+
+         <a href="mailto:?subject=Check out this site!&amp;body=https://{{full_url}}">
+          {% render 'email-icon' %}
+         </a>
+         
+        </div>
+
+<style>
+  .social-links{
+    display: flex;
+    align-items: center;
+  }
+</style>

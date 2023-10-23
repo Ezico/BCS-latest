@@ -1,0 +1,121 @@
+<style>
+  @media (max-width: 780px) {
+    .reset .row {
+      display: block;
+    }
+    .inner_container {
+      width: 100% !important;
+    }
+    .inner_container h2.banner-title {
+      font-size: 30px !important;
+    }
+  }
+  .col-one-half {
+    flex: 1;
+  }
+  .inner_container {
+    width: 80%;
+  }
+  .inner_container h2.banner-title {
+    font-size: 40px;
+  }
+  .section-inner {
+    padding: 50px 0px;
+    background: var(--Primary-Color-2, #f3efea);
+  }
+  .inner_container .desc {
+    color: var(--Black---Grey-5, #4a4a4a);
+    text-align: left;
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2;
+  }
+  span.location {
+    color: var(--Black---Grey-5, #4a4a4a);
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+  }
+</style>
+<div class="section-inner">
+  <div class="page-width reset">
+    <div class="row">
+      <div class="col-one-half">
+        <div class="inner_container">
+          <h2 class="banner-title">
+            {{ section.settings.title1 }}
+          </h2>
+          <p class="desc">
+            {{ section.settings.text }}
+          </p>
+          <br>
+          <br>
+          <br>
+          {%
+            render 'button-modal',
+            title:  {{section.settings.linkTitle}},
+          %}
+        </div>
+      </div>
+      <div class="col-one-half">
+        <div class="inner_container">
+          <h2 class="banner-title" style="opacity:0">
+            {{ section.settings.title1 }}
+          </h2>
+          <div class="desc">
+            {{ section.settings.text2 }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "How it works",
+  "tag": "section",
+  "class": "services",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "add a title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Enter text",
+      "default": "<p></p>"
+    },
+
+    {
+      "type": "richtext",
+      "id": "text2",
+      "label": "Enter text",
+      "default": "<p></p>"
+    },
+
+    {
+      "type": "text",
+      "default": "hello",
+      "id": "linkTitle",
+      "label": "Button text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Item"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,59 @@
+<div class="section">
+  <div class="page-width">
+    <h2 class="title" style="text-align:center">Our Services</h2>
+    <hr style="margin: 20px 0;">
+    <div class="rooms_carousel collection_items">
+      {% for block in section.blocks %}
+        {% assign images = block.settings.image | img_url: 'master' %}
+        <div class="col custom_size">
+          {% render 'services-image-hover' image:{{images}}, title:{{block.settings.title}}, desc:{{block.settings.desc}}, link:{{block.settings.link}}, text:{{block.settings.btn-text}} %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "services-items",
+  "tag": "section",
+  "class": "services",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "background image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "desc",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Item"
+    }
+  ]
+}
+{% endschema %}

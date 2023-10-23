@@ -1,0 +1,252 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+  integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+<style>
+  @media(max-width: 950px){
+    .slick-slider {
+    overflow: inherit;
+}
+}
+  .col-child {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+  .shopify-section-group-footer-group {
+    margin-top: 0;
+  }
+  .article-datax .article-title{
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .article__item{
+    padding:10px
+  }
+  .article-datax {
+    border: 0;
+    background: #ffffff;
+    padding: 20px;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main-article {
+  flex: 2;
+}
+a.readmore {
+    display: flex;
+    align-items: center;
+    color: #bda399;
+    font-size: 12px;
+}
+  .article-thumnail{
+    height: auto;
+  }
+  .side-article {
+    display: flex;
+    padding-bottom: 20px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+    padding: 7px;
+    margin: 10px 0;
+}
+</style>
+
+  {%- if article.image -%}
+    <div class="large-up-hide image_medium_bg" style="background:linear-gradient(182deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 71.88%, rgba(255, 255, 255, 0.00) 100%),url({{article.image | image_url}})">
+      <div class="page-width">
+        {% render 'breadcrumb' %}
+
+        <div class="banner-content">
+          <h2 class="banner-title">
+            {{ title }}
+          </h2>
+          <p class="banner-desc">
+            {{ desc }}
+          </p>
+        </div>
+        <div class="hidden-content"></div>
+      </div>
+    </div>
+
+
+    <div class="small-hide medium-hide image_medium_bg" style="background:url({{article.image | image_url}})">
+      <div class="page-width">
+        {% render 'breadcrumb' %}
+        <div class="banner-content">
+          <h2 class="banner-title">
+            {{ title }}
+          </h2>
+          <p class="banner-desc">
+            {{ desc }}
+          </p>
+        </div>
+        <div class="hidden-content"></div>
+      </div>
+    </div>
+  {%- endif -%}
+
+
+  <div class="page-width">
+    <div class="article-page">
+      <div class="main-article">
+        <div class="article-card">
+          <div class="tag-container">
+            {% for tag in article.tags %}
+              <div class="blog-tag">
+                {{ tag | link_to_add_tag: tag | class: "blog-tags" }}
+              </div>
+            {% endfor %}
+            <span class="article-date">
+              {{ article.published_at | time_tag: format: 'date' }}
+            </span>
+          </div>
+
+          <h1 class="article-title">{{ article.title | escape }}</h1>
+
+          <div class="rte scroll-trigger animate--slide-in" itemprop="articleBody">
+            {{ article.content }}
+          </div>
+        </div>
+      </div>
+      <div class="article-sidebar">
+        <div class="learn-more">
+         <div class="related-article">
+          <h2 class="title">LEARN MORE</h2>
+          <div class="video-tab">
+            <iframe
+              class="blog-video"
+              src="https://www.youtube.com/embed/jVr7g7sZIH8?si=u8kWYsQaSV-Lq4L9&amp;controls=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+         </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+                                                                      "@type": "Article",
+                                                                      "articleBody": {{ article.content | strip_html | json }},
+  "mainEntityOfPage": {
+                                                                        "@type": "WebPage",
+                                                                        "@id": {{ request.origin | append: page.url | json }}
+  },
+  "headline": {{ article.title | json }},
+  {% if article.excerpt != blank %}
+    "description": {{ article.excerpt | strip_html | json }},
+  {% endif %}
+  {% if article.image %}
+    "image": [
+    {{ article | image_url: width: 1920 | prepend: "https:" | json }}
+    ],
+  {% endif %}
+  "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "author": {
+                                                                        "@type": "Person",
+                                                                        "name": {{ article.author | json }}
+  },
+  "publisher": {
+                                                                        "@type": "Organization",
+                                                                        "name": {{ shop.name | json }}
+  }
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "t:sections.main-article.name",
+    "tag": "section",
+    "class": "section",
+    "blocks": [
+      {
+        "type": "@app"
+      },
+      {
+        "type": "featured_image",
+        "name": "t:sections.main-article.blocks.featured_image.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "image_height",
+            "options": [
+              {
+                "value": "adapt",
+                "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+              }, {
+                "value": "small",
+                "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+              }, {
+                "value": "medium",
+                "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+              }, {
+                "value": "large",
+                "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+              }
+            ],
+            "default": "adapt",
+            "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
+            "info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
+          }
+        ]
+      },
+      {
+        "type": "title",
+        "name": "t:sections.main-article.blocks.title.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "blog_show_date",
+            "default": true,
+            "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+          }, {
+            "type": "checkbox",
+            "id": "blog_show_author",
+            "default": false,
+            "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "name": "t:sections.main-article.blocks.content.name",
+        "limit": 1
+      }, {
+        "type": "share",
+        "name": "t:sections.main-article.blocks.share.name",
+        "limit": 2,
+        "settings": [
+          {
+            "type": "text",
+            "id": "share_label",
+            "label": "t:sections.main-article.blocks.share.settings.text.label",
+            "default": "Share"
+          }, {
+            "type": "paragraph",
+            "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+          }, {
+            "type": "paragraph",
+            "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

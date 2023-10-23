@@ -1,0 +1,47 @@
+<div class="related-products page-header section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} animate--slide-in{% endif %}">
+  {% render 'page-header' desc: {{section.settings.desc}}, imageD: {{section.settings.BannerD}}, imageM: {{section.settings.BannerM}}, title: {{section.settings.heading}} %}
+</div>
+<br/>
+<style>
+  .shopify-section-group-footer-group {
+    margin-top: 0;
+  }
+</style>
+{% schema %}
+  {
+    "name": "Header Banner",
+    "tag": "section",
+    "class": "banner_text_section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Banner",
+        "id": "BannerD",
+        "info": "Banner for large screens"
+      }, {
+        "type": "image_picker",
+        "label": "Banner Mobile",
+        "id": "BannerM",
+        "info": "Banner for small screens"
+      }, {
+        "type": "text",
+        "label": "Page Heading",
+        "id": "heading",
+        "default": "Welcome to the Baby Cot (Virtual) Boutique"
+      }, {
+        "type": "richtext",
+        "label": "page details",
+        "id": "desc",
+        "default": "<p>With the help of our state-of-the-art 3D modelling software, you can get a virtual tour of your nursery and make any changes you wish before production begins.</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page header backgroud image"
+      }
+    ]
+  }
+{% endschema %}

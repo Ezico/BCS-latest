@@ -1,0 +1,119 @@
+<section id="{{section.id}}">
+  <div class="page-width">
+    <div class="grid-content" style="text-align:center; max-width:800px;margin:0 auto">
+      <h2 class="header-title">Frequently Asked Questions</h2>
+      <p class="desc">These are our most frequently asked questions. You can go through them individually or search using the FAQ search bar. If you still need help then please contact us at design@thebabycotshop.com.</p>
+    </div>
+  </div>
+  <br/>
+  <div class="page-width faq-body">
+    <div class="faq-side">
+      <ul class="faq-heading">
+        <li class="faq-head active">Account & Password {% include 'arrow-right' %}</li>
+        <li class="faq-head">After Care | Assembly | Products {% include 'arrow-right' %}</li>
+        <li class="faq-head">Customer Service {% include 'arrow-right' %}</li>
+        <li class="faq-head">Gift Cards {% include 'arrow-right' %}</li>
+        <li class="faq-head">Health | Safety | Sustainability {% include 'arrow-right' %}</li>
+        <li class="faq-head">Order | Returns | Exchanges | Warranty {% include 'arrow-right' %}</li>
+        <li class="faq-head">Payment Methods{% include 'arrow-right' %}</li>
+        <li class="faq-head">Shipping Policy {% include 'arrow-right' %}</li>
+      </ul>
+    </div>
+    <div class="faq-main">
+      <div class="faqaccordion">
+        <div class="at-item">
+          <div class="at-title active">
+            <h2>I lost my password. How do I log in?</h2>
+          </div>
+          <div class="at-tab" style="display: block;">
+            You can unsubscribe from any newsletter individually by clicking the unsubscribe link at the bottom of each email.Many new parents struggle to find high-quality nursery furniture that is both unique and safe for their baby. At The Baby Cot Shop, based in Chelsea, we supply be darling
+          </div>
+        </div>
+        <div class="at-item">
+          <div class="at-title">
+            <h2>Can I change the information on my account?</h2>
+          </div>
+          <div class="at-tab">
+            You can unsubscribe from any newsletter individually by clicking the unsubscribe link at the bottom of each email.Many new parents struggle to find high-quality nursery furniture that is both unique and safe for their baby. At The Baby Cot Shop, based in Chelsea, we supply be darling
+          </div>
+        </div>
+        <div class="at-item">
+          <div class="at-title">
+            <h2>Can I unsubscribe to the newsletter?</h2>
+          </div>
+          <div class="at-tab">
+            You can unsubscribe from any newsletter individually by clicking the unsubscribe link at the bottom of each email.Many new parents struggle to find high-quality nursery furniture that is both unique and safe for their baby. At The Baby Cot Shop, based in Chelsea, we supply be darling
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "FAQ Page",
+    "tag": "section",
+    "class": "faq-class",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      }, {
+        "type": "inline_richtext",
+        "id": "desc",
+        "default": "Text block",
+        "label": "description"
+      }
+    ],
+    "max_blocks": 50,
+    "blocks": [
+      {
+        "name": "Question & Answer",
+        "type": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "Add Questions"
+          }, {
+            "type": "inline_richtext",
+            "id": "answer",
+            "default": "Text block",
+            "label": "Answer"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Qustions",
+        "settings": {
+          "title": "Questions & Answers"
+        },
+        "blocks": [
+          {
+            "type": "text"
+          }, {
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "locales": {
+      "en": {
+        "title": "Slideshow"
+      },
+      "fr": {
+        "title": "Diaporama"
+      }
+    },
+    "enabled_on": {
+      "templates": ["*"],
+      "groups": ["footer"]
+    }
+  }
+{% endschema %}

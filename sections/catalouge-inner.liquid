@@ -1,0 +1,37 @@
+{% render 'breadcrumb' %}
+
+<div class="page-inner-small">
+  <h2 class="page-title">{{ page.title }}</h2>
+  <div class="dec">{{ page.content }}</div>
+  <br/>
+
+  <div class="iframe-container">
+    <div class="frame-heading">The Baby Cot Shop Look Book</div>
+
+    <iframe
+      height="500"
+      src="https://thebabycotshop.aflip.in/BCS.html"
+      data-dashlane-frameid="405"
+      data-dashlane-rid="df0fe9dfe92b685c"
+      allowfullscreen="allowfullscreen"
+      scrolling="no"></iframe>
+
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Page Content",
+    "tag": "section",
+    "class": "legal-class",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "snippet",
+        "label": "Code Embed",
+        "default": "<h2>Hello</h2>"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,27 @@
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <div class="blog-header">
+    {% render 'breadcrumb' %}
+    <div class="contained-header">
+      <h2 class="page-title">{{ blog.title }}</h2>
+      <div class="desc">{{ section.settings.intro }}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Top",
+  "tag": "section",
+  "class": "blog-class",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "blog intro",
+      "default": "<p>As a parent, we know you want the best for your baby and we want to help. Let us use our expertise to create an unforgettable nursery room for your little darling. For over 10 years</p>"
+    }
+  ]
+}
+{% endschema %}

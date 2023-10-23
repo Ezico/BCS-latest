@@ -1,0 +1,180 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+  integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+<style>
+  
+  @media(max-width: 950px){
+    .main-article {
+    flex: 2;
+    background: #fff;
+    box-shadow: 0 10px 30px #0000000d;
+    position: relative;
+    top: -100px!important;
+}
+    .slick-slider {
+    overflow: inherit;
+}
+}
+  .col-child {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+  .shopify-section-group-footer-group {
+    margin-top: 0;
+  }
+  .article-datax .article-title{
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .article__item{
+    padding:10px
+  }
+  .article-datax {
+    border: 0;
+    background: #ffffff;
+    padding: 20px;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main-article {
+  flex: 2;
+}
+a.readmore {
+    display: flex;
+    align-items: center;
+    color: #bda399;
+    font-size: 12px;
+}
+  .article-thumnail{
+    height: auto;
+  }
+  .side-article {
+    display: flex;
+    padding-bottom: 20px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+    padding: 7px;
+    margin: 10px 0;
+}
+.col-50 {
+    width: 100%!important;
+    margin-bottom: 20px;
+}
+</style>
+    
+  <div class="page-width">
+    <div class="article-page">
+      <div class="main-article">
+        <div class="article-card">
+          <h1 class="title">{{ section.settings.title }}</h1>
+          <p class="sub-heading">{{section.settings.sub}}</p>
+          <div class="rte scroll-trigger animate--slide-in" itemprop="articleBody">
+            {{ page.content }}
+          </div>
+        </div>
+      </div>
+      <div class="article-sidebar">
+        <div class="learn-more">
+         <div class="related-article">
+          <h2 class="title">GET IN TOUCH</h2>
+           <hr style="margin-top: -10px;margin-bottom: 29px;"/>
+          <div class="video-tab">
+        
+            <div class="col-50">
+              <div class="row contact-icos">
+                <div class="col ico">
+                  {% render 'contact-mail' %}
+                </div>
+                <div class="col col-desc">
+                  <b>Email Address</b>
+                  <a href="mailto:design@thebabycotshop.com">Design@thebabycotshop.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-50">
+              <div class="row">
+                <div class="col ico">
+                  {% render 'marker' %}
+                </div>
+                <div class="col col-desc" style="flex:1">
+                  <b>Location</b>
+                  <address>408 King's Road Chelsea, London SW10 0LJ</address>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-50">
+              <div class="row">
+                <div class="col ico">
+                  {% render 'phone' %}
+                </div>
+                <div class="col col-desc">
+                  <b>Telephone</b>
+                  <a href="tel:+4470233717530">+447 0203 717 530</a>
+                </div>
+              </div>
+            </div>
+  
+            
+            <div class="col-50">
+              <div class="row">
+                <div class="col ico">
+                  {% render 'icon-opening-time' %}
+                </div>
+                <div class="col col-desc" style="flex:1">
+                  <b>Opening Time</b>
+                  <p>Mon to Sat, 10 am to 6 pm. Sunday is closed</p>
+                </div>
+              </div>
+            </div>
+         
+          </div>
+
+         </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+{% schema %}
+ {
+    "name": "Page Content",
+    "tag": "section",
+    "class": "page_text",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+       {
+        "type": "text",
+        "label": "Page Heading",
+        "id": "title",
+        "default": "Dear Parent to Be...."
+      }, {
+        "type": "richtext",
+        "label": "page details",
+        "id": "sub",
+        "default": "<p>With the help of our state-of-the-art 3D modelling software, you can get a virtual tour of your nursery and make any changes you wish before production begins.</p>"
+      }
+      ,{
+        "type": "richtext", "id": "contact_desc", "default": "<p>hello</p>", "label": "add text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page header backgroud image"
+      }
+    ]
+  }
+{% endschema %}

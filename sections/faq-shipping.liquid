@@ -1,0 +1,51 @@
+<div
+  class="faqaccordion">
+  {% for block in section.blocks %}
+    <div
+      class="at-item">
+      <div
+        class="at-title &nbsp;
+        {%- if forloop.first -%}
+          &nbsp; active
+        {%- endif -%}">
+        <h2>{{ block.settings.question }}</h2>
+      </div>
+      <div
+        class="at-tab"
+        {%- if forloop.first -%}style="display: block;
+                                                                                                {%- endif -%} ">
+        {{ block.settings.answer }}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "FAQ Shipping",
+    "tag": "section",
+    "class": "faq-class",
+    "settings": [],
+    "max_blocks": 50,
+    "blocks": [
+      {
+        "name": "Shipping Questions",
+        "type": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "Add Questions"
+          }, {
+            "type": "inline_richtext",
+            "id": "answer",
+            "default": "Text block",
+            "label": "Answer"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

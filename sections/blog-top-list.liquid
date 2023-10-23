@@ -1,0 +1,95 @@
+{%- assign blog = blogs[section.settings.blog] -%}
+<div class="blog-title">
+  <h2 class="blog-heading">{{ blog.title }}</h2>
+  <a href="{{blog.url}}" class="see-more"
+    >See all post {% render 'arrow-right' -%}
+  </a>
+</div>
+
+<div class="top-blog-container">
+  <div class="article-box">
+    <div class="main-article">
+      {% for article in blog.articles limit: 1 %}
+        <div class="article-container">
+          <a href="{{article.url}}">
+            <div
+              class="article-thumbnail"
+              style="background-image: url('{{ article | img_url: 'master' }}');"
+            >
+              <br>
+            </div>
+          </a>
+          <div class="article-data">
+            <div class="article-title">
+              <a href="{{article.url}}">
+                {{ article.title }}
+              </a>
+            </div>
+            <div class="rte article__grid-excerpt">
+              {% if article.excerpt.size > 0 %}
+                {{ article.excerpt | strip_html | truncate: 190 }}
+              {% else %}
+                {{ article.content | strip_html | truncate: 180 }}
+              {% endif %}
+            </div>
+            <div class="article-action">
+              <a href="{{article.url}}" class="readmore"
+                >Read More {% render 'long-arrow-right' -%}
+              </a>
+
+              <span class="article-date">
+                {{ article.published_at | time_tag: format: 'date' }}
+              </span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="article-list">
+      {% for article in blog.articles limit: 4 %}
+        {%- if forloop.first -%}
+        {%- else -%}
+          <div class="side-article">
+            <div
+              class="article-thumnail"
+              style="background-image: url('{{ article | img_url: 'master' }}');"
+            >
+              <br>
+            </div>
+            <div class="article-datax">
+              <div class="article-title">
+                <a href="{{article.url}}">
+                  {{ article.title }}
+                </a>
+              </div>
+              <div class="article-action">
+                <a href="{{article.url}}" class="readmore"
+                  >Read More {% render 'long-arrow-right' -%}
+                </a>
+
+                <span class="article-date">
+                  {{ article.published_at | time_tag: format: 'date' }}
+                </span>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog List",
+  "tag": "section",
+  "class": "faq-class",
+  "settings": [
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Choose Blog"
+    }
+  ]
+}
+{% endschema %}

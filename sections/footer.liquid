@@ -1,37 +1,43 @@
 {% comment %}
-  theme-check-disable UndefinedObject
-  {{ 'section-footer.css' | asset_url | stylesheet_tag }}
-  {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
-  {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
-  {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
-  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
-  {%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
-    {{ 'component-localization-form.css' | asset_url | stylesheet_tag }}
-  {%- endif -%}
+    theme-check-disable UndefinedObject
+    {{ 'section-footer.css' | asset_url | stylesheet_tag }}
+    {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+    {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
+    {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+    {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+    {%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
+      {{ 'component-localization-form.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
 
-  {%- style -%}
-    .footer {
-      margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
-    }
-
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
-
-    @media screen and (min-width: 750px) {
+    {%- style -%}
+    ul.list.list-payment {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+  }
       .footer {
-        margin-top: {{ section.settings.margin_top }}px;
+        margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
       }
 
       .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
       }
-    }
-  {%- endstyle -%}
-{% endcomment %}
 
+      @media screen and (min-width: 750px) {
+        .footer {
+          margin-top: {{ section.settings.margin_top }}px;
+        }
+
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+      }
+    {%- endstyle -%}
+{% endcomment %}
+{{ 'trade.js' | asset_url | script_tag }}
+{{ 'contact.css' | asset_url | stylesheet_tag }}
 {% comment %}
   <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
     {%- liquid
@@ -340,7 +346,7 @@
           {%- endif -%}
         </div>
         <div class="footer__column footer__column--info">
-          {%- if section.settings.payment_enable -%}
+
             <div class="footer__payment">
               <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
               <ul class="list list-payment" role="list">
@@ -351,7 +357,7 @@
                 {%- endfor -%}
               </ul>
             </div>
-          {%- endif -%}
+
         </div>
       </div>
       <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
@@ -383,13 +389,264 @@
     <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 {% endcomment %}
+
+{% comment %} trade form  {% endcomment %}
+<div id="tradeModal" class="cartmodal">
+  <div class="cartmodal-content" style="max-width:450px">
+    <span onclick="closeModalTrade()" class="close">&times;</span>
+    <div id="tradestage1" class="stage_1 anim">
+      <div>
+        <h4>Trade Application</h4>
+        <p>
+          Thank you for your interest in partnering with The Baby Cot Shop. We
+          are proud to partner with a select number of interior designers and
+          architects. Fill in the form below and we will contact you by email if
+          your application is accepted.
+        </p>
+      </div>
+      <br>
+      <div class="start" style="text-align: right;">
+        <a class="next_btn" onclick="openTradeForm(this)">Continue</a>
+      </div>
+    </div>
+
+    <div class="no-show">
+      {% form 'contact', return_to: '/pages/trade-partnership' %}
+        <div
+          id="tradestage2"
+          class="stage_2 anim"
+          style="display: none;"
+        >
+          <p id="back-1" onclick="open1()">
+            {% render 'long-arrow-left' %} Go back
+          </p>
+          <h4>Trade Application - Business Details</h4>
+          <div class="progress">
+            <div class="bar" style="width:50%; display:block"></div>
+          </div>
+          <p id="thide-error" style="color:#f90000;display:none">
+            Please fill all required fields
+          </p>
+          <div style="text-align:left">
+            {{ form.errors | default_errors }}
+          </div>
+          <div class="row">
+            <div class="field-container">
+              <label for="first-name">Business Name</label>
+              <input
+                placeholder="Enter Business name"
+                type="text"
+                name="contact[business_name]"
+                id="business-name"
+              >
+            </div>
+            <div class="field-container">
+              <label for="vat">VAT/ TAX ID</label>
+              <input
+                placeholder="Enter VAT/ TAX ID"
+                type="text"
+                name="contact[VAT/ TAX ID]"
+                id="vat"
+              >
+            </div>
+          </div>
+
+          <div class="field-container">
+            <label for="name">Trading Name (if different)</label>
+            <input
+              placeholder="Trading Name"
+              type="tel"
+              name="contact[trading name]"
+              id="tname"
+            >
+          </div>
+          <div class="field-container">
+            <label for="business-type"
+              >Business type e.g Architect, Interior Designer</label
+            >
+            <input
+              placeholder="Enter Business type"
+              type="text"
+              name="contact[business type]"
+              id="business-type"
+            >
+          </div>
+
+          <br>
+          <a class="next_btn" onclick="openTradeNext()">Next</a>
+        </div>
+        <div
+          id="tradestage3"
+          class="stage_3 anim"
+          style="display: none;"
+        >
+          <p id="back-2" onclick="open2()">
+            {% render 'long-arrow-left' %} Go back
+          </p>
+          <h4>Trade Application - Businees Details</h4>
+          <div class="progress">
+            <div class="bar" style="width:100%; display:block"></div>
+          </div>
+          <div class="row">
+            <div class="field-container">
+              <label for="tstreet">Street Address</label>
+              <input
+                placeholder="Enter street address"
+                type="text"
+                name="contact[street]"
+                id="tstreet"
+              >
+            </div>
+            <div class="field-container">
+              <label for="vat">VAT/ TAX ID</label>
+              <input
+                placeholder="Enter VAT/TAX ID"
+                type="text"
+                name="contact[VAT/TAX ID]"
+                id="tvat"
+              >
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="address-two">Address Line 2</label>
+            <input
+              type="text"
+              placeholder="Enter address"
+              id="maincontact"
+              name="contact[Address Line 2]"
+            >
+          </div>
+          <div class="row">
+            <div class="field-container">
+              <label for="tcity">City</label>
+              <input
+                placeholder="Enter City"
+                type="text"
+                name="contact[city]"
+                id="tcity"
+              >
+            </div>
+            <div class="field-container">
+              <label for="state">State/Region/Province</label>
+              <input
+                placeholder="Enter State/Region/Province"
+                type="text"
+                name="contact[State/Region/Province]"
+                id="tstate"
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="field-container">
+              <label for="zip">Zip Code</label>
+              <input
+                placeholder="Enter Zip code"
+                type="text"
+                name="contact[zip-code]"
+                id="tzip"
+              >
+            </div>
+            <div class="field-container">
+              <label for="country">Country</label>
+              <select name="country" id="tcountry">
+                {{ all_country_option_tags }}
+              </select>
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="phone">Phone</label>
+            <input
+              type="text"
+              placeholder="Enter address"
+              id="tphone"
+              name="contact[Phone]"
+            >
+          </div>
+
+          <div class="field-container">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="Enter Email address"
+              id="temail"
+              name="contact[Email address]"
+            >
+          </div>
+          <br>
+          <a class="next_btn" onclick="openTradeThird()">Next</a>
+        </div>
+        <div id="tradestage4" style="display: none;" class="stage_3 anim">
+          <p id="back-1" onclick="open3()">
+            {% render 'long-arrow-left' %} Go back
+          </p>
+          <h4>Trade Application - Agreement</h4>
+          <div class="progress">
+            <div class="bar" style="width:50%; display:block"></div>
+          </div>
+
+          <div class="agreement">
+            <ul>
+              <li>
+                Discount privilege is non-transferable to clients, purchasing
+                agents or any third party.
+              </li>
+              <li>Payment is due at time of order.</li>
+              <li>There is no discount on delivery & assembly charges.</li>
+              <li>
+                Some items are excluded from the discount, contact us to enquire
+              </li>
+              <li>
+                By accepting membership to The Baby Cot Shop's Trade Membership
+                scheme, you agree that you will purchase The Baby Cot Shop’s
+                products for the sole purpose of conducting business with an
+                individual client, and that you will not resell such merchandise
+                to the general public through retail stores, the internet,
+                printed materials, or any other means.
+              </li>
+              <li>
+                By applying to our Trade Program, you agree that the email
+                addresses you give us as contacts will be added to our email
+                marketing list. However, if you do not want to receive these
+                marketing emails, you may opt out via the link at the bottom of
+                our marketing emails at any time.
+              </li>
+              <li>
+                Membership may be denied or terminated at any time, with or
+                without cause, at The Baby Cot Shop’s sole discretion.
+              </li>
+              <li>
+                We may request evidence of suitability to our trade program. For
+                full terms and conditions visit
+                <a href="www.thebabycotshop.com/terms-conditions"
+                  >www.thebabycotshop.com/terms-conditions</a
+                >
+              </li>
+              <input type="checkbox">
+              <span style="font-size:14px"
+                >I confirm, on behalf of the company I represent, that I agree
+                with the terms & conditions of membership</span
+              >
+            </ul>
+            <br>
+            {% comment %} <a class="next_btn" onclick="openTradeThird()">Next</a> {% endcomment %}
+            <div style="dislay:right">
+              <button class="next_btn" type="submit">Submit form</button>
+            </div>
+          </div>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="user-form">
     <div class="page-width">
       <div class="inline-item">
         <h3 class="mum_sqd_title">Join Our Mum Squad</h3>
         <p class="mum_sqd_sub_title">
-          Enter your email below to be the first to know about new collections and product launches.
+          Enter your email below to be the first to know about new collections
+          and product launches.
         </p>
       </div>
       {% form 'contact' %}
@@ -397,7 +654,12 @@
         <div class="mum_sqd_form_container">
           <div class="mum_sqd_form_item">
             <label for="last-name">Email address</label>
-            <input type="email" name="mumsqd[email]" id="email" placeholder="Enter your Email Address">
+            <input
+              type="email"
+              name="mumsqd[email]"
+              id="email"
+              placeholder="Enter your Email Address"
+            >
           </div>
           <div class="mum_sqd_form_item">
             <label for="interest">I am interested in</label>
@@ -412,7 +674,12 @@
           </div>
           <div class="mum_sqd_form_item">
             <label for="email">Baby's Birthday</label>
-            <input type="text" name="mumsqd[baby_birthday]" id="birthday" placeholder="MM/YY">
+            <input
+              type="text"
+              name="mumsqd[baby_birthday]"
+              id="birthday"
+              placeholder="MM/YY"
+            >
           </div>
           <div class="submit">
             <input type="submit" value="Subscribe">
@@ -425,7 +692,10 @@
   <div class="page-width">
     <div class="footer-items">
       <div class="company about_bcs">
-        <img src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/image_6.png" class="logo_footer">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0779/1745/4639/files/image_6.png"
+          class="logo_footer"
+        >
         <h2 class="footer_header">Visit us</h2>
         <address>408 King's Road Chelsea, London SW10 0LJ</address>
         <span>Call us on:</span>
@@ -446,9 +716,17 @@
         <h2 class="footer_header">Resources</h2>
         <ul>
           {% for link in linklists.resources.links -%}
-            <li>
-              <a href="{{link.url}}">{{ link.title }}</a>
-            </li>
+            {% if link.title == 'Trade Partnership' %}
+              <li>
+                <p style="cursor: pointer;" onclick="openTrade()">
+                  {{ link.title }}
+                </p>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{link.url}}">{{ link.title }}</a>
+              </li>
+            {% endif %}
           {%- endfor %}
         </ul>
       </div>
@@ -465,24 +743,38 @@
       <div class="company socials">
         <h2 class="footer_header">Stay connected with us on</h2>
         <div class="social-links">
-          <a href="/facebook">
-          {% render 'instagram-icon' %}
-         </a>
-         <a href="/facebook">
-          {% render 'twitter-icon' %}
-         </a>
-         <a href="/facebook">
-          {% render 'facebook-icon' %}
-         </a>
-         <a href="/facebook">
-          {% render 'instagram-icon' %}
-         </a>
-         <a href="/facebook">
-          {% render 'twitter-icon' %}
-         </a>
-         
+          <a href="{{settings.social_instagram_link}}">
+            {% render 'instagram-icon' %}
+          </a>
+          <a href="{{settings.social_twitter_link}}">
+            {% render 'twitter-icon' %}
+          </a>
+          <a href="{{settings.social_facebook_link}}">
+            {% render 'facebook-icon' %}
+          </a>
+          <a href="{{settings.social_pinterest_link}}">
+            {% render 'pinterest-icon' %}
+          </a>
+          <a href="{{settings.social_instagram_link}}">
+            {% render 'linkdin-icon' %}
+          </a>
         </div>
         <h2 class="footer_header">Payment Methods</h2>
+        <div class="footer__payment">
+          <span class="visually-hidden">
+            {{- 'sections.footer.payment' | t -}}
+          </span>
+          <ul class="list list-payment" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="list-payment__item">
+                {{
+                  type
+                  | payment_type_svg_tag: class: 'icon icon--full-color'
+                }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-last" style="text-align:center">

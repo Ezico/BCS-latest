@@ -1,0 +1,91 @@
+<style>
+  .half-col {
+    width: 50%;
+  }
+  .service_image_container img {
+    width: 100%;
+  }
+  .desc.bullet {
+    width: 80%;
+  }
+  .desc.bullet ul li {
+    border-radius: 10px;
+    background: var(--Primary-Color-1, #f7edea);
+    color: var(--Black---Grey-5, #4a4a4a);
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 0 18px;
+    list-style: none;
+  }
+  .desc.bullet ul {
+    padding: 0;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 10px;
+  }
+  /* .desc.bullet ul {
+    list-style-image: url('https://cdn.shopify.com/s/files/1/0779/1745/4639/files/check-circle.png?v=1697201104');
+  } */
+  .content-container {
+    padding-left: 60px;
+  }
+</style>
+<br>
+<br>
+<br>
+<div class="page-width">
+  <div class="row">
+    <div class="half-col">
+      <div class="service_image_container">
+        <img src="{{ section.settings.image | img_url: 'master' }}">
+      </div>
+    </div>
+    <div class="half-col">
+      <div class="content-container">
+        <h2 class="title">What we offer</h2>
+        <div class="desc bullet" style="text-align:left;line-height:2">
+          {{ section.settings.text }}
+        </div>
+        {% render 'button-modal',
+          title: 'book a free consultation',
+          link: '/pages/contact'
+        %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+{% schema %}
+{
+  "name": "Service Details",
+  "tag": "section",
+  "class": "services",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "choose image"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Enter text",
+      "default": "<p></p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Item"
+    }
+  ]
+}
+{% endschema %}

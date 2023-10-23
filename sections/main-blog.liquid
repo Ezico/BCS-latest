@@ -1,49 +1,64 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+<style>
+  .col-child {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
   }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+  .breadcrumbs {
+    padding-top: 30px;
   }
-{%- endstyle -%}
+</style>
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
+    <br>
+    <div class="article-list">
+      <div class="article-row bythree">
+        {%- for article in blog.articles -%}
+          <div class="article__item">
+            <a href="{{article.url}}">
+              <div
+                class="col-child"
+                style="background-image: url('{{ article | img_url: 'master' }}')"
+              >
+                <br>
+              </div>
+            </a>
+            <div class="article-data">
+              <div class="tag-container">
+                {% for tag in article.tags %}
+                  <div class="blog-tag">
+                    {{ tag | link_to_add_tag: tag | class: 'blog-tags' }}
+                  </div>
+                {% endfor %}
+              </div>
 
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
-        </div>
-      {%- endfor -%}
+              <div class="article-title">
+                <a href="{{article.url}}">
+                  {{ article.title }}
+                </a>
+              </div>
+              <div class="rte article__grid-excerpt">
+                {% if article.excerpt.size > 0 %}
+                  {{ article.excerpt | strip_html | truncate: 190 }}
+                {% else %}
+                  {{ article.content | strip_html | truncate: 180 }}
+                {% endif %}
+              </div>
+              <div class="article-action">
+                <a href="{{article.url}}" class="readmore"
+                  >Read More {% render 'long-arrow-right' -%}
+                </a>
+
+                <span class="article-date">
+                  {{ article.published_at | time_tag: format: 'date' }}
+                </span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
-
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}

@@ -1,0 +1,47 @@
+<div
+  class="large-up-hide image_medium_bg"
+  style="background:linear-gradient(182deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 71.88%, rgba(255, 255, 255, 0.00) 100%),url({{imageM | image_url}})"
+>
+  <div class="page-width">
+    <div class="banner-content">
+      <h2 class="banner-title">
+        {{ title }}
+      </h2>
+      <p class="banner-desc">
+        {{ desc }}
+      </p>
+<div class="pt20" style="margin: 20px 0;">
+  {% render 'button-modal' title:{{btnlink}}, icon: true, modal:true%}
+</div>
+    </div>
+    <div class="hidden-content"></div>
+  </div>
+</div>
+
+<div
+  class="small-hide medium-hide image_medium_bg"
+  style="background: linear-gradient(87deg, rgb(255 255 255) 0%, rgb(255 255 255 / 0%) 71.88%, rgb(255 255 255 / 0%) 100%),url({{imageD | image_url}})"
+>
+  <div class="page-width">
+    {% render 'breadcrumb' %}
+    <div class="banner-content">
+      <h2 class="banner-title">
+        {{ title }}
+      </h2>
+      <p class="banner-desc">
+        {{ desc }}
+      </p>
+      <br/>
+      {% render 'button-modal' title:{{btnlink}}, icon: true, modal:true%}
+    </div>
+    </div>
+    <div class="hidden-content"></div>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 760px){
+.image_medium_bg {
+    height: 80vh!important;
+}}
+</style>

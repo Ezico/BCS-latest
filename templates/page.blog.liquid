@@ -1,0 +1,14 @@
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+<style>
+  .article-data {
+    padding: 25px;
+    border: 1px solid var(--Black---Grey-1, #e7e7e7);
+    background: #f3efea !important;
+  }
+</style>
+<div class="page-width">
+  {% section 'blog-top' %}
+  {% section 'blog-top-list' %}
+  {% section 'blog-list' %}
+  {% section 'blog-list-four' %}
+</div>

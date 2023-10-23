@@ -11,7 +11,7 @@
   }
 
   .navbar {
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-color: white;
   }
   .navbar a {
@@ -23,7 +23,7 @@
     font-size: 14px;
     text-transform: uppercase;
   }
- .dropbtn a:first-child{padding-left: 0;}
+
   .navbar a:hover,
   .dropdown:hover .dropbtn {
     background-color: white;
@@ -31,7 +31,8 @@
 
   .dropdown {
     float: left;
-    overflow: hidden;
+    /* overflow: hidden; */
+    position: relative;
   }
   .dropdown .dropbtn {
     border: none;
@@ -43,7 +44,21 @@
     cursor: pointer;
     font-size: 14px;
   }
+
   .dropdown-content {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.7s linear;
+    position: absolute;
+    background-color: white;
+    margin: 0 auto;
+    box-shadow: 2px 4px 5px 1px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    left: -50px;
+    padding: 0 20px;
+  }
+
+  /*.dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
@@ -55,7 +70,7 @@
     transition: transform 0.3s ease-out;
     left: 60px;
     padding: 0 20px;
-  }
+  }*/
 
   .dropdown-content .header {
     background: white;
@@ -63,14 +78,14 @@
     color: black;
   }
   .dropdown:hover .dropdown-content {
-    display: block;
+    visibility: visible;
     opacity: 1;
-    transform: translateY(0);
   }
 
   /* Create four equal columns that float next to each other */
   .column {
-    width: 300px;
+        min-width: 200px;
+    width: max-content;
     height: 100%;
     padding: 10px 20px;
     background-color: white;
@@ -84,7 +99,6 @@
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
-    border-bottom: solid 1px #d2d2d2;
   }
 
   /* style the content of the columns */
@@ -107,6 +121,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+    padding-left: 0px;
   }
   .column a:hover,
   .column-half a:hover {
@@ -169,6 +184,9 @@
   button.dropbtn.button-1 {
     padding-left: 0;
   }
+  .menu-1 {
+    padding-left: 0 !important;
+  }
 </style>
 <div class="navbar small-hide medium-hide ">
   {%- for link in section.settings.menu.links -%}
@@ -177,7 +195,7 @@
         <button class="dropbtn button-{{forloop.index}}">
           <a href="{{link.url}}">
             {{ link.title }}
-            <i class="fa fa-caret-down"></i>
+            {% render 'drop-icon' %}
           </a>
         </button>
 
@@ -188,29 +206,28 @@
                 <a
                   href="{{ child_link.url }}"
                   {% if child_link.active %}
-                    aria-current="page"
-                  {% endif %}
-                >
+                  aria-current="page"
+                  {% endif %}>
                   {{ child_link.title }}
                 </a>
               {% else %}
                 <div class="column">
-                  <a class="no-links"
+                  <a
+                    class="no-links"
                     href="{{ child_link.url }}"
                     {% if child_link.active %}
-                      aria-current="page"
-                    {% endif %}
-                  >
+                    aria-current="page"
+                    {% endif %}>
                     {{ child_link.title }}
                   </a>
+                  <hr style="margin: 0;" />
                   {%- if child_link.links != blank -%}
                     {%- for grandchild_link in child_link.links -%}
                       <a
                         href="{{ grandchild_link.url }}"
                         {% if grandchild_link.active %}
-                          aria-current="page"
-                        {% endif %}
-                      >
+                        aria-current="page"
+                        {% endif %}>
                         {{ grandchild_link.title }}
                       </a>
                     {%- endfor -%}
@@ -223,11 +240,11 @@
       </div>
     {% else %}
       <a
+        class="menu-{{forloop.index}}"
         href="{{ link.url }}"
         {% if link.active %}
-          aria-current="page"
-        {% endif %}
-      >
+        aria-current="page"
+        {% endif %}>
         {{ link.title }}
       </a>
     {%- endif -%}

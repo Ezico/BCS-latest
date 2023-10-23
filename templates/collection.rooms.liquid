@@ -1,0 +1,180 @@
+<div class="related-products page-header section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} animate--slide-in{% endif %}">
+  {% render 'page-header' desc: {{collection.description}}, imageD: {{collection.image}}, imageM: {{collection.image}}, title: {{collection.title}} %}
+</div>
+<br>
+
+<style>
+  @media (max-width: 950px) {
+    .image_medium_bg .page-width .banner-content {
+      color: var(--black-black-text, #000);
+      font-family: Cormorant;
+      font-size: 14px;
+      font-style: normal;
+      line-height: normal;
+    }
+  }
+  .shopify-section-group-footer-group {
+    margin-top: 0;
+  }
+</style>
+
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'custom.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+    px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}
+      px;
+      padding-bottom: {{ section.settings.padding_bottom }}
+      px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  {%- paginate collection.products by 16 -%}
+    {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
+    {%- if section.settings.enable_sorting
+      and section.settings.filter_type == 'vertical'
+    -%}
+    {%- endif -%}
+
+    {% comment %} add to cart popup  {% endcomment %}
+    <div id="cartmyModal" class="cartmodal">
+      <div class="cartmodal-content">
+        <div class="cartModalHeading">Item Added to Bag</div>
+        <span onclick="closeModal()" class="close">&times;</span>
+        <div class="row">
+          <div class="col-1">
+            <img id="cartModalImg" src="">
+          </div>
+          <div class="col-1">
+            <h2 id="cartModalTitle"></h2>
+            <div id="cartModaldesc" class="shortDesc"></div>
+          </div>
+        </div>
+        <div class="cartModalAction">
+          <facet-remove class="">
+            <a
+              href="{{ results_url }}"
+              class="active-facets__button-remove underlined-link"
+            >
+              <button class="continueShopping" onclick="closeModal()">
+                Continue Shopping
+              </button>
+            </a>
+          </facet-remove>
+
+          <a href="/cart" class="">
+            <button class="continueShopping">View Bag</button>
+          </a>
+        </div>
+        <div class="button"></div>
+      </div>
+    </div>
+
+    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %} mt-20">
+      <div class="page-width grid-content">
+        <h2>SHOP PRODUCTS IN {{ collection.title | capitalize }} COLLECTION</h2>
+        <hr style="margin: 20px 0;">
+      </div>
+      <div
+        class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        id="ProductGridContainer"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+        {% endif %}
+      >
+        {%- if collection.products.size == 0 -%}
+          <div
+            class="collection collection--empty page-width"
+            id="product-grid"
+            data-id="{{ section.id }}"
+          >
+            <div class="loading-overlay gradient"></div>
+            <div class="title-wrapper center">
+              <h2 class="title title--primary">
+                {{ 'sections.collection_template.empty' | t -}}
+                <br>
+                {{
+                  'sections.collection_template.use_fewer_filters_html'
+                  | t: link: collection.url, class: 'underlined-link link'
+                }}
+              </h2>
+            </div>
+          </div>
+        {%- else -%}
+          <div class="collection {% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+            <div class="loading-overlay gradient"></div>
+
+            <ul
+              id="product-grid"
+              data-id="{{ section.id }}"
+              class="  grid product-grid grid--2-col-tablet-down grid--4-col-desktop"
+            >
+              {%- for product in collection.products -%}
+                {% assign lazy_load = false %}
+                {%- if forloop.index > 2 -%}
+                  {%- assign lazy_load = true -%}
+                {%- endif -%}
+                <li
+                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascadestyle="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  {%
+                    render 'card-product'
+                    , cartModalImg: ,
+                    , cartModalTitle: ,
+                    , cartModaldesc: ,
+                    , card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    lazy_load: lazy_load,
+                    show_quick_add: true,
+                    section_id: section.id
+                  %}
+                </li>
+              {%- endfor -%}
+            </ul>
+
+            {%- if paginate.pages > 1 -%}
+              {% render 'pagination', paginate: paginate, anchor: '' %}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endpaginate -%}
+
+  {% section 'product-carousel' %}
+  {% comment %} {% section 'product-carousel' %} {% endcomment %}
+  {% if section.settings.image_shape == 'arch' %}
+    {% render 'mask-arch' %}
+  {%- endif -%}
+</div>

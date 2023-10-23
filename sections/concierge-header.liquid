@@ -1,0 +1,72 @@
+<div class="related-products page-header section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} animate--slide-in{% endif %}">
+  {% render 'concierge-header' desc: {{page.content}}, imageD: {{section.settings.BannerD}}, imageM: {{section.settings.BannerM}}, title: {{page.title}}, btntitle:{{section.settings.link_url}}, btnlink:{{section.settings.link_name}} %}
+</div>
+<br>
+<style>
+  .col.custom_size {
+    flex: 1;
+  }
+  .colletction_btn {
+    display: none;
+  }
+  .rooms_carousel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100% !important;
+  }
+  .parent {
+    padding: 0 !important;
+    margin: 0;
+    height: 430px;
+  }
+  .shopify-section-group-footer-group {
+    margin-top: 0;
+  }
+
+  @media (max-width: 760px) {
+    .rooms_carousel {
+      display: block;
+      width: 100% !important;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Header Banner",
+  "tag": "section",
+  "class": "banner_text_section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Banner",
+      "id": "BannerD",
+      "info": "Banner for large screens"
+    },
+    {
+      "type": "image_picker",
+      "label": "Banner Mobile",
+      "id": "BannerM",
+      "info": "Banner for small screens"
+    },
+    {
+      "type": "text",
+      "id": "link_name",
+      "label": "text"
+    },
+    {
+      "type": "text",
+      "id": "link_url",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page header backgroud image"
+    }
+  ]
+}
+{% endschema %}

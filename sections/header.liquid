@@ -31,6 +31,17 @@
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
+  .multiple .row {
+    flex-wrap: nowrap!important;
+}
+
+.multiple .row .column {
+    min-width: 200px;
+    width: 250px;
+    height: 100%;
+    padding: 10px 20px;
+    background-color: white;
+}
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
@@ -509,10 +520,12 @@ a.userx-link.red-link {
         endif
       endif
     %}
-    <div class="navbar small-hide medium-hide ">
-      <div class="dropdown">
-        <a style="padding-right:0" href="/pages/contact">CONTACT</a>
-      </div>
+    <div class="navbar small-hide medium-hide "> 
+      {% for link in linklists['contact'].links %}
+        <div class="dropdown">
+          <a style="padding-right:0" href="{{link.url}}">{{link.title}}</a>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -562,7 +575,6 @@ a.userx-link.red-link {
       this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
       window.removeEventListener('scroll', this.onScrollHandler);
     }
-
     createObserver() {
       let observer = new IntersectionObserver((entries, observer) => {
         this.headerBounds = entries[0].intersectionRect;

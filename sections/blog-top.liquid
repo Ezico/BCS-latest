@@ -1,0 +1,70 @@
+<div class="blog-header">
+  <div class="contained-header">
+    <h2 class="page-title">{{ page.title }}</h2>
+    <div class="desc">{{ section.settings.intro }}</div>
+
+    <div class="header_search_blog">
+      <form
+        action="{{ routes.search_url }}"
+        method="get"
+        role="search"
+      >
+        <input
+          type="hidden"
+          name="type"
+          value="article"
+        >
+        <input
+          id="Search-In-Template"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.search' | t }}"
+          {%- if settings.predictive_search_enabled -%}
+            role="combobox"aria-expanded="false"
+            aria-owns="predictive-search-results"
+            aria-controls="predictive-search-results"aria-haspopup="listbox"
+            aria-autocomplete="list"autocorrect="off"autocomplete="off"
+            autocapitalize="off"spellcheck="false"
+          {%- endif -%}
+        >
+        <div class="search-ico">
+          {% render 'search-ico' %}
+        </div>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="blog-navigation">
+  <ul class="blog-nav">
+    <a class="active-blog" href="/blog">
+      <li class="blog-item ">All</li>
+    </a>
+    {% for link in linklists['blog-navigation'].links %}
+      <a href="{{link.url}}">
+        <li class="blog-item">
+          {{ link.title }}
+        </li>
+      </a>
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Top",
+  "tag": "section",
+  "class": "blog-class",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "blog intro",
+      "default": "<p>As a parent, we know you want the best for your baby and we want to help. Let us use our expertise to create an unforgettable nursery room for your little darling. For over 10 years</p>"
+    }
+  ]
+}
+{% endschema %}

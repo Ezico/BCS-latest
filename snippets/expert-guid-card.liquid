@@ -1,0 +1,89 @@
+<style>
+  .parent .content {
+    animation: var(--animation-slide-in);
+    animation-delay: calc(var(--animation-order) * 75ms);
+    position: absolute;
+    bottom: 0;
+    margin: 30px;
+    color: #fff;
+    z-index: 1;
+  }
+  a.hidden_link {
+    text-align: left;
+    animation: var(--animation-slide-in);
+    animation-delay: calc(var(--animation-order) * 75ms);
+    align-items: center;
+    color: var(--Text---white, #fff);
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: none;
+    display: none;
+  }
+  .parent .title {
+    color: var(--text-white, #fff);
+    font-family: Cormorant;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: none;
+    text-align: left;
+  }
+  .parent {
+    height: 400px !important;
+  }
+  .parent:hover .hidden_link {
+    display: block;
+  }
+  .parent {
+    margin: 0;
+  }
+  .custom_size {
+    width: 31%;
+  }
+  span.arrow-link {
+    display: flex;
+    align-items: center;
+  }
+  .arrow-link svg path {
+    fill: white;
+  }
+  @media (max-width: 960px) {
+    .content a {
+      text-decoration: none;
+    }
+    .content span {
+      color: #fff;
+    }
+    .parent {
+      margin: 0px 0 !important;
+    }
+  }
+</style>
+<div class="parent">
+  <a href="{{link}}">
+    <div class="child" style="background-image:url('{{image}}')">
+      <div class="content" hidden>
+        <div class="title">{{ title }}</div>
+        <div class="description">
+          {{ desc }}
+        </div>
+        <button class="colletction_btn">SHOP CATEGORY</button>
+      </div>
+    </div>
+    <div class="content">
+      <div class="title">{{ title }}</div>
+      <div class="description">
+        {{ desc }}
+      </div>
+      <a href="" class="hidden_link">
+        <span class="arrow-link"
+          >Read more {% render 'long-arrow-right' -%}
+        </span>
+      </a>
+    </div>
+  </a>
+</div>
