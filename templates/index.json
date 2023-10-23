@@ -6,19 +6,21 @@
         "template--19415378919727__d8e43471-53fe-46f4-b01a-ee26413f6804-16887371304f9334a3-0": {
           "type": "slide",
           "settings": {
-            "heading": "Image slide",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
+            "image": "shopify:\/\/shop_images\/image_10_3.png",
+            "heading": "DESIGN THE PERFECT NURSERY ROOM",
+            "sub_heading": "Dive into a dazzling deal! Dive into a dazzling deal! Dive into a dazzling deal l! Dive into a dazzling deal!",
+            "button": "Button label",
             "link": ""
           }
         },
         "template--19415378919727__d8e43471-53fe-46f4-b01a-ee26413f6804-16887371304f9334a3-1": {
           "type": "slide",
           "settings": {
-            "heading": "Image slide",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/hoembanner.png",
+            "heading": "DESIGN THE PERFECT NURSERY ROOM",
+            "sub_heading": "Dive into a dazzling deal! Dive into a dazzling deal! Dive into a dazzling deal l! Dive into a dazzling deal!",
+            "button": "SHOP NOW",
+            "link": "shopify:\/\/collections\/accessories"
           }
         }
       },
@@ -26,7 +28,8 @@
         "template--19415378919727__d8e43471-53fe-46f4-b01a-ee26413f6804-16887371304f9334a3-0",
         "template--19415378919727__d8e43471-53fe-46f4-b01a-ee26413f6804-16887371304f9334a3-1"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "83daf880-f625-4766-9304-c11a9fc949c9": {
       "type": "bespoke-section",
@@ -34,39 +37,41 @@
         "template--19531197776175__83daf880-f625-4766-9304-c11a9fc949c9-168873974275ea6e24-0": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "heading": "Bespoke Product",
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\">   <path d=\"M39.2647 23.0396V22.6556C39.2647 20.2556 41.1847 18.3356 43.5847 18.3356C43.8727 18.3356 44.0647 18.3356 44.3527 18.4316V12.4796C44.3527 10.8476 43.3927 9.59961 42.1447 9.59961H31.2007V22.4636H37.6327C38.3047 22.4636 38.8807 22.6556 39.2647 23.0396ZM39.5527 13.7276C39.8407 13.6316 40.0327 13.4396 40.1287 13.1516L40.3207 12.6716L40.5127 13.1516C40.6087 13.4396 40.8007 13.6316 41.0887 13.7276L41.5687 13.9196L41.0887 14.1116C40.8007 14.2076 40.7047 14.3996 40.5127 14.5916L40.3207 15.0716L40.1287 14.5916C40.0327 14.3996 39.8407 14.2076 39.6487 14.1116L39.1687 13.9196L39.5527 13.7276ZM35.8087 17.7596C35.6167 17.8556 35.4247 18.0476 35.3287 18.2396L35.1367 18.7196L34.8487 18.2396C34.7527 18.0476 34.5607 17.8556 34.3687 17.7596L33.8887 17.5676L34.3687 17.3756C34.6567 17.2796 34.7527 17.0876 34.8487 16.7996L35.0407 16.3196L35.2327 16.7996C35.3287 17.0876 35.5207 17.2796 35.7127 17.3756L36.1927 17.5676L35.8087 17.7596ZM35.8087 12.6716C35.6167 12.7676 35.4247 12.9596 35.3287 13.1516L35.1367 13.6316L34.9447 13.1516C34.8487 12.9596 34.6567 12.7676 34.4647 12.6716L33.8887 12.4796L34.3687 12.2876C34.6567 12.1916 34.7527 11.9996 34.8487 11.7116L35.0407 11.2316L35.2327 11.7116C35.3287 11.9996 35.5207 12.1916 35.7127 12.2876L36.1927 12.4796L35.8087 12.6716ZM23.7127 22.4636V20.5436C23.7127 20.2556 23.9047 20.0636 24.1927 20.0636C24.4807 20.0636 24.6727 20.2556 24.6727 20.5436V22.4636H30.2407V9.59961H24.6727V10.8476C24.6727 11.1356 24.4807 11.3276 24.1927 11.3276C23.9047 11.3276 23.7127 11.1356 23.7127 10.8476V9.59961H17.7607V22.4636H23.7127ZM27.0727 17.7596C27.3607 17.6636 27.4567 17.4716 27.5527 17.1836L27.7447 16.7036L27.9367 17.1836C28.0327 17.3756 28.2247 17.5676 28.4167 17.7596L28.8967 17.9516L28.4167 18.1436C28.2247 18.2396 28.0327 18.4316 27.9367 18.6236L27.8407 19.1036L27.6487 18.6236C27.5527 18.3356 27.3607 18.2396 27.1687 18.1436L26.6887 17.9516L27.0727 17.7596ZM23.7127 12.8636C23.7127 12.5756 23.9047 12.3836 24.1927 12.3836C24.4807 12.3836 24.6727 12.5756 24.6727 12.8636V14.7836C24.6727 15.0716 24.4807 15.2636 24.1927 15.2636C23.9047 15.2636 23.7127 15.0716 23.7127 14.7836V12.8636ZM23.7127 16.7036C23.7127 16.4156 23.9047 16.2236 24.1927 16.2236C24.4807 16.2236 24.6727 16.4156 24.6727 16.7036V18.6236C24.6727 18.9116 24.4807 19.1036 24.1927 19.1036C23.9047 19.1036 23.7127 18.9116 23.7127 18.6236V16.7036ZM8.73673 22.6556C8.73673 22.7516 8.73673 22.9436 8.73673 23.0396C9.21673 22.6556 9.79273 22.4636 10.3687 22.4636H16.8007V9.59961H5.76073C4.51273 9.59961 3.55273 10.9436 3.55273 12.4796V18.4316C3.84073 18.4316 4.12873 18.3356 4.32073 18.3356C6.72073 18.3356 8.73673 20.2556 8.73673 22.6556ZM12.9607 15.7436C13.1527 15.6476 13.3447 15.5516 13.4407 15.5516C14.1127 15.6476 14.0167 16.9916 13.8247 17.4716C13.6327 17.7596 13.3447 17.9516 13.0567 17.8556C12.8647 17.7596 12.7687 17.5676 12.5767 17.5676C12.2887 17.3756 10.4647 18.0476 10.3687 17.5676C10.3687 17.3756 11.3287 16.7996 11.5207 16.7036C12.0007 16.3196 12.4807 16.0316 12.9607 15.7436ZM5.56873 12.0956C5.56873 11.7116 5.85673 11.2316 6.24073 11.0396C6.62473 10.8476 7.10473 10.9436 7.48873 10.9436C7.68073 10.9436 7.96873 10.9436 8.16073 11.0396C8.35273 11.1356 8.44873 11.4236 8.54473 11.6156C8.73673 11.9036 9.12073 11.9996 9.50473 12.0956C9.88873 12.0956 10.2727 12.0956 10.6567 12.1916C12.0007 12.4796 11.7127 14.0156 10.3687 14.1116C9.21673 14.1116 8.16073 13.2476 7.00873 13.2476C6.72073 13.2476 6.33673 13.3436 6.04873 13.1516C5.66473 12.7676 5.56873 12.3836 5.56873 12.0956ZM37.6327 29.6636C38.5927 29.6636 39.2647 28.8956 39.2647 28.0316V25.1516C39.2647 24.1916 38.4967 23.5196 37.6327 23.5196H10.3687C9.50473 23.5196 8.73673 24.2876 8.73673 25.1516V28.0316C8.73673 28.9916 9.50473 29.6636 10.3687 29.6636H23.7127V28.2236C23.7127 27.9356 23.9047 27.7436 24.1927 27.7436C24.4807 27.7436 24.6727 27.9356 24.6727 28.2236V29.6636H37.6327ZM17.3767 26.3996C17.1847 26.6876 16.8967 26.8796 16.6087 26.7836C16.4167 26.6876 16.3207 26.4956 16.1287 26.3996C15.8407 26.2076 14.0167 26.8796 13.9207 26.3996C13.9207 26.2076 14.8807 25.6316 15.0727 25.4396C15.5527 25.1516 16.0327 24.8636 16.4167 24.5756C16.6087 24.4796 16.7047 24.3836 16.8967 24.3836C17.0887 24.3836 17.2807 24.5756 17.2807 24.7676C17.3767 24.9596 17.3767 25.1516 17.3767 25.3436C17.5687 25.8236 17.5687 26.1116 17.3767 26.3996ZM33.6007 25.1516C33.7927 25.0556 33.9847 24.8636 34.0807 24.6716L34.2727 24.1916L34.4647 24.6716C34.5607 24.8636 34.7527 25.0556 34.9447 25.1516L35.4247 25.3436L34.9447 25.5356C34.7527 25.6316 34.5607 25.8236 34.4647 26.0156L34.2727 26.4956L34.0807 26.0156C33.9847 25.7276 33.7927 25.6316 33.6007 25.5356L33.1207 25.3436L33.6007 25.1516ZM24.1927 26.7836C23.9047 26.7836 23.7127 26.5916 23.7127 26.3036V24.3836C23.7127 24.0956 23.9047 23.9036 24.1927 23.9036C24.4807 23.9036 24.6727 24.0956 24.6727 24.3836V26.3036C24.6727 26.4956 24.3847 26.7836 24.1927 26.7836Z\" fill=\"white\"><\/path>   <path d=\"M46.9447 21.9834C46.1767 18.4314 40.2247 17.9514 40.2247 23.4234V29.3754C40.2247 30.0474 39.6487 30.6234 38.9767 30.6234H8.92868C8.25668 30.6234 7.68068 30.0474 7.68068 29.3754V23.4234C7.68068 22.9434 7.68068 22.6554 7.68068 22.6554C7.68068 20.5434 5.66468 18.8154 3.45668 19.3914C2.20868 19.6794 1.24868 20.6394 0.960681 21.8874C0.672681 23.2314 1.15268 24.3834 2.01668 25.1514C3.16868 26.1114 3.84068 27.4554 3.84068 28.7994V33.2154C3.84068 34.2714 4.70468 35.1354 5.76068 35.1354H42.2407C43.2967 35.1354 44.1607 34.2714 44.1607 32.7354V28.7994C44.1607 25.2474 47.6167 25.2474 46.9447 21.9834ZM5.18468 25.5354C4.99268 25.3434 4.80068 25.0554 4.80068 24.7674C4.80068 24.4794 4.80068 24.1914 4.80068 23.9034C4.70468 23.1354 4.32068 22.6554 3.93668 21.9834C3.93668 21.8874 3.84068 21.7914 3.84068 21.7914C4.12868 21.7914 4.32068 21.5994 4.51268 21.5034C4.80068 21.3114 5.18468 21.2154 5.47268 21.5034C5.76068 21.7914 5.95268 25.1514 6.04868 25.6314C5.76068 25.7274 5.37668 25.6314 5.18468 25.5354ZM24.6727 33.9834C24.6727 34.2714 24.4807 34.4634 24.1927 34.4634C23.9047 34.4634 23.7127 34.2714 23.7127 33.9834V32.0634C23.7127 31.7754 23.9047 31.5834 24.1927 31.5834C24.4807 31.5834 24.6727 31.7754 24.6727 32.0634V33.9834Z\" fill=\"white\"><\/path>   <path d=\"M37.1514 38.3997H40.6074L41.4714 36.0957H36.1914L37.1514 38.3997Z\" fill=\"white\"><\/path>   <path d=\"M7.39134 38.3997H10.8473L11.8073 36.0957H6.52734L7.39134 38.3997Z\" fill=\"white\"><\/path> <\/svg>",
+            "text": "Bespoke ProductOur furniture is bespoke and is made just for you."
           }
         },
-        "template--19531197776175__83daf880-f625-4766-9304-c11a9fc949c9-168873974275ea6e24-1": {
-          "type": "text",
+        "b01813c9-439d-4e6f-acaf-8ba4420b9dd5": {
+          "type": "heading",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "heading": "Customer Services",
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\">   <path d=\"M5.25 24H4.4775C2.83575 24 1.5 25.3357 1.5 27.0225C1.50099 27.8119 1.81501 28.5686 2.37319 29.1268C2.93136 29.685 3.68812 29.999 4.4775 30H5.25C5.44891 30 5.63968 29.921 5.78033 29.7803C5.92098 29.6397 6 29.4489 6 29.25V24.75C6 24.5511 5.92098 24.3603 5.78033 24.2197C5.63968 24.079 5.44891 24 5.25 24ZM43.5225 24H42.75C42.5511 24 42.3603 24.079 42.2197 24.2197C42.079 24.3603 42 24.5511 42 24.75V29.25C42 29.4489 42.079 29.6397 42.2197 29.7803C42.3603 29.921 42.5511 30 42.75 30H43.5225C45.1642 30 46.5 28.6643 46.5 26.9775C46.499 26.1881 46.185 25.4314 45.6268 24.8732C45.0686 24.315 44.3119 24.001 43.5225 24Z\" fill=\"white\"><\/path>   <path d=\"M18.7118 6.16275L18.7493 6.14925C20.3835 5.55235 22.1101 5.24795 23.85 5.25H24.15C32.3513 5.25 39 11.8987 39 20.1V23.25H42V20.07C42 10.2285 34.0215 2.25 24.18 2.25H23.82C13.9785 2.25 6 10.2285 6 20.07V23.25H9V20.1C9 15.5287 11.0655 11.4398 14.3145 8.71575L15.777 7.63425C16.2242 7.34382 16.6869 7.07793 17.163 6.83775L18.7118 6.16275ZM27.135 45H27V43.5H27.135C34.0912 43.5 39.75 37.8405 39.75 30.885V30.75H41.25V30.885C41.25 38.6685 34.9185 45 27.135 45Z\" fill=\"white\"><\/path>   <path d=\"M9.75 22.5H5.25C5.05109 22.5 4.86032 22.579 4.71967 22.7197C4.57902 22.8603 4.5 23.0511 4.5 23.25V30.75C4.5 30.9489 4.57902 31.1397 4.71967 31.2803C4.86032 31.421 5.05109 31.5 5.25 31.5H9.75C9.94891 31.5 10.1397 31.421 10.2803 31.2803C10.421 31.1397 10.5 30.9489 10.5 30.75V23.25C10.5 23.0511 10.421 22.8603 10.2803 22.7197C10.1397 22.579 9.94891 22.5 9.75 22.5ZM42.75 22.5H38.25C38.0511 22.5 37.8603 22.579 37.7197 22.7197C37.579 22.8603 37.5 23.0511 37.5 23.25V30.75C37.5 30.9489 37.579 31.1397 37.7197 31.2803C37.8603 31.421 38.0511 31.5 38.25 31.5H42.75C42.9489 31.5 43.1397 31.421 43.2803 31.2803C43.421 31.1397 43.5 30.9489 43.5 30.75V23.25C43.5 23.0511 43.421 22.8603 43.2803 22.7197C43.1397 22.579 42.9489 22.5 42.75 22.5Z\" fill=\"white\"><\/path>   <path d=\"M25.515 42H22.485C21.2527 42 20.25 43.0028 20.25 44.265C20.2506 44.8576 20.4863 45.4257 20.9053 45.8447C21.3243 46.2637 21.8924 46.4994 22.485 46.5H25.515C26.7473 46.5 27.75 45.4972 27.75 44.235C27.7492 43.6425 27.5135 43.0745 27.0945 42.6555C26.6755 42.2365 26.1075 42.0008 25.515 42ZM12 26.25H15V27.75H12V26.25ZM33 26.25H36V27.75H33V26.25ZM16.5 25.5H18V28.5H16.5V25.5ZM19.5 23.25H21V30.75H19.5V23.25ZM23.25 21.75H24.75V32.25H23.25V21.75ZM27 23.25H28.5V30.75H27V23.25ZM30 25.5H31.5V28.5H30V25.5Z\" fill=\"white\"><\/path> <\/svg>",
+            "text": "We guide you through all the purchase process to help you resolve any questions"
           }
         },
-        "template--19531197776175__83daf880-f625-4766-9304-c11a9fc949c9-168873974275ea6e24-2": {
-          "type": "button",
+        "efc558cd-9deb-438d-8466-521dd8387bc4": {
+          "type": "heading",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "heading": "Interior Design Service",
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\">   <g clip-path=\"url(#clip0_392_234)\">     <path d=\"M27.0525 21.0152C26.5575 20.6702 25.9425 20.4902 25.275 20.4902C24.855 20.4902 24.51 20.5802 24.255 20.7452L24.1725 20.7902C24.0825 20.8502 23.9925 20.9252 23.9025 21.0227C23.16 21.8177 23.1375 23.3477 23.19 24.1877C23.22 24.5477 23.2275 24.9227 23.235 25.3352C23.235 25.4102 23.2425 25.4852 23.2425 25.5527C23.2425 25.6202 23.25 25.6802 23.25 25.7477V34.1552L23.3775 34.1777C23.6625 34.2302 23.9325 34.2527 24.18 34.2527C24.63 34.2527 25.0275 34.1702 25.3725 34.0127C25.515 33.9452 25.6575 33.8477 25.7925 33.7127C26.1825 33.3377 26.37 32.7902 26.295 32.2427C25.9725 29.9102 26.685 27.4952 27.135 26.2577C27.27 25.8827 27.435 25.5227 27.5775 25.2227C28.3125 23.6777 28.3125 22.4252 27.5775 21.5027C27.42 21.3227 27.2475 21.1502 27.0525 21.0152ZM2.84251 20.4902C2.19001 20.4902 1.56751 20.6777 1.09501 21.0152C0.892514 21.1502 0.720014 21.3077 0.555014 21.5102C-0.187486 22.4402 -0.187486 23.6927 0.570014 25.2827C0.705014 25.5752 0.862514 25.9127 0.997514 26.2652C1.44751 27.5252 2.14501 29.9702 1.83001 32.2502C1.75501 32.7827 1.94251 33.3452 2.32501 33.7127C2.44501 33.8402 2.58001 33.9302 2.76751 34.0277C3.10501 34.1852 3.49501 34.2677 3.93001 34.2677C4.18501 34.2677 4.46251 34.2377 4.74751 34.1852L4.87501 34.1627V25.7477C4.87501 25.2302 4.90501 24.7052 4.93501 24.1877C4.98751 23.5202 5.01001 21.8627 4.22251 21.0227C3.90001 20.6627 3.45001 20.4902 2.84251 20.4902Z\" fill=\"white\"><\/path>     <path d=\"M23.2644 19.9345V13.3945C23.2644 12.877 22.8444 12.457 22.3269 12.457H5.80437C5.28687 12.457 4.85938 12.877 4.85938 13.3945V19.9345L4.91188 19.9795C4.98688 20.047 5.05437 20.1145 5.12187 20.1895C6.19437 21.337 6.23938 23.2345 6.16438 24.262C6.15688 24.3595 6.14937 24.4645 6.14937 24.562V24.7195H21.9744V24.562C21.9744 24.4645 21.9669 24.367 21.9594 24.2695C21.8919 23.2345 21.9294 21.337 22.9944 20.1895C23.0619 20.1145 23.1294 20.047 23.2044 19.9795L23.2644 19.9345Z\" fill=\"white\"><\/path>     <path d=\"M22.0205 25.9434H6.10547V33.9984H22.0205V25.9434Z\" fill=\"white\"><\/path>     <path d=\"M47.85 25.5518C47.25 25.0568 44.76 24.2993 40.365 24.2243C40.1325 24.2168 39.8925 24.2168 39.6525 24.2168C39.3675 24.2168 39.09 24.2168 38.82 24.2243C34.5 24.3143 32.0475 25.0643 31.4625 25.5518L31.3125 25.6793L31.4625 25.7993C32.0175 26.2418 33.975 26.8193 36.975 27.0293L37.11 27.0368C37.9125 27.0968 38.775 27.1268 39.66 27.1268C40.545 27.1268 41.4075 27.0968 42.195 27.0368L42.345 27.0293C45.345 26.8193 47.3025 26.2418 47.8575 25.7993L48.0075 25.6793L47.85 25.5518Z\" fill=\"white\"><\/path>     <path d=\"M33.4207 12.413C33.6757 12.668 33.9307 12.9155 34.1557 13.1705L34.2682 13.298L35.4307 12.083L35.7982 11.693C35.9107 11.5805 35.9107 11.393 35.7907 11.2805L34.1932 9.81055L32.4082 11.5955L32.5507 11.708C32.8507 11.9405 33.1507 12.1655 33.4207 12.413Z\" fill=\"white\"><\/path>     <path d=\"M33.4508 16.9359C33.9008 16.3884 34.1558 15.6909 34.1558 14.9784C34.1558 14.4909 34.0433 14.0109 33.8258 13.5834C33.6533 13.2309 33.4358 12.9384 33.1508 12.6909C32.8358 12.4134 32.4908 12.1959 32.1158 12.0609C31.7858 11.9409 31.4408 11.8809 31.0883 11.8809C30.2708 11.8809 29.4983 12.2034 28.9208 12.7809L28.8008 12.9009L33.3458 17.0634L33.4508 16.9359Z\" fill=\"white\"><\/path>     <path d=\"M21.4501 35.2206H19.5151L20.1826 37.5156C20.2951 37.9131 20.6551 38.1906 21.0751 38.1906C21.1726 38.1906 21.2626 38.1756 21.3301 38.1531C21.5701 38.0856 21.7651 37.9281 21.8851 37.7106C22.0051 37.4931 22.0351 37.2456 21.9601 36.9981L21.4501 35.2206ZM6.15006 36.9981C6.00756 37.4856 6.29256 38.0031 6.77256 38.1456C6.85506 38.1756 6.93756 38.1831 7.03506 38.1831C7.44756 38.1831 7.81506 37.9056 7.92756 37.5156L8.59506 35.2206H6.66756L6.15006 36.9981ZM35.7601 12.4356L35.5876 12.6231L34.9351 13.3056L37.6951 15.8856L37.7926 15.6981C37.8526 15.5856 37.9276 15.4731 38.0476 15.3306C38.1451 15.2181 38.2501 15.1281 38.3926 15.0231C38.5351 14.9181 38.7001 14.8356 38.8876 14.7756L39.1426 14.6931L36.0601 11.8281L35.9776 12.0531C35.9326 12.1881 35.8576 12.3156 35.7601 12.4356ZM38.8801 18.7056L38.6626 18.6231V23.0031H38.8276C39.2326 22.9956 39.5176 22.9956 39.6601 22.9956C39.7876 22.9956 40.0276 22.9956 40.3651 23.0031L40.5301 23.0106V18.6306L40.3126 18.7131C40.0876 18.8031 39.8476 18.8481 39.6001 18.8481C39.3451 18.8406 39.1051 18.7956 38.8801 18.7056ZM30.0601 14.8656L29.6101 15.3231C29.2501 15.6981 29.2576 16.2756 29.6326 16.6431C29.8051 16.8081 30.0376 16.8981 30.2851 16.8981C30.5401 16.8981 30.7726 16.8006 30.9451 16.6206L31.4401 16.1256L30.0601 14.8656ZM35.9401 28.1481L35.8126 28.1331L33.8101 33.8406C33.7276 34.0731 33.7426 34.3206 33.8476 34.5456C33.9526 34.7706 34.1401 34.9356 34.3726 35.0181C34.4776 35.0556 34.5826 35.0781 34.6801 35.0781C35.0776 35.0781 35.4301 34.8306 35.5576 34.4556L37.7176 28.2831L37.5076 28.2756C37.0276 28.2531 36.4951 28.2156 35.9401 28.1481ZM43.4776 28.1481L43.3501 28.1631C42.7876 28.2156 42.2551 28.2606 41.7751 28.2831L41.5651 28.2906L43.7251 34.4631C43.8526 34.8381 44.2051 35.0856 44.6026 35.0856C44.7076 35.0856 44.8051 35.0706 44.9101 35.0256C45.1426 34.9431 45.3376 34.7706 45.4426 34.5531C45.5476 34.3281 45.5626 34.0806 45.4801 33.8481L43.4776 28.1481ZM39.6526 28.3506C39.5176 28.3506 39.2551 28.3506 38.8876 28.3356L38.7226 28.3281V32.9931C38.7226 33.5031 39.1426 33.9231 39.6526 33.9231C40.1626 33.9231 40.5826 33.5031 40.5826 32.9931V28.3431H40.4176C40.0501 28.3506 39.7876 28.3506 39.6526 28.3506Z\" fill=\"white\"><\/path>     <path d=\"M38.0176 16.7784C38.0176 17.6409 38.7226 18.3459 39.5851 18.3459C40.4476 18.3459 41.1526 17.6409 41.1526 16.7784C41.1526 15.9159 40.4476 15.2109 39.5851 15.2109C38.7226 15.2109 38.0176 15.9084 38.0176 16.7784Z\" fill=\"white\"><\/path>   <\/g>   <defs>     <clippath id=\"clip0_392_234\">       <rect width=\"48\" height=\"48\" fill=\"white\"><\/rect>     <\/clippath>   <\/defs> <\/svg>",
+            "text": "We simplify the creative process from the moment you get in touch."
           }
         }
       },
       "block_order": [
         "template--19531197776175__83daf880-f625-4766-9304-c11a9fc949c9-168873974275ea6e24-0",
-        "template--19531197776175__83daf880-f625-4766-9304-c11a9fc949c9-168873974275ea6e24-1",
-        "template--19531197776175__83daf880-f625-4766-9304-c11a9fc949c9-168873974275ea6e24-2"
+        "b01813c9-439d-4e6f-acaf-8ba4420b9dd5",
+        "efc558cd-9deb-438d-8466-521dd8387bc4"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "43e71edd-9454-4638-b276-7dd7a3c4b7f5": {
       "type": "product-carousel",
       "settings": {
         "title": "Stylist Picks",
+        "showmore": true,
         "collection": "luxury-bed-linens-for-children",
         "products_to_show": 25,
         "image_ratio": "square",
@@ -76,56 +81,125 @@
     "fb6295c7-5a82-4b7b-99b4-f4968316555e": {
       "type": "featured-in",
       "blocks": {
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-0": {
-          "type": "heading",
+        "e69854f8-346f-4eac-b30f-fff49766a815": {
+          "type": "slide",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "image": "shopify:\/\/shop_images\/Harrods-Logo-edited_3.png"
           }
         },
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-1": {
-          "type": "text",
+        "731218b5-5040-4473-abb7-c668d1f64718": {
+          "type": "slide",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "image": "shopify:\/\/shop_images\/John-Lewis-Logo-edited_1.png"
           }
         },
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-2": {
-          "type": "button",
+        "306a8cbf-bbdb-4508-9541-f855c117ff60": {
+          "type": "slide",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify:\/\/shop_images\/The_Telegraph_logotype_logo-edited_1.png"
+          }
+        },
+        "e1a9e1df-4968-4f75-98d3-9708ec445b93": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Harrods-Logo-edited_3.png"
+          }
+        },
+        "0437f1a5-79b5-43d0-aab0-4350cfb08aee": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/John-Lewis-Logo-edited_1.png"
+          }
+        },
+        "79d792c2-77fb-42f2-8525-746593abb283": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/The_Telegraph_logotype_logo-edited_1.png"
           }
         }
       },
       "block_order": [
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-0",
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-1",
-        "template--19531197776175__fb6295c7-5a82-4b7b-99b4-f4968316555e-1689238542fa443c82-2"
+        "e69854f8-346f-4eac-b30f-fff49766a815",
+        "731218b5-5040-4473-abb7-c668d1f64718",
+        "306a8cbf-bbdb-4508-9541-f855c117ff60",
+        "e1a9e1df-4968-4f75-98d3-9708ec445b93",
+        "0437f1a5-79b5-43d0-aab0-4350cfb08aee",
+        "79d792c2-77fb-42f2-8525-746593abb283"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "294977ba-6b3a-41c0-8373-205bda953a00": {
       "type": "image-with-overlay",
       "settings": {
-        "title": "Featured collection",
-        "collection": "",
-        "products_to_show": 4,
-        "image_ratio": "adapt",
-        "image_shape": "default"
+        "banner": "shopify:\/\/shop_images\/hoembanner.png",
+        "header": "CREATING BEAUTIFUL SPACES",
+        "title": "We design nurseries as an extension of house interiors. Our design team can create a space that's perfect for your little one that's as beautiful as the rest of your home.",
+        "url": "shopify:\/\/collections\/baby-boy-clothes",
+        "button_text": "INTERIOR DESIGN"
       }
     },
     "68ece8dc-5a1c-4c94-882b-1b88a81971df": {
       "type": "collection-grid",
+      "blocks": {
+        "53f35839-be8c-4754-b7c8-e551bf90c6ac": {
+          "type": "heading",
+          "settings": {
+            "title": "MOSES BASKET",
+            "image": "shopify:\/\/shop_images\/cot1.png",
+            "url": ""
+          }
+        },
+        "98e53b34-741a-44d2-8ebf-adb908e8c3b2": {
+          "type": "heading",
+          "settings": {
+            "title": "MOSES BASKET",
+            "image": "shopify:\/\/shop_images\/cot.png",
+            "url": "shopify:\/\/collections\/baby-boy-clothes"
+          }
+        },
+        "33836539-934a-4193-b11d-baaf9700234a": {
+          "type": "heading",
+          "settings": {
+            "title": "MOSES BASKET",
+            "image": "shopify:\/\/shop_images\/cot2.png",
+            "url": "shopify:\/\/collections\/baby-boy-clothes"
+          }
+        },
+        "7a5fde35-920c-4afb-87fa-d79bdf9f2f7b": {
+          "type": "heading",
+          "settings": {
+            "title": "MOSES BASKET",
+            "image": "shopify:\/\/shop_images\/cot1.png",
+            "url": "shopify:\/\/collections\/accessories"
+          }
+        },
+        "780139d6-cd91-4215-9634-27c41c3ea56c": {
+          "type": "heading",
+          "settings": {
+            "title": "MOSES BASKET",
+            "image": "shopify:\/\/shop_images\/cot2.png",
+            "url": "shopify:\/\/collections\/art-and-decor"
+          }
+        },
+        "44efc4f0-accb-4157-b081-b7de54c03002": {
+          "type": "heading",
+          "settings": {
+            "title": "MOSES BASKET",
+            "image": "shopify:\/\/shop_images\/cot.png",
+            "url": "shopify:\/\/collections\/accessories"
+          }
+        }
+      },
+      "block_order": [
+        "53f35839-be8c-4754-b7c8-e551bf90c6ac",
+        "98e53b34-741a-44d2-8ebf-adb908e8c3b2",
+        "33836539-934a-4193-b11d-baaf9700234a",
+        "7a5fde35-920c-4afb-87fa-d79bdf9f2f7b",
+        "780139d6-cd91-4215-9634-27c41c3ea56c",
+        "44efc4f0-accb-4157-b081-b7de54c03002"
+      ],
       "settings": {
-        "title": "Featured collection",
-        "collection": "",
-        "products_to_show": 4,
-        "image_ratio": "adapt",
-        "image_shape": "default"
       }
     },
     "fd2a07f1-dc7d-400f-a023-ffd62b697725": {
@@ -133,32 +207,49 @@
       "blocks": {
         "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-0": {
           "type": "heading",
-          "settings": {}
-        },
-        "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-1": {
-          "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "title": "BABY SHOWER GIFTS",
+            "desc": "Get Baby Shower Items as Gifts",
+            "image": "shopify:\/\/shop_images\/3.png",
+            "link": "shopify:\/\/collections\/accessories"
           }
         },
-        "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-2": {
-          "type": "button",
+        "3253f187-b230-4b99-9b0f-441498d6b880": {
+          "type": "heading",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title": "GIFTS FOR NEW MUMS",
+            "desc": "Get Baby Shower Items as Gifts",
+            "image": "shopify:\/\/shop_images\/2.png",
+            "link": "shopify:\/\/collections\/gifts-for-mums"
+          }
+        },
+        "77ec4eeb-7154-4dd9-b4bd-624a923f8931": {
+          "type": "heading",
+          "settings": {
+            "title": "BABY CLOTHING & SHOE",
+            "desc": "Get Baby Shower Items as Gifts",
+            "image": "shopify:\/\/shop_images\/1.png",
+            "link": "shopify:\/\/collections\/baby-girl-clothes"
+          }
+        },
+        "04df281e-4be3-4251-adc7-a3fc18048198": {
+          "type": "heading",
+          "settings": {
+            "title": "ROOM ACCESSORIES",
+            "desc": "Get Baby Shower Items as Gifts",
+            "image": "shopify:\/\/shop_images\/4.png",
+            "link": "shopify:\/\/collections\/room-accessories"
           }
         }
       },
       "block_order": [
         "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-0",
-        "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-1",
-        "template--19531197776175__fd2a07f1-dc7d-400f-a023-ffd62b697725-168927572232c5cdde-2"
+        "3253f187-b230-4b99-9b0f-441498d6b880",
+        "77ec4eeb-7154-4dd9-b4bd-624a923f8931",
+        "04df281e-4be3-4251-adc7-a3fc18048198"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "0c15fe83-fb0d-403c-ab67-10aa30313264": {
       "type": "rooms-collection",
@@ -166,43 +257,83 @@
         "template--19531197776175__0c15fe83-fb0d-403c-ab67-10aa30313264-1689276104798a8e77-0": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "image": "shopify:\/\/shop_images\/pic2.png",
+            "title": "Regency",
+            "desc": "Making transfers and payments across the globe easy Making transfers and payments across",
+            "link": "shopify:\/\/products\/regency-cot",
+            "btn-text": "shop  regency"
           }
         },
-        "template--19531197776175__0c15fe83-fb0d-403c-ab67-10aa30313264-1689276104798a8e77-1": {
-          "type": "text",
+        "236d9770-79bd-4a20-81af-aaff3b084c47": {
+          "type": "heading",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "image": "shopify:\/\/shop_images\/pic1.png",
+            "title": "Balmoral",
+            "desc": "Making transfers and payments across the globe easy Making transfers and payments across",
+            "link": "shopify:\/\/collections\/balmoral",
+            "btn-text": "Shop Balmoral"
           }
         },
-        "template--19531197776175__0c15fe83-fb0d-403c-ab67-10aa30313264-1689276104798a8e77-2": {
-          "type": "button",
+        "b6aa6c3e-df97-407a-bd25-1cc5191c75ac": {
+          "type": "heading",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify:\/\/shop_images\/BabyCot_070_1356_copy_2.png",
+            "title": "Chelsea",
+            "desc": "Making transfers and payments across the globe easy Making transfers and payments across",
+            "link": "shopify:\/\/collections\/chelsea",
+            "btn-text": "Shop Chelsea"
+          }
+        },
+        "4c848811-9db4-44a7-a417-c1426f4cde24": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BabyCot_058_1176_copy_1.png",
+            "title": "Athens",
+            "desc": "Making transfers and payments across the globe easy Making transfers and payments across",
+            "link": "shopify:\/\/collections\/athens",
+            "btn-text": "Shop Athens"
+          }
+        },
+        "e50928ec-b08c-45e5-bb27-8d308b130ece": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_10.png",
+            "title": "Kensington",
+            "desc": "Making transfers and payments across the globe easy Making transfers and payments across",
+            "link": "shopify:\/\/collections\/kensington",
+            "btn-text": "Shop Kensington"
+          }
+        },
+        "41beed86-3bf6-4d01-82f7-1003ed8eae20": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pic1.png",
+            "title": "Cadogan",
+            "desc": "Making transfers and payments across the globe easy Making transfers and payments across",
+            "link": "shopify:\/\/collections\/cadogan",
+            "btn-text": "Shop Cadogan"
           }
         }
       },
       "block_order": [
         "template--19531197776175__0c15fe83-fb0d-403c-ab67-10aa30313264-1689276104798a8e77-0",
-        "template--19531197776175__0c15fe83-fb0d-403c-ab67-10aa30313264-1689276104798a8e77-1",
-        "template--19531197776175__0c15fe83-fb0d-403c-ab67-10aa30313264-1689276104798a8e77-2"
+        "236d9770-79bd-4a20-81af-aaff3b084c47",
+        "b6aa6c3e-df97-407a-bd25-1cc5191c75ac",
+        "4c848811-9db4-44a7-a417-c1426f4cde24",
+        "e50928ec-b08c-45e5-bb27-8d308b130ece",
+        "41beed86-3bf6-4d01-82f7-1003ed8eae20"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "fc9fd4ad-00a6-4c40-9e44-8244c3165a03": {
       "type": "image-with-overlay-small",
       "settings": {
-        "title": "Featured collection",
-        "collection": "",
-        "products_to_show": 4,
-        "image_ratio": "adapt",
-        "image_shape": "default"
+        "banner": "shopify:\/\/shop_images\/image_26.png",
+        "header": "INSIDE THE NURSERY",
+        "title": "We design nurseries as an extension of house interiors. Our design team can create a space that's perfect for your little one that's as beautiful as the rest of your home.",
+        "url": "shopify:\/\/blogs\/news",
+        "button_text": "SEE OUR BLOG POST"
       }
     }
   },
