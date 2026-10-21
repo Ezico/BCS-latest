@@ -8,7 +8,7 @@
       {{ button }}
 
       {% if section.settings.button %}
-        {% render 'button' title: {{section.settings.title}}, link: '{{section.settings.button-link}}' %}
+        {% render 'button', title: section.settings.title, link: '{{section.settings.button-link}}' %}
       {% endif %}
     </div>
 
@@ -69,4 +69,15 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'button' title: {{section.settings.title}}, link: '{{section.settings.button-link}}'
+    %}"
+  to: "{% render 'button', title: section.settings.title, link: '{{section.settings.button-link}}'
+    %}"
+  position: 338..432
+{%- endcomment -%}

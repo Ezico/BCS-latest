@@ -11,7 +11,7 @@
         {{ desc }}
       </p>
 <div class="pt20" style="margin: 20px 0;">
-  {% render 'button' link:{{link}} title:{{btnlink}}, icon: true, modal:true%}
+  {% render 'button', link: link, title: btnlink, icon: true, modal: true %}
 </div>
     </div>
     <div class="hidden-content"></div>
@@ -32,7 +32,7 @@
         {{ desc }}
       </p>
       <br/>
-      {% render 'button' link:{{btnlink}} title:{{btntitle}}, icon: true, modal:true%}
+      {% render 'button', link: btnlink, title: btntitle, icon: true, modal: true %}
     </div>
     </div>
     <div class="hidden-content"></div>
@@ -44,4 +44,17 @@
 .image_medium_bg {
     height: 80vh!important;
 }}
-</style>
+</style>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'button' link:{{link}} title:{{btnlink}}, icon: true, modal:true%}"
+  to: "{% render 'button', link: link, title: btnlink, icon: true, modal: true %}"
+  position: 445..519
+- from: "{% render 'button' link:{{btnlink}} title:{{btntitle}}, icon: true, modal:true%}"
+  to: "{% render 'button', link: btnlink, title: btntitle, icon: true, modal: true
+    %}"
+  position: 1034..1112
+{%- endcomment -%}

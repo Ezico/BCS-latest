@@ -77,7 +77,7 @@
             </a>
           </li>
 
-        {%- when 'collection' and collection.handle -%}
+        {%- when 'collection' -%}
           {% comment %}
             {% if collection.template_suffix == 'rooms' %}
               <li class="breadcrumbs__item"><a class='breadcrumbs__link' href="/pages/collections">Collections</a><i class="fas fa-angle-right"></i></li><li class="breadcrumbs__item">
@@ -202,3 +202,13 @@
     text-transform: capitalize;
   }
 </style>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- when 'collection' and collection.handle -%}"
+  to: "{%- when 'collection' -%}"
+  position: 2146..2171
+{% endcomment %}

@@ -71,7 +71,7 @@
     {% for block in section.blocks %}
       {% assign images = block.settings.image | img_url: 'master' %}
       <div class="col">
-        {% render 'services-card' title:{{block.settings.title}}, desc:{{block.settings.desc}}, image:{{images}}, %}
+        {% render 'services-card', title: block.settings.title, desc: block.settings.desc, image: images %}
       </div>
     {% endfor %}
   </div>
@@ -111,3 +111,15 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'services-card' title:{{block.settings.title}}, desc:{{block.settings.desc}},
+    image:{{images}}, %}"
+  to: "{% render 'services-card', title: block.settings.title, desc: block.settings.desc,
+    image: images %}"
+  position: 1664..1763
+{% endcomment %}

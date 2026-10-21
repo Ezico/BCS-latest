@@ -7,7 +7,7 @@
       <p class="banner-desc">
         {{ desc }}
       </p>
-      {% render 'button', title: {{text}}, link: {{link}}, icon: true %}
+      {% render 'button', title: text, link: link, icon: true %}
     </div>
     <div class="hidden-content"></div>
   </div>
@@ -23,8 +23,20 @@
       <p class="banner-desc">
         {{ desc }}
       </p>
-      {% render 'button', title: {{text}}, link: {{link}}, icon: true %}
+      {% render 'button', title: text, link: link, icon: true %}
     </div>
     <div class="hidden-content"></div>
   </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'button', title: {{text}}, link: {{link}}, icon: true %}"
+  to: "{% render 'button', title: text, link: link, icon: true %}"
+  position: 388..446
+- from: "{% render 'button', title: {{text}}, link: {{link}}, icon: true %}"
+  to: "{% render 'button', title: text, link: link, icon: true %}"
+  position: 910..968
+{%- endcomment -%}

@@ -57,10 +57,7 @@
           <br>
           <br>
           <br>
-          {%
-            render 'button-modal',
-            title:  {{section.settings.linkTitle}},
-          %}
+          {% render 'button-modal', title: section.settings.linkTitle %}
         </div>
       </div>
       <div class="col-one-half">
@@ -119,3 +116,17 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+                render 'button-modal',
+                title:  {{section.settings.linkTitle}},
+              %}
+  to: "{% render 'button-modal', title: section.settings.linkTitle %}"
+  position: 1309..1371
+{% endcomment %}

@@ -128,19 +128,7 @@
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
                 <li class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascadestyle="--animation-order: {{ forloop.index }};"{% endif %}>
-                  {% render 'card-product'
-                   , cartModalImg: ,
-                   , cartModalTitle: ,
-                   , cartModaldesc: ,
-                   , card_product: product,
-                   media_aspect_ratio: section.settings.image_ratio,
-                   image_shape: section.settings.image_shape,
-                   show_secondary_image: section.settings.show_secondary_image,
-                   show_vendor: section.settings.show_vendor,
-                   show_rating: section.settings.show_rating,
-                   lazy_load: lazy_load,
-                   show_quick_add: true,
-                   section_id: section.id %}
+                  {% render 'card-product', card_product: product, media_aspect_ratio: section.settings.image_ratio, image_shape: section.settings.image_shape, show_secondary_image: section.settings.show_secondary_image, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating, lazy_load: lazy_load, show_quick_add: true, section_id: section.id %}
                 </li>
               {%- endfor -%}
             </ul>
@@ -340,4 +328,29 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'card-product'
+                       , cartModalImg: ,
+                       , cartModalTitle: ,
+                       , cartModaldesc: ,
+                       , card_product: product,
+                       media_aspect_ratio: section.settings.image_ratio,
+                       image_shape: section.settings.image_shape,
+                       show_secondary_image: section.settings.show_secondary_image,
+                       show_vendor: section.settings.show_vendor,
+                       show_rating: section.settings.show_rating,
+                       lazy_load: lazy_load,
+                       show_quick_add: true,
+                       section_id: section.id %}
+  to: "{% render 'card-product', card_product: product, media_aspect_ratio: section.settings.image_ratio,
+    image_shape: section.settings.image_shape, show_secondary_image: section.settings.show_secondary_image,
+    show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating,
+    lazy_load: lazy_load, show_quick_add: true, section_id: section.id %}"
+  position: 7399..7757
+{%- endcomment -%}

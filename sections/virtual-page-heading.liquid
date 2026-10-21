@@ -1,5 +1,5 @@
 <div class="related-products page-header section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} animate--slide-in{% endif %}">
-  {% render 'page-header' desc: {{section.settings.desc}}, imageD: {{section.settings.BannerD}}, imageM: {{section.settings.BannerM}}, title: {{section.settings.heading}} %}
+  {% render 'page-header', desc: section.settings.desc, imageD: section.settings.BannerD, imageM: section.settings.BannerM, title: section.settings.heading %}
 </div>
 <br/>
 <style>
@@ -44,4 +44,15 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'page-header' desc: {{section.settings.desc}}, imageD: {{section.settings.BannerD}},
+    imageM: {{section.settings.BannerM}}, title: {{section.settings.heading}} %}"
+  to: "{% render 'page-header', desc: section.settings.desc, imageD: section.settings.BannerD,
+    imageM: section.settings.BannerM, title: section.settings.heading %}"
+  position: 160..316
+{%- endcomment -%}

@@ -2,7 +2,7 @@
   <br>
   <br>
   {% assign image = section.settings.banner | img_url: 'master' %}
-  {% render 'image-with-overlay-medium' desc: {{section.settings.title}}, image: {{image}}, title: {{section.settings.header}}, link: {{section.settings.url}}, text: {{section.settings.button_text}}, direction: 'right' %}
+  {% render 'image-with-overlay-medium', desc: section.settings.title, image: image, title: section.settings.header, link: section.settings.url, text: section.settings.button_text, direction: 'right' %}
 </div>
 
 <style>
@@ -53,4 +53,17 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'image-with-overlay-medium' desc: {{section.settings.title}}, image:
+    {{image}}, title: {{section.settings.header}}, link: {{section.settings.url}},
+    text: {{section.settings.button_text}}, direction: 'right' %}"
+  to: "{% render 'image-with-overlay-medium', desc: section.settings.title, image:
+    image, title: section.settings.header, link: section.settings.url, text: section.settings.button_text,
+    direction: 'right' %}"
+  position: 229..429
+{%- endcomment -%}

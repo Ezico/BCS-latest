@@ -9,7 +9,7 @@
       {% for block in section.blocks %}
         {% assign images = block.settings.image | img_url: 'master' %}
         <div class="col">
-        {% render 'hoverable-card' title:{{block.settings.title}}, desc:{{block.settings.desc}}, link:{{block.settings.link}}, image:{{images}}, %}
+        {% render 'hoverable-card', title: block.settings.title, desc: block.settings.desc, link: block.settings.link, image: images %}
       </div>
       {% endfor %}
       
@@ -62,4 +62,15 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'hoverable-card' title:{{block.settings.title}}, desc:{{block.settings.desc}},
+    link:{{block.settings.link}}, image:{{images}}, %}"
+  to: "{% render 'hoverable-card', title: block.settings.title, desc: block.settings.desc,
+    link: block.settings.link, image: images %}"
+  position: 433..560
+{%- endcomment -%}

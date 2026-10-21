@@ -12,7 +12,7 @@
             {{ block.settings.sub_heading }}
           </p>
           {% if block.settings.show %}
-            {% render 'button', title: {{block.settings.button}}, link: {{block.settings.link}} icon: true %}
+            {% render 'button', title: block.settings.button, link: block.settings.link, icon: true %}
           {% endif %}
         </div>
       </div>
@@ -111,4 +111,15 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'button', title: {{block.settings.button}}, link: {{block.settings.link}}
+    icon: true %}"
+  to: "{% render 'button', title: block.settings.button, link: block.settings.link,
+    icon: true %}"
+  position: 760..850
+{%- endcomment -%}

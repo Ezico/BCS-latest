@@ -84,20 +84,7 @@
     {%- for product in section.settings.collection.products
       limit: section.settings.products_to_show
     -%}
-      {%
-        render 'card-product',
-        , cartModalImg: ,
-        , cartModalTitle: ,
-        , cartModaldesc: ,
-        card_product: product,
-        media_aspect_ratio: section.settings.image_ratio,
-        image_shape: square,
-        show_secondary_image: section.settings.show_secondary_image,
-        show_vendor: section.settings.show_vendor,
-        show_rating: section.settings.show_rating,
-        show_quick_add: section.settings.enable_quick_add,
-        section_id: section.id
-      %}
+      {% render 'card-product', card_product: product, media_aspect_ratio: section.settings.image_ratio, image_shape: square, show_secondary_image: section.settings.show_secondary_image, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating, show_quick_add: section.settings.enable_quick_add, section_id: section.id %}
     {%- endfor -%}
   </div>
 </div>
@@ -240,3 +227,30 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+            render 'card-product',
+            , cartModalImg: ,
+            , cartModalTitle: ,
+            , cartModaldesc: ,
+            card_product: product,
+            media_aspect_ratio: section.settings.image_ratio,
+            image_shape: square,
+            show_secondary_image: section.settings.show_secondary_image,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            show_quick_add: section.settings.enable_quick_add,
+            section_id: section.id
+          %}
+  to: "{% render 'card-product', card_product: product, media_aspect_ratio: section.settings.image_ratio,
+    image_shape: square, show_secondary_image: section.settings.show_secondary_image,
+    show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating,
+    show_quick_add: section.settings.enable_quick_add, section_id: section.id %}"
+  position: 2730..3073
+{% endcomment %}
